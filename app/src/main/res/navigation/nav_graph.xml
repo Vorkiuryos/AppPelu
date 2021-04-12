@@ -23,14 +23,14 @@
             android:id="@+id/action_menuFragment_to_pedirCitaFragment"
             app:destination="@id/pedirCitaFragment" />
         <action
-            android:id="@+id/action_menuFragment_to_contactanosFragment"
-            app:destination="@id/contactanosFragment" />
-        <action
             android:id="@+id/action_menuFragment_to_trabajaConNosotrosFragment"
             app:destination="@id/trabajaConNosotrosFragment" />
         <action
             android:id="@+id/action_menuFragment_to_productosFragment"
             app:destination="@id/productosFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_contactanosFragment"
+            app:destination="@id/contactanosFragment" />
     </fragment>
     <fragment
         android:id="@+id/pedirCitaFragment"

@@ -35,6 +35,7 @@ public class MenuFragment extends Fragment {
         productos = view.findViewById(R.id.button2);
         contacto = view.findViewById(R.id.button3);
         trabajo = view.findViewById(R.id.button4);
+        navController = Navigation.findNavController(view);
 
         cita.setOnClickListener(new View.OnClickListener() {
             @Override
