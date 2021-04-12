@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.apppeluquera.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/menuFragment"
+        android:name="com.example.apppeluquera.MenuFragment"
+        android:label="fragment_menu"
+        tools:layout="@layout/fragment_menu" >
+        <action
+            android:id="@+id/action_menuFragment_to_pedirCitaFragment"
+            app:destination="@id/pedirCitaFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_contactanosFragment"
+            app:destination="@id/contactanosFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_trabajaConNosotrosFragment"
+            app:destination="@id/trabajaConNosotrosFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_productosFragment"
+            app:destination="@id/productosFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/pedirCitaFragment"
+        android:name="com.example.apppeluquera.PedirCitaFragment"
+        android:label="fragment_pedir_cita"
+        tools:layout="@layout/fragment_pedir_cita" />
+    <fragment
+        android:id="@+id/contactanosFragment"
+        android:name="com.example.apppeluquera.ContactanosFragment"
+        android:label="fragment_contactanos"
+        tools:layout="@layout/fragment_contactanos" />
+    <fragment
+        android:id="@+id/trabajaConNosotrosFragment"
+        android:name="com.example.apppeluquera.TrabajaConNosotrosFragment"
+        android:label="fragment_trabaja_con_nosotros"
+        tools:layout="@layout/fragment_trabaja_con_nosotros" />
+    <fragment
+        android:id="@+id/productosFragment"
+        android:name="com.example.apppeluquera.ProductosFragment"
+        android:label="fragment_productos"
+        tools:layout="@layout/fragment_productos" />
+</navigation>
