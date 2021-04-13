@@ -23,6 +23,8 @@ public class LoginFragment extends Fragment {
     NavController navController;
     TextView error;
 
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
