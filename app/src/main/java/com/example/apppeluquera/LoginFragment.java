@@ -14,13 +14,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class LoginFragment extends Fragment {
 
-    EditText telefono;
-    EditText nombre;
-    Button entrar;
+    EditText email;
+    EditText password;
+    Button login;
     NavController navController;
     TextView error;
 
@@ -34,23 +33,23 @@ public class LoginFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        telefono = view.findViewById(R.id.editTextPhone);
-        nombre = view.findViewById(R.id.editTextTextPersonName);
-        entrar = view.findViewById(R.id.login);
+        email = view.findViewById(R.id.editTextEmailAdress);
+        password = view.findViewById(R.id.editTextPassword);
+        login = view.findViewById(R.id.login);
         navController = Navigation.findNavController(view);
         error = view.findViewById(R.id.error);
 
-        entrar.setOnClickListener(new View.OnClickListener() {
+        login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String numero = telefono.getText().toString();
-                String nombre1 = nombre.getText().toString();
-                if(numero.isEmpty()){
-                    error.setText("Introduce un número de teléfono");
-                } else if (numero.length()!=9){
-                    error.setText("Introduce un número de teléfono válido");
-                } else if (nombre1.isEmpty()){
-                    error.setText("Introduce tu nombre");
+                String email = LoginFragment.this.email.getText().toString();
+                String password_ = password.getText().toString();
+                if(email.isEmpty()){
+                    error.setText("Introduce tu correo electrónico");
+                } else if (email.contains("@")!=true){
+                    error.setText("Introduce un correo electrónio válido");
+                } else if (password_.isEmpty()){
+                    error.setText("Introduce tu contraseña");
                 } else {
                     navController.navigate(R.id.action_loginFragment_to_menuFragment);
                 }

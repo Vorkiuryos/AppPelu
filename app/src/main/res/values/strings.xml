@@ -9,6 +9,10 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+    <string name="register_text">¿Qué eres?</string>
+    <string name="register_admin_button">Peluquería o barbería</string>
+    <string name="register_user_button">Cliente</string>
+    <string name="email">Correo elctrónico</string>
     <string name="título">Peluquería Lucía Vázquez</string>
     <string name="boton_menu_1">Pedir cita</string>
     <string name="boton_menu_2">Productos</string>
