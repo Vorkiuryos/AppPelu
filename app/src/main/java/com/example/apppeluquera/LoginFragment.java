@@ -14,6 +14,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginFragment extends Fragment {
 
@@ -22,6 +25,8 @@ public class LoginFragment extends Fragment {
     Button login;
     NavController navController;
     TextView goToRegistration;
+
+    private FirebaseAuth mAuth;
 
 
 
@@ -34,6 +39,8 @@ public class LoginFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        mAuth = FirebaseAuth.getInstance();
 
         email = view.findViewById(R.id.editTextEmailAdress);
         password = view.findViewById(R.id.editTextPassword);
@@ -51,7 +58,15 @@ public class LoginFragment extends Fragment {
             } else if (password_.isEmpty()){
                 //error.setText("Introduce tu contraseña");
             } else {
-                navController.navigate(R.id.action_loginFragment_to_menuFragment);
+                //navController.navigate(R.id.action_loginFragment_to_menuFragment);
+                mAuth.signInWithEmailAndPassword(email, password_)
+                        .addOnCompleteListener(task -> {
+                            if (task.isSuccessful()) {
+                                navController.navigate(R.id.action_loginFragment_to_menuFragment);
+                            } else {
+                                Toast.makeText(requireContext(), task.getException().getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                            }
+                        });
             }
         });
 
