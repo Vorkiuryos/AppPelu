@@ -52,15 +52,12 @@
         android:id="@+id/imageView5"
         android:layout_width="40dp"
         android:layout_height="45dp"
-        android:layout_marginTop="48dp"
         android:layout_marginEnd="4dp"
         android:src="@android:drawable/ic_menu_recent_history"
         app:layout_constraintBottom_toBottomOf="@+id/editTextDate"
         app:layout_constraintEnd_toStartOf="@+id/editTextDate"
         app:layout_constraintHorizontal_bias="0.934"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/login"
@@ -85,7 +82,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="90dp"
-        android:layout_marginTop="188dp"
+        android:layout_marginTop="180dp"
         android:layout_marginEnd="24dp"
         android:backgroundTint="@color/white"
         android:ems="10"
@@ -99,6 +96,7 @@
 
     <EditText
         android:id="@+id/editTextNumber2"
+        android:enabled="false"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="90dp"

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "777701416632",
+    "project_id": "sicssormasters",
+    "storage_bucket": "sicssormasters.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:777701416632:android:c8d6ef80d2aaabed33de4d",
+        "android_client_info": {
+          "package_name": "com.example.apppeluquera"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "777701416632-ho2ha5u0os6b0pg68t40hhmte0a2eim5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD8PU4pqOcCAjsMW4wNjHxpYwmmETPbcIc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "777701416632-ho2ha5u0os6b0pg68t40hhmte0a2eim5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

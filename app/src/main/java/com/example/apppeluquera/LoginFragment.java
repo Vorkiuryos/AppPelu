@@ -21,7 +21,7 @@ public class LoginFragment extends Fragment {
     EditText password;
     Button login;
     NavController navController;
-    TextView error;
+    TextView goToRegistration;
 
 
 
@@ -38,24 +38,25 @@ public class LoginFragment extends Fragment {
         email = view.findViewById(R.id.editTextEmailAdress);
         password = view.findViewById(R.id.editTextPassword);
         login = view.findViewById(R.id.login);
+        goToRegistration = view.findViewById(R.id.go_to_registration);
         navController = Navigation.findNavController(view);
-        error = view.findViewById(R.id.error);
 
-        login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String email = LoginFragment.this.email.getText().toString();
-                String password_ = password.getText().toString();
-                if(email.isEmpty()){
-                    error.setText("Introduce tu correo electrónico");
-                } else if (email.contains("@")!=true){
-                    error.setText("Introduce un correo electrónio válido");
-                } else if (password_.isEmpty()){
-                    error.setText("Introduce tu contraseña");
-                } else {
-                    navController.navigate(R.id.action_loginFragment_to_menuFragment);
-                }
+        login.setOnClickListener(view1 -> {
+            String email = LoginFragment.this.email.getText().toString();
+            String password_ = password.getText().toString();
+            if(email.isEmpty()){
+                //error.setText("Introduce tu correo electrónico");
+            } else if (email.contains("@")!=true){
+                //error.setText("Introduce un correo electrónio válido");
+            } else if (password_.isEmpty()){
+                //error.setText("Introduce tu contraseña");
+            } else {
+                navController.navigate(R.id.action_loginFragment_to_menuFragment);
             }
+        });
+
+        goToRegistration.setOnClickListener(view2 -> {
+            navController.navigate(R.id.action_loginFragment_to_registrationOptionFragment);
         });
 
     }

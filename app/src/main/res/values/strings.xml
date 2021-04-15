@@ -1,18 +1,21 @@
 <resources>
     <string name="app_name">AppPeluquería</string>
-    <!-- Strings related to login -->
-    <string name="prompt_email">Email</string>
-    <string name="prompt_password">Password</string>
     <string name="action_sign_in">Entrar</string>
     <string name="action_sign_in_short">Sign in</string>
-    <string name="welcome">"Welcome!"</string>
-    <string name="invalid_username">Not a valid username</string>
-    <string name="invalid_password">Password must be >5 characters</string>
-    <string name="login_failed">"Login failed"</string>
+    <string name="invalid_username">No es un nombre de usuario valido</string>
+    <string name="invalid_password">La contraseña no es válida</string>
+    <string name="go_to_registration">¿Aún no tienes cuenta?</string>
     <string name="register_text">¿Qué eres?</string>
     <string name="register_admin_button">Peluquería o barbería</string>
     <string name="register_user_button">Cliente</string>
+    <string name="register_admin_title">Registra tu negocio</string>
+    <string name="register_user_title">Registrate</string>
     <string name="email">Correo elctrónico</string>
+    <string name="password">Contaseña</string>
+    <string name="confirm_password">Confirma contraseña</string>
+    <string name="user_name_admin">Nombre de tu negocio</string>
+    <string name="user_name">Tu nombre y apellidos</string>
+    <string name="register_button">Registrar</string>
     <string name="título">Peluquería Lucía Vázquez</string>
     <string name="boton_menu_1">Pedir cita</string>
     <string name="boton_menu_2">Productos</string>

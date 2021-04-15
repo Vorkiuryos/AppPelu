@@ -7,13 +7,87 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".AdminRegistrationFragment">
 
+    <TextView
+        android:id="@+id/textViewAdminRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/register_admin_title"
+        android:textSize="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/editTextadminRegisterEmail"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginBottom="24dp"
+        android:layout_marginTop="80dp"/>
+
     <EditText
         android:id="@+id/editTextadminRegisterEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/email"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="137dp" />
+        app:layout_constraintTop_toBottomOf="@id/textViewAdminRegister"
+        app:layout_constraintBottom_toTopOf="@id/editTextadminRegisterPassword"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginBottom="24dp"
+        android:layout_marginTop="24dp"/>
+
+    <EditText
+        android:id="@+id/editTextadminRegisterPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginBottom="24dp"
+        android:hint="@string/password"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/editTextadminRegisterPasswordConfirm"
+        app:layout_constraintTop_toBottomOf="@id/editTextadminRegisterEmail" />
+
+    <EditText
+        android:id="@+id/editTextadminRegisterPasswordConfirm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginBottom="24dp"
+        android:hint="@string/confirm_password"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editTextadminRegisterPassword"
+        app:layout_constraintBottom_toTopOf="@id/editTextadminRegisterUserName"/>
+
+    <EditText
+        android:id="@+id/editTextadminRegisterUserName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginBottom="24dp"
+        android:hint="@string/user_name_admin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editTextadminRegisterPasswordConfirm"
+        app:layout_constraintBottom_toTopOf="@id/buttonAdminRegistration"/>
+
+    <Button
+        android:id="@+id/buttonAdminRegistration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="24dp"
+        android:text="@string/register_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editTextadminRegisterUserName" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
