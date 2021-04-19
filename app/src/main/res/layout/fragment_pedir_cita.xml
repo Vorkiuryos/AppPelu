@@ -7,126 +7,88 @@
     android:layout_height="match_parent"
     tools:context=".PedirCitaFragment">
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="296dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="16dp"
-        android:text="@string/cuentanos"
-        android:textColor="@color/white"
-        android:textSize="25dp"
+    <ImageView
+        android:id="@+id/select_day"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginBottom="24dp"
+        android:layout_marginTop="80dp"
+        android:src="@drawable/calendar"
+        app:layout_constraintBottom_toTopOf="@+id/selected_day"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.8"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumber2" />
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/selected_day"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/select_day"
+        android:text="01/01/2022"
+        android:textSize="24dp"/>
 
     <ImageView
-        android:id="@+id/imageView7"
-        android:layout_width="40dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="4dp"
-        android:src="@android:drawable/ic_menu_info_details"
-        app:layout_constraintBottom_toBottomOf="@+id/textView3"
-        app:layout_constraintEnd_toStartOf="@+id/textView3"
-        app:layout_constraintHorizontal_bias="0.934"
+        android:id="@+id/select_hour"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginBottom="24dp"
+        android:layout_marginTop="24dp"
+        android:src="@drawable/hour"
+        app:layout_constraintBottom_toTopOf=""
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView6"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/selected_day"/>
+
+    <TextView
+        android:id="@+id/selected_hour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/select_hour"
+        app:layout_constraintBottom_toTopOf=""
+        android:text="09:30"
+        android:textSize="24dp"/>
 
     <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="40dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="4dp"
-        android:src="@android:drawable/ic_menu_month"
-        app:layout_constraintBottom_toBottomOf="@+id/editTextNumber2"
-        app:layout_constraintEnd_toStartOf="@+id/editTextNumber2"
-        app:layout_constraintHorizontal_bias="0.934"
+        android:id="@+id/select_hairdresser"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginBottom="24dp"
+        android:layout_marginTop="24dp"
+        android:src="@drawable/sicssor"
+        app:layout_constraintBottom_toTopOf=""
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@id/selected_hour"/>
 
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="40dp"
-        android:layout_height="45dp"
-        android:layout_marginEnd="4dp"
-        android:src="@android:drawable/ic_menu_recent_history"
-        app:layout_constraintBottom_toBottomOf="@+id/editTextDate"
-        app:layout_constraintEnd_toStartOf="@+id/editTextDate"
-        app:layout_constraintHorizontal_bias="0.934"
-        app:layout_constraintStart_toStartOf="parent" />
+    <TextView
+        android:id="@+id/selected_hairdresser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/select_hairdresser"
+        app:layout_constraintBottom_toTopOf=""
+        android:text="Lucía"
+        android:textSize="24dp"/>
 
     <Button
-        android:id="@+id/login"
-        android:layout_width="99dp"
-        android:layout_height="68dp"
-        android:layout_gravity="start"
-        android:layout_marginStart="48dp"
-        android:layout_marginEnd="48dp"
-        android:layout_marginBottom="176dp"
-        android:enabled="false"
-        android:text="@string/boton_menu_1"
-        android:textColor="@color/light_gray_2"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName4"
-        app:layout_constraintVertical_bias="0.537" />
-
-    <EditText
-        android:id="@+id/editTextDate"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="90dp"
-        android:layout_marginTop="180dp"
-        android:layout_marginEnd="24dp"
-        android:backgroundTint="@color/white"
-        android:ems="10"
-        android:hint="@string/hora_hint"
-        android:inputType="date"
-        android:textColorHint="@color/light_gray_1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        android:text="@string/reservation"
+        app:layout_constraintTop_toBottomOf="@id/selected_hairdresser"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
-    <EditText
-        android:id="@+id/editTextNumber2"
-        android:enabled="false"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="90dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="24dp"
-        android:backgroundTint="@color/white"
-        android:ems="10"
-        android:hint="@string/dia_hint"
-        android:inputType="number"
-        android:textColorHint="@color/light_gray_1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextDate" />
-
-    <EditText
-        android:id="@+id/editTextTextPersonName4"
-        android:layout_width="337dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="21dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="21dp"
-        android:backgroundTint="@color/white"
-        android:ems="10"
-        android:hint="@string/cuentanos_hint"
-        android:inputType="textPersonName"
-        android:textColorHint="@color/light_gray_2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.937"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
