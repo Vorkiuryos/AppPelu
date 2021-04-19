@@ -81,6 +81,7 @@ public class RegistrationFragment extends BaseFragment {
            if (task.isSuccessful()) {
                Toast.makeText(requireContext(), "successful", Toast.LENGTH_SHORT).show();
                nav.navigate(R.id.action_registrationFragment_to_loginFragment);
+
            } else {
                Toast.makeText(requireContext(), "algo ha ido mal", Toast.LENGTH_SHORT).show();
            }
