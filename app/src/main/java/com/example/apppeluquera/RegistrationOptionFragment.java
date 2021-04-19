@@ -13,11 +13,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link RegistrationOptionFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class RegistrationOptionFragment extends Fragment {
 
     Button register_admin_button;
