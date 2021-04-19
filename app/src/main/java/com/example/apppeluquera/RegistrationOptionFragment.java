@@ -29,6 +29,7 @@ public class RegistrationOptionFragment extends BaseFragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
 
         binding.registerAdminButton.setOnClickListener(view1 -> {
             nav.navigate(R.id.action_registrationOptionFragment_to_adminRegistrationFragment);
