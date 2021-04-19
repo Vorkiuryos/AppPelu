@@ -13,52 +13,45 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-public class MenuFragment extends Fragment {
+import com.example.apppeluquera.databinding.FragmentMenuBinding;
+import com.example.apppeluquera.databinding.FragmentRegistrationBinding;
 
-    Button cita;
-    Button productos;
-    Button contacto;
-    Button trabajo;
-    NavController navController;
+public class MenuFragment extends BaseFragment {
+
+    private FragmentMenuBinding binding;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_menu, container, false);
+        return (binding = FragmentMenuBinding.inflate(inflater, container, false)).getRoot();
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        cita = view.findViewById(R.id.button);
-        productos = view.findViewById(R.id.button2);
-        contacto = view.findViewById(R.id.button3);
-        trabajo = view.findViewById(R.id.button4);
-        navController = Navigation.findNavController(view);
-
-        cita.setOnClickListener(new View.OnClickListener() {
+        binding.button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                navController.navigate(R.id.action_menuFragment_to_pedirCitaFragment);
+                nav.navigate(R.id.action_menuFragment_to_pedirCitaFragment);
             }
         });
-        productos.setOnClickListener(new View.OnClickListener() {
+        binding.button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                navController.navigate(R.id.action_menuFragment_to_productosFragment);
+                nav.navigate(R.id.action_menuFragment_to_productosFragment);
             }
         });
-        contacto.setOnClickListener(new View.OnClickListener() {
+        binding.button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                navController.navigate(R.id.action_menuFragment_to_contactanosFragment);
+                nav.navigate(R.id.action_menuFragment_to_contactanosFragment);
             }
         });
-        trabajo.setOnClickListener(new View.OnClickListener() {
+        binding.button4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                navController.navigate(R.id.action_menuFragment_to_trabajaConNosotrosFragment);
+                nav.navigate(R.id.action_menuFragment_to_trabajaConNosotrosFragment);
             }
         });
 
