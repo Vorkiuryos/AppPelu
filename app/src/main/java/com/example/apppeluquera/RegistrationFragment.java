@@ -15,43 +15,29 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.apppeluquera.databinding.FragmentRegistrationBinding;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class RegistrationFragment extends Fragment {
+public class RegistrationFragment extends BaseFragment {
 
-    private FirebaseAuth mAuth;
-    Button buttonUserRegistration;
-    EditText editTextuserRegisterEmail,
-            editTextuserRegisterPassword,
-            editTextuserRegisterPasswordConfirm,
-            editTextuserRegisterUserName;
-    NavController navController;
+    private FragmentRegistrationBinding binding;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_registration, container, false);
+        return (binding = FragmentRegistrationBinding.inflate(inflater, container, false)).getRoot();
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        buttonUserRegistration = view.findViewById(R.id.buttonUserRegistration);
-        editTextuserRegisterEmail = view.findViewById(R.id.editTextuserRegisterEmail);
-        editTextuserRegisterPassword = view.findViewById(R.id.editTextuserRegisterPassword);
-        editTextuserRegisterPasswordConfirm = view.findViewById(R.id.editTextuserRegisterPasswordConfirm);
-        editTextuserRegisterUserName = view.findViewById(R.id.editTextuserRegisterUserName);
-        navController = Navigation.findNavController(view);
-
         //registro
-        buttonUserRegistration.setOnClickListener(view1 -> {
-            String email = editTextuserRegisterEmail.getText().toString();
-            String password = editTextuserRegisterPassword.getText().toString();
-            String confirmpassword = editTextuserRegisterPasswordConfirm.getText().toString();
-            String username = editTextuserRegisterUserName.getText().toString();
-
+        binding.buttonUserRegistration.setOnClickListener(view1 -> {
+            String email = binding.editTextuserRegisterEmail.getText().toString();
+            String password = binding.editTextuserRegisterPassword.getText().toString();
+            String confirmpassword = binding.editTextuserRegisterPasswordConfirm.getText().toString();
+            String username = binding.editTextuserRegisterUserName.getText().toString();
 
             if(email.isEmpty()){
                 //error.setText("Introduce tu correo electrónico");
@@ -66,19 +52,16 @@ public class RegistrationFragment extends Fragment {
             } else {
                 //navController.navigate(R.id.action_loginFragment_to_menuFragment);
                 //TODO: REGISTRO CON EMAIL
-                mAuth.createUserWithEmailAndPassword(email, password)
+                auth.createUserWithEmailAndPassword(email, password)
                         .addOnCompleteListener(task -> {
                             if (task.isSuccessful()) {
-                                navController.navigate(R.id.action_loginFragment_to_menuFragment);
+                                nav.navigate(R.id.action_loginFragment_to_menuFragment);
                             } else {
                                 Toast.makeText(requireContext(), task.getException().getLocalizedMessage(), Toast.LENGTH_SHORT).show();
                             }
                         });
             }
         });
-
-        });
-
 
     }
 }
