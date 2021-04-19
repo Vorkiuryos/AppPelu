@@ -13,32 +13,30 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-public class RegistrationOptionFragment extends Fragment {
+import com.example.apppeluquera.databinding.FragmentLoginBinding;
+import com.example.apppeluquera.databinding.FragmentRegistrationOptionBinding;
 
-    Button register_admin_button;
-    Button register_user_button;
-    NavController navController;
+public class RegistrationOptionFragment extends BaseFragment {
+
+    private FragmentRegistrationOptionBinding binding;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_registration_option, container, false);
+        return (binding = FragmentRegistrationOptionBinding.inflate(inflater, container, false)).getRoot();
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
 
-        navController = Navigation.findNavController(view);
-        register_admin_button = view.findViewById(R.id.register_admin_button);
-        register_user_button = view.findViewById(R.id.register_user_button);
-
-        register_admin_button.setOnClickListener(view1 -> {
-            navController.navigate(R.id.action_registrationOptionFragment_to_adminRegistrationFragment);
+        binding.registerAdminButton.setOnClickListener(view1 -> {
+            nav.navigate(R.id.action_registrationOptionFragment_to_adminRegistrationFragment);
         });
 
-        register_user_button.setOnClickListener(view2 -> {
-            navController.navigate(R.id.action_registrationOptionFragment_to_registrationFragment);
+        binding.registerUserButton.setOnClickListener(view2 -> {
+            nav.navigate(R.id.action_registrationOptionFragment_to_registrationFragment);
         });
 
 
