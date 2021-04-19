@@ -22,8 +22,6 @@ public class RegistrationFragment extends BaseFragment {
 
     private FragmentRegistrationBinding binding;
 
-    //test
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
