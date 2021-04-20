@@ -34,19 +34,21 @@ public class PedirCitaFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        c = Calendar.getInstance();
+        binding.selectedDay.setText(c.get(Calendar.DAY_OF_MONTH)+"/"+(c.get(Calendar.MONTH)+1)+"/"+c.get(Calendar.YEAR));
+
         binding.selectDay.setOnClickListener(v -> {
 
-            c = Calendar.getInstance();
             int day = c.get(Calendar.DAY_OF_MONTH);
             int month = c.get(Calendar.MONTH);
             int year = c.get(Calendar.YEAR);
 
             dpd = new DatePickerDialog(requireContext(), new DatePickerDialog.OnDateSetListener() {
                 @Override
-                public void onDateSet(DatePicker view, int _year, int _month, int dayOfMonth) {
-                    binding.selectedDay.setText(dayOfMonth+"/"+_month+"/"+_year);
+                public void onDateSet(DatePicker view, int year, int month, int day) {
+                    binding.selectedDay.setText(day+"/"+(month+1)+"/"+year);
                 }
-            }, day, month, year);
+            }, year, month, day);
             dpd.show();
         });
 
