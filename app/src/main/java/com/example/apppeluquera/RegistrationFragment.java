@@ -82,6 +82,11 @@ public class RegistrationFragment extends BaseFragment {
                Toast.makeText(requireContext(), "successful", Toast.LENGTH_SHORT).show();
                nav.navigate(R.id.action_registrationFragment_to_loginFragment);
 
+               auth.getCurrentUser().updateProfile(
+                       new UserProfileChangeRequest.Builder()
+                       .setDisplayName(username)
+                       .build()
+               );
            } else {
                Toast.makeText(requireContext(), "algo ha ido mal", Toast.LENGTH_SHORT).show();
            }
