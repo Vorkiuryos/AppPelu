@@ -69,7 +69,6 @@ public class RegistrationFragment extends BaseFragment {
                 //TODO: REGISTRO CON EMAIL
 
                 createAccount(email,password,username);
-
             }
         });
 
@@ -87,6 +86,9 @@ public class RegistrationFragment extends BaseFragment {
                        .setDisplayName(username)
                        .build()
                );
+
+
+
            } else {
                Toast.makeText(requireContext(), "algo ha ido mal", Toast.LENGTH_SHORT).show();
            }
@@ -94,6 +96,5 @@ public class RegistrationFragment extends BaseFragment {
 
     }
 
-    private void updateUI(FirebaseUser user) {
-    }
+
 }
