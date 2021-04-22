@@ -39,7 +39,11 @@
         android:id="@+id/pedirCitaFragment"
         android:name="com.example.apppeluquera.PedirCitaFragment"
         android:label="fragment_pedir_cita"
-        tools:layout="@layout/fragment_pedir_cita" />
+        tools:layout="@layout/fragment_pedir_cita" >
+        <action
+            android:id="@+id/action_pedirCitaFragment_to_seleccionPeluqueroFragment"
+            app:destination="@id/seleccionPeluqueroFragment" />
+    </fragment>
     <fragment
         android:id="@+id/contactanosFragment"
         android:name="com.example.apppeluquera.ContactanosFragment"
@@ -81,4 +85,9 @@
             android:id="@+id/action_registrationOptionFragment_to_adminRegistrationFragment"
             app:destination="@id/adminRegistrationFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/seleccionPeluqueroFragment"
+        android:name="com.example.apppeluquera.SeleccionPeluqueroFragment"
+        android:label="fragment_seleccion_peluquero"
+        tools:layout="@layout/fragment_seleccion_peluquero" />
 </navigation>

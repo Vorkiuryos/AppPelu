@@ -1,91 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:background="@drawable/foto_pelu_editada"
+<ScrollView
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PedirCitaFragment">
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <ImageView
-        android:id="@+id/select_day"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginRight="24dp"
-        android:layout_marginBottom="24dp"
-        android:layout_marginTop="80dp"
-        android:src="@drawable/calendar"
-        app:layout_constraintBottom_toTopOf="@+id/selected_day"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/foto_pelu_editada"
+        tools:context=".PedirCitaFragment">
 
-    <TextView
-        android:id="@+id/selected_day"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/select_day"
-        android:text="01/01/2022"
-        android:textSize="24dp"/>
+        <ImageView
+            android:id="@+id/select_day"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="80dp"
+            android:src="@drawable/calendar"
+            app:layout_constraintEnd_toStartOf="@id/selected_day"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/select_hour"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginRight="24dp"
-        android:layout_marginBottom="24dp"
-        android:layout_marginTop="24dp"
-        android:src="@drawable/hour"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/selected_day"/>
+        <TextView
+            android:id="@+id/selected_day"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:gravity="center_vertical"
+            android:text="@string/select_date"
+            android:textSize="30dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/select_day"
+            app:layout_constraintTop_toTopOf="@id/select_day" />
 
-    <TextView
-        android:id="@+id/selected_hour"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/select_hour"
-        android:text="09:30"
-        android:textSize="24dp"/>
+        <ImageView
+            android:id="@+id/select_hour"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="40dp"
+            android:src="@drawable/hour"
+            app:layout_constraintEnd_toStartOf="@id/selected_hour"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/select_day" />
 
-    <ImageView
-        android:id="@+id/select_hairdresser"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginRight="24dp"
-        android:layout_marginBottom="24dp"
-        android:layout_marginTop="24dp"
-        android:src="@drawable/sicssor"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/selected_hour"/>
+        <TextView
+            android:id="@+id/selected_hour"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:gravity="center_vertical"
+            android:text="@string/select_hour"
+            android:textSize="30dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/select_hour"
+            app:layout_constraintTop_toTopOf="@+id/select_hour" />
 
-    <TextView
-        android:id="@+id/selected_hairdresser"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/select_hairdresser"
-        android:text="Lucía"
-        android:textSize="24dp"/>
+        <ImageView
+            android:id="@+id/select_hairdresser"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="40dp"
+            android:src="@drawable/sicssor"
+            app:layout_constraintEnd_toStartOf="@id/selected_hairdresser"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/select_hour" />
 
-    <Button
-        android:id="@+id/appointment_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/reservation"
-        app:layout_constraintTop_toBottomOf="@id/selected_hairdresser"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        <TextView
+            android:id="@+id/selected_hairdresser"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:gravity="center_vertical"
+            android:text="@string/select_hairdesser"
+            android:textSize="30dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/select_hairdresser"
+            app:layout_constraintTop_toTopOf="@+id/select_hairdresser" />
+
+        <Button
+            android:id="@+id/appointment_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="170dp"
+            android:layout_marginRight="24dp"
+            android:layout_marginBottom="50dp"
+            android:text="@string/reservation"
+            android:textSize="24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/selected_hairdresser" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

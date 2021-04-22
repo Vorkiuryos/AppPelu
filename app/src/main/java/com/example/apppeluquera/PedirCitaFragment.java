@@ -35,7 +35,6 @@ public class PedirCitaFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         c = Calendar.getInstance();
-        binding.selectedDay.setText(c.get(Calendar.DAY_OF_MONTH)+"/"+(c.get(Calendar.MONTH)+1)+"/"+c.get(Calendar.YEAR));
 
         binding.selectDay.setOnClickListener(v -> {
 
