@@ -25,6 +25,8 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.storage.FirebaseStorage;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.Executor;
 
@@ -65,8 +67,6 @@ public class RegistrationFragment extends BaseFragment {
             } else if (username.isEmpty()) {
                 //error introduce usuario
             } else {
-                //navController.navigate(R.id.action_loginFragment_to_menuFragment);
-                //TODO: REGISTRO CON EMAIL
 
                 createAccount(email,password,username);
             }
@@ -80,6 +80,10 @@ public class RegistrationFragment extends BaseFragment {
            if (task.isSuccessful()) {
                Toast.makeText(requireContext(), "successful", Toast.LENGTH_SHORT).show();
                nav.navigate(R.id.action_registrationFragment_to_loginFragment);
+
+               Map<Object, String> data = new HashMap<>();
+               data.put("type", "user");
+               db.collection("users").document(auth.getCurrentUser().getUid()).set(data);
 
                auth.getCurrentUser().updateProfile(
                        new UserProfileChangeRequest.Builder()

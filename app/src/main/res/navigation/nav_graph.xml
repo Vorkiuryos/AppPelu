@@ -72,7 +72,11 @@
         android:id="@+id/adminRegistrationFragment"
         android:name="com.example.apppeluquera.AdminRegistrationFragment"
         android:label="fragment_admin_registration"
-        tools:layout="@layout/fragment_admin_registration" />
+        tools:layout="@layout/fragment_admin_registration" >
+        <action
+            android:id="@+id/action_adminRegistrationFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
     <fragment
         android:id="@+id/registrationOptionFragment"
         android:name="com.example.apppeluquera.RegistrationOptionFragment"
