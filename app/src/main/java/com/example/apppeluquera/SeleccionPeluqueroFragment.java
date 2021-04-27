@@ -27,6 +27,7 @@ public class SeleccionPeluqueroFragment extends DialogFragment {
     private FragmentSeleccionPeluqueroBinding binding;
     private NavController nav;
     List<Peluquero> peluqueroList = new ArrayList<>();
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return (binding = FragmentSeleccionPeluqueroBinding.inflate(inflater, container, false)).getRoot();
@@ -35,6 +36,8 @@ public class SeleccionPeluqueroFragment extends DialogFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        PeluquerosAdapter pa = new PeluquerosAdapter();
 
         FirebaseFirestore.getInstance()
                 .collection("peluquerosprueba").document("1WWrhFe0dtQYvOUGmnHe")
@@ -47,6 +50,7 @@ public class SeleccionPeluqueroFragment extends DialogFragment {
             peluqueroList.forEach(p -> System.out.println(p.nombre));
         });
 
+        binding.recyclerView.setAdapter(pa);
     }
 
     class PeluquerosAdapter extends RecyclerView.Adapter<PeluquerosAdapter.PeluqueroViewHolder>{
