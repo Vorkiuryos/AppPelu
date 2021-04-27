@@ -1,6 +1,7 @@
 package com.example.apppeluquera;
 
 import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -11,22 +12,26 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.DatePicker;
+import android.widget.TimePicker;
 
 import com.example.apppeluquera.databinding.FragmentPedirCitaBinding;
 import com.example.apppeluquera.databinding.FragmentRegistrationBinding;
 
 import java.util.Calendar;
+import java.util.Timer;
 
-public class PedirCitaFragment extends Fragment {
+public class PedirCitaFragment extends BaseFragment {
 
     private FragmentPedirCitaBinding binding;
 
     private Calendar c;
     private DatePickerDialog dpd;
+    private Timer t;
+    private TimePickerDialog tpd;
+
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return (binding = FragmentPedirCitaBinding.inflate(inflater, container, false)).getRoot();
     }
 
@@ -36,19 +41,21 @@ public class PedirCitaFragment extends Fragment {
 
         c = Calendar.getInstance();
 
+
         binding.selectDay.setOnClickListener(v -> {
 
             int day = c.get(Calendar.DAY_OF_MONTH);
             int month = c.get(Calendar.MONTH);
             int year = c.get(Calendar.YEAR);
 
-            dpd = new DatePickerDialog(requireContext(), new DatePickerDialog.OnDateSetListener() {
-                @Override
-                public void onDateSet(DatePicker view, int year, int month, int day) {
-                    binding.selectedDay.setText(day+"/"+(month+1)+"/"+year);
-                }
-            }, year, month, day);
+            dpd = new DatePickerDialog(requireContext(),
+                    (view1, year1, month1, day1) ->
+                            binding.selectedDay.setText(day1 +"/"+(month1 +1)+"/"+ year1), year, month, day);
             dpd.show();
+        });
+
+        binding.selectHairdresser.setOnClickListener(v -> {
+            nav.navigate(R.id.action_pedirCitaFragment_to_seleccionPeluqueroFragment);
         });
 
     }

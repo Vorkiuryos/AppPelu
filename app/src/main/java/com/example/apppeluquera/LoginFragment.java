@@ -43,7 +43,7 @@ public class LoginFragment extends BaseFragment {
 
         binding.login.setOnClickListener(view1 -> {
 
-            String email = LoginFragment.this.binding.editTextEmailAdress.getText().toString();
+            String email = binding.editTextEmailAdress.getText().toString();
             String password_ = binding.editTextPassword.getText().toString();
             if(email.isEmpty()){
                 //error.setText("Introduce tu correo electrónico");

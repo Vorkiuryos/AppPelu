@@ -1,64 +1,82 @@
 package com.example.apppeluquera;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
-import androidx.fragment.app.Fragment;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.DialogFragment;
+import androidx.navigation.NavController;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link SeleccionPeluqueroFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class SeleccionPeluqueroFragment extends Fragment {
+import com.example.apppeluquera.databinding.FragmentSeleccionPeluqueroBinding;
+import com.example.apppeluquera.databinding.ViewholderPeluqueroBinding;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+import java.util.ArrayList;
+import java.util.List;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
 
-    public SeleccionPeluqueroFragment() {
-        // Required empty public constructor
-    }
+public class SeleccionPeluqueroFragment extends DialogFragment {
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment SeleccionPeluqueroFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static SeleccionPeluqueroFragment newInstance(String param1, String param2) {
-        SeleccionPeluqueroFragment fragment = new SeleccionPeluqueroFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
+    private FragmentSeleccionPeluqueroBinding binding;
+    private NavController nav;
+    List<Peluquero> peluqueroList = new ArrayList<>();
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        return (binding = FragmentSeleccionPeluqueroBinding.inflate(inflater, container, false)).getRoot();
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        FirebaseFirestore.getInstance()
+                .collection("peluquerosprueba").document("1WWrhFe0dtQYvOUGmnHe")
+                .collection("peluqueros").addSnapshotListener((snapshotPeluqueros, error) -> {
+            peluqueroList.clear();
+            for(DocumentSnapshot snapshotPeluquero: snapshotPeluqueros){
+                peluqueroList.add(snapshotPeluquero.toObject(Peluquero.class));
+            }
+            // mostrar en la consola, solo para verlo
+            peluqueroList.forEach(p -> System.out.println(p.nombre));
+        });
+
+    }
+
+    class PeluquerosAdapter extends RecyclerView.Adapter<PeluquerosAdapter.PeluqueroViewHolder>{
+
+        @NonNull
+        @Override
+        public PeluqueroViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            return new PeluqueroViewHolder(ViewholderPeluqueroBinding.inflate(getLayoutInflater(), parent, false));
         }
-    }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_seleccion_peluquero, container, false);
+        @Override
+        public void onBindViewHolder(@NonNull PeluqueroViewHolder holder, int position) {
+            Peluquero peluquero = peluqueroList.get(position);
+
+            holder.binding.name.setText(peluquero.nombre);
+
+        }
+
+        @Override
+        public int getItemCount() {
+            return peluqueroList == null ? 0 : peluqueroList.size();
+        }
+
+        class PeluqueroViewHolder extends RecyclerView.ViewHolder{
+            ViewholderPeluqueroBinding binding;
+            public PeluqueroViewHolder(@NonNull ViewholderPeluqueroBinding binding) {
+                super(binding.getRoot());
+
+                this.binding = binding;
+            }
+        }
     }
 }
