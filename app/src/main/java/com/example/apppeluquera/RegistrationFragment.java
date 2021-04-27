@@ -17,6 +17,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.apppeluquera.databinding.FragmentRegistrationBinding;
+import com.example.apppeluquera.model.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -81,18 +82,13 @@ public class RegistrationFragment extends BaseFragment {
                Toast.makeText(requireContext(), "successful", Toast.LENGTH_SHORT).show();
                nav.navigate(R.id.action_registrationFragment_to_loginFragment);
 
-               Map<Object, String> data = new HashMap<>();
-               data.put("type", "user");
-               db.collection("users").document(auth.getCurrentUser().getUid()).set(data);
+               db.collection("users").document(auth.getCurrentUser().getUid()).set(new User("user"));
 
                auth.getCurrentUser().updateProfile(
                        new UserProfileChangeRequest.Builder()
                        .setDisplayName(username)
                        .build()
                );
-
-
-
            } else {
                Toast.makeText(requireContext(), "algo ha ido mal", Toast.LENGTH_SHORT).show();
            }

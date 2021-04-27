@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.example.apppeluquera.databinding.FragmentAdminRegistrationBinding;
 import com.example.apppeluquera.databinding.FragmentRegistrationBinding;
+import com.example.apppeluquera.model.User;
 import com.google.firebase.auth.UserProfileChangeRequest;
 
 import java.util.HashMap;
@@ -23,9 +24,7 @@ public class AdminRegistrationFragment extends BaseFragment {
     private FragmentAdminRegistrationBinding binding;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return (binding = FragmentAdminRegistrationBinding.inflate(inflater, container, false)).getRoot();
     }
 
@@ -64,9 +63,7 @@ public class AdminRegistrationFragment extends BaseFragment {
                 Toast.makeText(requireContext(), "successful", Toast.LENGTH_SHORT).show();
                 nav.navigate(R.id.action_adminRegistrationFragment_to_loginFragment);
 
-                Map<Object, String> data = new HashMap<>();
-                data.put("type", "business");
-                db.collection("users").document(auth.getCurrentUser().getUid()).set(data);
+                db.collection("users").document(auth.getCurrentUser().getUid()).set(new User("business"));
 
                 auth.getCurrentUser().updateProfile(
                         new UserProfileChangeRequest.Builder()

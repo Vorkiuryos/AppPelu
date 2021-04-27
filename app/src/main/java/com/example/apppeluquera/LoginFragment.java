@@ -53,24 +53,19 @@ public class LoginFragment extends BaseFragment {
                 //error.setText("Introduce tu contraseña");
             } else {
                 //navController.navigate(R.id.action_loginFragment_to_menuFragment);
-                auth.signInWithEmailAndPassword(email, password_)
-                        .addOnCompleteListener(task -> {
+                auth.signInWithEmailAndPassword(email, password_).addOnCompleteListener(task -> {
                             if (task.isSuccessful()) {
-
-                                DocumentReference docRef = db.collection("users").document(auth.getCurrentUser().getUid());
-                                docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                                    @Override
-                                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                                        if (task.isSuccessful()) {
-                                            DocumentSnapshot document = task.getResult();
-                                            if (document.exists()) {
-                                                if (document.get("type").equals("user")) {
-                                                    System.out.println("Login como user");
-                                                    nav.navigate(R.id.action_loginFragment_to_menuFragment);
-                                                } else if (document.get("type").equals("business")) {
-                                                    System.out.println("Login como business");
-                                                    //nav.navigate(R.id.action_loginFragment_to_menuFragment);
-                                                }
+                                db.collection("users").document(auth.getCurrentUser().getUid()).get().addOnCompleteListener(task1 -> {
+                                    if (task1.isSuccessful()) {
+                                        DocumentSnapshot document = task1.getResult();
+                                        if (document.exists()) {
+                                            if (document.get("type").equals("user")) {
+                                                System.out.println("Login como user");
+                                                System.out.println(document.get("type").toString());
+                                                nav.navigate(R.id.action_loginFragment_to_menuFragment);
+                                            } else if (document.get("type").equals("business")) {
+                                                System.out.println("Login como business");
+                                                //nav.navigate(R.id.action_loginFragment_to_menuFragment);
                                             }
                                         }
                                     }
