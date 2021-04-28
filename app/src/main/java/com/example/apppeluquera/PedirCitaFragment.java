@@ -26,7 +26,6 @@ public class PedirCitaFragment extends BaseFragment {
 
     private Calendar c;
     private DatePickerDialog dpd;
-    private Timer t;
     private TimePickerDialog tpd;
 
 
@@ -52,6 +51,16 @@ public class PedirCitaFragment extends BaseFragment {
                     (view1, year1, month1, day1) ->
                             binding.selectedDay.setText(day1 +"/"+(month1 +1)+"/"+ year1), year, month, day);
             dpd.show();
+        });
+
+        binding.selectHour.setOnClickListener(v -> {
+            int hour = c.get(Calendar.HOUR_OF_DAY);
+            int minute = c.get(Calendar.MINUTE);
+
+            tpd = new TimePickerDialog(requireContext(),
+                    (view12, hourOfDay, minute1) ->
+                            binding.selectedHour.setText(hourOfDay + ":" + minute), hour, minute,false);
+            tpd.show();
         });
 
         binding.selectHairdresser.setOnClickListener(v -> {
