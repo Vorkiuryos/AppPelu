@@ -3,6 +3,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fillViewport="true"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -47,7 +48,8 @@
             android:src="@drawable/hour"
             app:layout_constraintEnd_toStartOf="@id/selected_hour"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/select_day" />
+            app:layout_constraintTop_toBottomOf="@+id/select_day"
+            android:visibility="gone"/>
 
         <TextView
             android:id="@+id/selected_hour"
@@ -60,7 +62,8 @@
             android:textSize="30dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/select_hour"
-            app:layout_constraintTop_toTopOf="@+id/select_hour" />
+            app:layout_constraintTop_toTopOf="@+id/select_hour"
+            android:visibility="gone"/>
 
         <ImageView
             android:id="@+id/select_hairdresser"
@@ -71,7 +74,8 @@
             android:src="@drawable/sicssor"
             app:layout_constraintEnd_toStartOf="@id/selected_hairdresser"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/select_hour" />
+            app:layout_constraintTop_toBottomOf="@id/select_hour"
+            android:visibility="gone"/>
 
         <TextView
             android:id="@+id/selected_hairdresser"
@@ -84,7 +88,8 @@
             android:textSize="30dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/select_hairdresser"
-            app:layout_constraintTop_toTopOf="@+id/select_hairdresser" />
+            app:layout_constraintTop_toTopOf="@+id/select_hairdresser"
+            android:visibility="gone"/>
 
         <Button
             android:id="@+id/appointment_button"
@@ -99,7 +104,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/selected_hairdresser" />
+            app:layout_constraintTop_toBottomOf="@+id/selected_hairdresser"
+            android:visibility="gone"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

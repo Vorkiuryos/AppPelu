@@ -47,10 +47,16 @@ public class PedirCitaFragment extends BaseFragment {
             int month = c.get(Calendar.MONTH);
             int year = c.get(Calendar.YEAR);
 
+
             dpd = new DatePickerDialog(requireContext(),
                     (view1, year1, month1, day1) ->
-                            binding.selectedDay.setText(day1 +"/"+(month1 +1)+"/"+ year1), year, month, day);
+                            binding.selectedDay.setText(day1 + "/" + (month1 + 1) + "/" + year1), year, month, day);
             dpd.show();
+            System.out.println("AAAAAAAAAAAAAAAAAAAAAAA"+binding.selectedDay.getText().toString());
+
+            binding.selectHour.setVisibility(view.VISIBLE);
+            binding.selectedHour.setVisibility(view.VISIBLE);
+
         });
 
         binding.selectHour.setOnClickListener(v -> {
@@ -59,12 +65,19 @@ public class PedirCitaFragment extends BaseFragment {
 
             tpd = new TimePickerDialog(requireContext(),
                     (view12, hourOfDay, minute1) ->
-                            binding.selectedHour.setText(hourOfDay + ":" + minute), hour, minute,false);
+                            binding.selectedHour.setText(hourOfDay + ":" + minute1), hour, minute,false);
             tpd.show();
+
+            binding.selectHairdresser.setVisibility(view.VISIBLE);
+            binding.selectedHairdresser.setVisibility(view.VISIBLE);
+
         });
 
         binding.selectHairdresser.setOnClickListener(v -> {
             nav.navigate(R.id.action_pedirCitaFragment_to_seleccionPeluqueroFragment);
+
+            binding.appointmentButton.setVisibility(view.VISIBLE);
+
         });
 
     }
