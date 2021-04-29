@@ -49,7 +49,7 @@
             app:layout_constraintEnd_toStartOf="@id/selected_hour"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/select_day"
-            android:visibility="gone"/>
+            android:enabled="false" />
 
         <TextView
             android:id="@+id/selected_hour"
@@ -63,7 +63,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/select_hour"
             app:layout_constraintTop_toTopOf="@+id/select_hour"
-            android:visibility="gone"/>
+            android:enabled="false"/>
 
         <ImageView
             android:id="@+id/select_hairdresser"
@@ -75,7 +75,7 @@
             app:layout_constraintEnd_toStartOf="@id/selected_hairdresser"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/select_hour"
-            android:visibility="gone"/>
+            android:enabled="false"/>
 
         <TextView
             android:id="@+id/selected_hairdresser"
@@ -89,7 +89,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/select_hairdresser"
             app:layout_constraintTop_toTopOf="@+id/select_hairdresser"
-            android:visibility="gone"/>
+            android:enabled="false"/>
 
         <Button
             android:id="@+id/appointment_button"
@@ -105,7 +105,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/selected_hairdresser"
-            android:visibility="gone"/>
+            android:enabled="false"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

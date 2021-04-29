@@ -1,6 +1,5 @@
 package com.example.apppeluquera;
 
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;

@@ -2,12 +2,15 @@ package com.example.apppeluquera;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,45 +43,79 @@ public class PedirCitaFragment extends BaseFragment {
 
         c = Calendar.getInstance();
 
-
         binding.selectDay.setOnClickListener(v -> {
 
             int day = c.get(Calendar.DAY_OF_MONTH);
             int month = c.get(Calendar.MONTH);
             int year = c.get(Calendar.YEAR);
 
-
             dpd = new DatePickerDialog(requireContext(),
                     (view1, year1, month1, day1) ->
                             binding.selectedDay.setText(day1 + "/" + (month1 + 1) + "/" + year1), year, month, day);
             dpd.show();
-            System.out.println("AAAAAAAAAAAAAAAAAAAAAAA"+binding.selectedDay.getText().toString());
 
-            binding.selectHour.setVisibility(view.VISIBLE);
-            binding.selectedHour.setVisibility(view.VISIBLE);
+        });
+
+        binding.selectedDay.addTextChangedListener(new TextWatcher() {
+
+            public void afterTextChanged(Editable s) {
+                binding.selectHour.setImageResource(R.drawable.hour2);
+                binding.selectedHour.setEnabled(true);
+            }
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            public void onTextChanged(CharSequence s, int start, int before, int count) {}
 
         });
 
         binding.selectHour.setOnClickListener(v -> {
-            int hour = c.get(Calendar.HOUR_OF_DAY);
-            int minute = c.get(Calendar.MINUTE);
 
-            tpd = new TimePickerDialog(requireContext(),
-                    (view12, hourOfDay, minute1) ->
-                            binding.selectedHour.setText(hourOfDay + ":" + minute1), hour, minute,false);
-            tpd.show();
+            if(binding.selectedHour.isEnabled()){
+                int hour = c.get(Calendar.HOUR_OF_DAY);
+                int minute = c.get(Calendar.MINUTE);
 
-            binding.selectHairdresser.setVisibility(view.VISIBLE);
-            binding.selectedHairdresser.setVisibility(view.VISIBLE);
+                tpd = new TimePickerDialog(requireContext(),
+                        (view12, hourOfDay, minute1) ->
+                                binding.selectedHour.setText(hourOfDay + ":" + minute1), hour, minute,false);
+                tpd.show();
+            }
+
+        });
+
+        binding.selectedHour.addTextChangedListener(new TextWatcher() {
+
+            public void afterTextChanged(Editable s) {
+                binding.selectHairdresser.setImageResource(R.drawable.hairdersser_icon2);
+                binding.selectedHairdresser.setEnabled(true);
+            }
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            public void onTextChanged(CharSequence s, int start, int before, int count) {}
 
         });
 
         binding.selectHairdresser.setOnClickListener(v -> {
-            nav.navigate(R.id.action_pedirCitaFragment_to_seleccionPeluqueroFragment);
 
-            binding.appointmentButton.setVisibility(view.VISIBLE);
+            if(binding.selectedHour.isEnabled()){
+                nav.navigate(R.id.action_pedirCitaFragment_to_seleccionPeluqueroFragment);
+                binding.selectedHairdresser.setText("Peluquero seleccionado");
+            }
 
         });
+
+        binding.selectedHairdresser.addTextChangedListener(new TextWatcher() {
+
+            public void afterTextChanged(Editable s) {
+                binding.appointmentButton.setEnabled(true);
+            }
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            public void onTextChanged(CharSequence s, int start, int before, int count) {}
+
+        });
+
+
+        binding.appointmentButton.setOnClickListener(v -> {
+
+        });
+
 
     }
 }
