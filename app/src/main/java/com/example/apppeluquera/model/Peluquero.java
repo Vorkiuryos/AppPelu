@@ -1,4 +1,4 @@
-package com.example.apppeluquera;
+package com.example.apppeluquera.model;
 
 public class Peluquero {
     String nombre;
@@ -18,4 +18,5 @@ public class Peluquero {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+
 }
