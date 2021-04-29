@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 
 import com.example.apppeluquera.databinding.FragmentSeleccionPeluqueroBinding;
 import com.example.apppeluquera.databinding.ViewholderPeluqueroBinding;
+import com.example.apppeluquera.model.Peluquero;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -46,7 +47,7 @@ public class SeleccionPeluqueroFragment extends DialogFragment {
                 peluqueroList.add(snapshotPeluquero.toObject(Peluquero.class));
             }
             // mostrar en la consola, solo para verlo
-            peluqueroList.forEach(p -> System.out.println(p.nombre));
+            peluqueroList.forEach(p -> System.out.println(p.getNombre()));
         });
 
         binding.recyclerView.setAdapter(pa);
@@ -64,7 +65,7 @@ public class SeleccionPeluqueroFragment extends DialogFragment {
         public void onBindViewHolder(@NonNull PeluqueroViewHolder holder, int position) {
             Peluquero peluquero = peluqueroList.get(position);
 
-            holder.binding.name.setText(peluquero.nombre);
+            holder.binding.name.setText(peluquero.getNombre());
 
         }
 

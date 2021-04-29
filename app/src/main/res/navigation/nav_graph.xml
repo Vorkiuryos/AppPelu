@@ -26,9 +26,6 @@
             android:id="@+id/action_menuFragment_to_pedirCitaFragment"
             app:destination="@id/pedirCitaFragment" />
         <action
-            android:id="@+id/action_menuFragment_to_trabajaConNosotrosFragment"
-            app:destination="@id/trabajaConNosotrosFragment" />
-        <action
             android:id="@+id/action_menuFragment_to_productosFragment"
             app:destination="@id/productosFragment" />
         <action
@@ -49,11 +46,6 @@
         android:name="com.example.apppeluquera.ContactanosFragment"
         android:label="fragment_contactanos"
         tools:layout="@layout/fragment_contactanos" />
-    <fragment
-        android:id="@+id/trabajaConNosotrosFragment"
-        android:name="com.example.apppeluquera.TrabajaConNosotrosFragment"
-        android:label="fragment_trabaja_con_nosotros"
-        tools:layout="@layout/fragment_trabaja_con_nosotros" />
     <fragment
         android:id="@+id/productosFragment"
         android:name="com.example.apppeluquera.ProductosFragment"

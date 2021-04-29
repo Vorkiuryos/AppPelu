@@ -3,9 +3,7 @@ package com.example.apppeluquera.model;
 public class Peluquero {
     String nombre;
 
-    public Peluquero(){
-
-    }
+    public Peluquero(){}
 
     public Peluquero(String nombre) {
         this.nombre = nombre;

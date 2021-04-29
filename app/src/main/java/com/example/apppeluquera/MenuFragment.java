@@ -30,30 +30,12 @@ public class MenuFragment extends BaseFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        binding.button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                nav.navigate(R.id.action_menuFragment_to_pedirCitaFragment);
-            }
-        });
-        binding.button2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                nav.navigate(R.id.action_menuFragment_to_productosFragment);
-            }
-        });
-        binding.button3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                nav.navigate(R.id.action_menuFragment_to_contactanosFragment);
-            }
-        });
-        binding.button4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                nav.navigate(R.id.action_menuFragment_to_trabajaConNosotrosFragment);
-            }
-        });
+        binding.button.setOnClickListener(view1 ->
+                nav.navigate(R.id.action_menuFragment_to_pedirCitaFragment));
+        binding.button2.setOnClickListener(view12 ->
+                nav.navigate(R.id.action_menuFragment_to_productosFragment));
+        binding.button3.setOnClickListener(view13 ->
+                nav.navigate(R.id.action_menuFragment_to_contactanosFragment));
 
     }
 
