@@ -74,8 +74,12 @@ public class PedirCitaFragment extends BaseFragment {
                 int minute = c.get(Calendar.MINUTE);
 
                 tpd = new TimePickerDialog(requireContext(),
-                        (view12, hourOfDay, minute1) ->
-                                binding.selectedHour.setText(hourOfDay + ":" + minute1), hour, minute,false);
+                        new TimePickerDialog.OnTimeSetListener() {
+                            @Override
+                            public void onTimeSet(TimePicker view12, int hourOfDay, int minute1) {
+                                binding.selectedHour.setText(String.format("%02d:%02d", hourOfDay, minute1));
+                            }
+                        }, hour, minute,false);
                 tpd.show();
             }
 
