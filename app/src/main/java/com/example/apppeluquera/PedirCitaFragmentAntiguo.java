@@ -16,7 +16,7 @@ import com.example.apppeluquera.databinding.FragmentPedirCitaBinding;
 
 import java.util.Calendar;
 
-public class PedirCitaFragmentAntiguoç extends BaseFragment {
+public class PedirCitaFragmentAntiguo extends BaseFragment {
 
     private FragmentPedirCitaBinding binding;
 
