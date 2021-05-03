@@ -1,11 +1,11 @@
 package com.example.apppeluquera.model;
 
-public class Peluquero {
+public class Servicio {
     String nombre;
 
-    public Peluquero(){}
+    public Servicio(){}
 
-    public Peluquero(String nombre) {
+    public Servicio(String nombre) {
         this.nombre = nombre;
     }
 

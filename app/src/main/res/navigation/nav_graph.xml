@@ -89,9 +89,9 @@
     </fragment>
     <dialog
         android:id="@+id/seleccionPeluqueroFragment"
-        android:name="com.example.apppeluquera.SeleccionPeluqueroFragment"
+        android:name="com.example.apppeluquera.SeleccionServicioFragment"
         android:label="fragment_seleccion_peluquero"
-        tools:layout="@layout/fragment_seleccion_peluquero" />
+        tools:layout="@layout/fragment_seleccion_servicio" />
     <dialog
         android:id="@+id/seleccionFechaFragment"
         android:name="com.example.apppeluquera.SeleccionFechaFragment"

@@ -21,7 +21,7 @@
     <string name="reservation">Reservar cita</string>
     <string name="select_date">Selecciona fecha</string>
     <string name="select_hour">Selecciona hora</string>
-    <string name="select_hairdesser">Selecciona peluquero/a</string>
+    <string name="select_hairdesser">Selecciona servicio/a</string>
     <string name="boton_menu_2">Productos</string>
     <string name="boton_menu_3">Contáctanos</string>
     <string name="boton_menu_4">Trabaja con nosotros</string>
