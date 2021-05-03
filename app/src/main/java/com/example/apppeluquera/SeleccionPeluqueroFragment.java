@@ -28,6 +28,7 @@ public class SeleccionPeluqueroFragment extends DialogFragment {
     private NavController nav;
     List<Peluquero> peluqueroList = new ArrayList<>();
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return (binding = FragmentSeleccionPeluqueroBinding.inflate(inflater, container, false)).getRoot();
@@ -55,6 +56,8 @@ public class SeleccionPeluqueroFragment extends DialogFragment {
 
     class PeluquerosAdapter extends RecyclerView.Adapter<PeluquerosAdapter.PeluqueroViewHolder>{
 
+        private PeluquerosAdapter.PeluqueroViewHolder binding2;
+
         @NonNull
         @Override
         public PeluqueroViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -66,6 +69,10 @@ public class SeleccionPeluqueroFragment extends DialogFragment {
             Peluquero peluquero = peluqueroList.get(position);
 
             holder.binding.name.setText(peluquero.getNombre());
+
+            holder.itemView.setOnClickListener(v -> {
+
+            });
 
         }
 
