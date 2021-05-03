@@ -92,12 +92,12 @@
         android:name="com.example.apppeluquera.SeleccionPeluqueroFragment"
         android:label="fragment_seleccion_peluquero"
         tools:layout="@layout/fragment_seleccion_peluquero" />
-    <fragment
+    <dialog
         android:id="@+id/seleccionFechaFragment"
         android:name="com.example.apppeluquera.SeleccionFechaFragment"
         android:label="fragment_seleccion_fecha"
         tools:layout="@layout/fragment_seleccion_fecha" />
-    <fragment
+    <dialog
         android:id="@+id/seleccionHoraFragment"
         android:name="com.example.apppeluquera.SeleccionHoraFragment"
         android:label="fragment_seleccion_hora"
