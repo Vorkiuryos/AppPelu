@@ -55,7 +55,6 @@ public class SeleccionServicioFragment extends DialogFragment {
 
     class ServiciosAdapter extends RecyclerView.Adapter<ServiciosAdapter.ServicioViewHolder>{
 
-        private ServicioViewHolder binding2;
 
         @NonNull
         @Override
