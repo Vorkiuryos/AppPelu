@@ -68,6 +68,7 @@ public class PedirCitaFragment extends BaseFragment {
 
         binding.appointmentButton.setOnClickListener(v -> {
 
+
         });
 
 

@@ -77,18 +77,15 @@ public class SeleccionServicioFragment extends DialogFragment {
 
             holder.binding.name.setText(servicio.getNombre());
 
-            holder.itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    for (int i = 0; i < servicioList.size(); i++) {
-                        if (servicioList.get(i).getNombre().equals(holder.binding.name.getText())) {
-                            appViewModel.servicioMutableLiveData.setValue(servicioList.get(i));
-                            break;
-                        }
+            holder.itemView.setOnClickListener(v -> {
+                for (int i = 0; i < servicioList.size(); i++) {
+                    if (servicioList.get(i).getNombre().equals(holder.binding.name.getText())) {
+                        appViewModel.servicioMutableLiveData.setValue(servicioList.get(i));
+                        break;
                     }
-                    //System.out.println("Has elegido " + appViewModel.servicioMutableLiveData.getValue().getNombre());
-                    dismiss();
                 }
+                //System.out.println("Has elegido " + appViewModel.servicioMutableLiveData.getValue().getNombre());
+                dismiss();
             });
 
         }
