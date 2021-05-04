@@ -86,7 +86,7 @@ public class SeleccionServicioFragment extends DialogFragment {
                             break;
                         }
                     }
-                    System.out.println("Has elegido " + appViewModel.servicioMutableLiveData.getValue().getNombre());
+                    //System.out.println("Has elegido " + appViewModel.servicioMutableLiveData.getValue().getNombre());
                     dismiss();
                 }
             });

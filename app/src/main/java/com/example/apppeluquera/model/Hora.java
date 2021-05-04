@@ -10,6 +10,9 @@ public class Hora {
 
     @Override
     public String toString() {
-        return hora +":"+ minuto;
+        if (hora < 9 && minuto < 9) return "0" + hora + ":" + "0" + minuto;
+        else if (hora < 9) return "0" + hora + ":" + minuto;
+        else if (minuto < 9) return hora + ":" + "0" + minuto;
+        else return hora + ":" + minuto;
     }
 }
