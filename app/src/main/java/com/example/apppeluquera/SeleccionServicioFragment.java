@@ -15,7 +15,10 @@ import com.example.apppeluquera.databinding.FragmentSeleccionServicioBinding;
 import com.example.apppeluquera.databinding.ViewholderServicioBinding;
 import com.example.apppeluquera.model.Servicio;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,14 +43,17 @@ public class SeleccionServicioFragment extends DialogFragment {
         ServiciosAdapter pa = new ServiciosAdapter();
 
         FirebaseFirestore.getInstance()
-                .collection("peluquerosprueba").document("1WWrhFe0dtQYvOUGmnHe")
-                .collection("peluqueros").addSnapshotListener((snapshotPeluqueros, error) -> {
-            servicioList.clear();
-            for(DocumentSnapshot snapshotPeluquero: snapshotPeluqueros){
-                servicioList.add(snapshotPeluquero.toObject(Servicio.class));
+                .collection("peluquerias").document("5FBzk6ANkRsIzVZ4R6b0")
+                .collection("servicios").addSnapshotListener(new EventListener<QuerySnapshot>() {
+            @Override
+            public void onEvent(@Nullable QuerySnapshot snapshotPeluqueros, @Nullable FirebaseFirestoreException error) {
+                servicioList.clear();
+                for (DocumentSnapshot snapshotPeluquero : snapshotPeluqueros) {
+                    servicioList.add(snapshotPeluquero.toObject(Servicio.class));
+                }
+                // mostrar en la consola, solo para verlo
+                servicioList.forEach(p -> System.out.println(p.getNombre()));
             }
-            // mostrar en la consola, solo para verlo
-            servicioList.forEach(p -> System.out.println(p.getNombre()));
         });
 
         binding.recyclerView.setAdapter(pa);

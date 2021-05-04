@@ -43,7 +43,7 @@ public class PedirCitaFragment extends BaseFragment {
        });
 
         binding.selectHairdresser.setOnClickListener(v -> {
-            nav.navigate(R.id.action_pedirCitaFragment_to_seleccionPeluqueroFragment);
+            nav.navigate(R.id.action_pedirCitaFragment_to_seleccionServicioFragment);
         });
 
 

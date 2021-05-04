@@ -38,14 +38,14 @@
         android:label="fragment_pedir_cita"
         tools:layout="@layout/fragment_pedir_cita" >
         <action
-            android:id="@+id/action_pedirCitaFragment_to_seleccionPeluqueroFragment"
-            app:destination="@id/seleccionPeluqueroFragment" />
-        <action
             android:id="@+id/action_pedirCitaFragment_to_seleccionFechaFragment"
             app:destination="@id/seleccionFechaFragment" />
         <action
             android:id="@+id/action_pedirCitaFragment_to_seleccionHoraFragment"
             app:destination="@id/seleccionHoraFragment" />
+        <action
+            android:id="@+id/action_pedirCitaFragment_to_seleccionServicioFragment"
+            app:destination="@id/seleccionServicioFragment" />
     </fragment>
     <fragment
         android:id="@+id/contactanosFragment"
@@ -88,11 +88,6 @@
             app:destination="@id/adminRegistrationFragment" />
     </fragment>
     <dialog
-        android:id="@+id/seleccionPeluqueroFragment"
-        android:name="com.example.apppeluquera.SeleccionServicioFragment"
-        android:label="fragment_seleccion_peluquero"
-        tools:layout="@layout/fragment_seleccion_servicio" />
-    <dialog
         android:id="@+id/seleccionFechaFragment"
         android:name="com.example.apppeluquera.SeleccionFechaFragment"
         android:label="fragment_seleccion_fecha"
@@ -102,4 +97,8 @@
         android:name="com.example.apppeluquera.SeleccionHoraFragment"
         android:label="fragment_seleccion_hora"
         tools:layout="@layout/fragment_seleccion_hora" />
+    <dialog
+        android:id="@+id/seleccionServicioFragment"
+        android:name="com.example.apppeluquera.SeleccionServicioFragment"
+        android:label="SeleccionServicioFragment" />
 </navigation>

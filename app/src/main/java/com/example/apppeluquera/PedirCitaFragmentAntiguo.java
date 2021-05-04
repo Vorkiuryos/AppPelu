@@ -89,7 +89,7 @@ public class PedirCitaFragmentAntiguo extends BaseFragment {
             if (binding.selectedHour.isEnabled()) {
                // SeleccionPeluqueroFragment sc = new SeleccionPeluqueroFragment();
                 binding.selectedHairdresser.setText("Peluquero seleccionado");
-                nav.navigate(R.id.action_pedirCitaFragment_to_seleccionPeluqueroFragment);
+                nav.navigate(R.id.action_pedirCitaFragment_to_seleccionServicioFragment);
 
             }
         });
