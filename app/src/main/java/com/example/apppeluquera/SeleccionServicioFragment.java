@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -29,6 +30,7 @@ public class SeleccionServicioFragment extends DialogFragment {
     private FragmentSeleccionServicioBinding binding;
     private NavController nav;
     List<Servicio> servicioList = new ArrayList<>();
+    private AppViewModel appViewModel;
 
 
     @Override
@@ -41,6 +43,7 @@ public class SeleccionServicioFragment extends DialogFragment {
         super.onViewCreated(view, savedInstanceState);
 
         ServiciosAdapter pa = new ServiciosAdapter();
+        appViewModel = new ViewModelProvider(requireActivity()).get(AppViewModel.class);
 
         FirebaseFirestore.getInstance()
                 .collection("peluquerias").document("5FBzk6ANkRsIzVZ4R6b0")
@@ -74,8 +77,18 @@ public class SeleccionServicioFragment extends DialogFragment {
 
             holder.binding.name.setText(servicio.getNombre());
 
-            holder.itemView.setOnClickListener(v -> {
-
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    for (int i = 0; i < servicioList.size(); i++) {
+                        if (servicioList.get(i).getNombre().equals(holder.binding.name.getText())) {
+                            appViewModel.servicioMutableLiveData.setValue(servicioList.get(i));
+                            break;
+                        }
+                    }
+                    System.out.println("Has elegido " + appViewModel.servicioMutableLiveData.getValue().getNombre());
+                    dismiss();
+                }
             });
 
         }

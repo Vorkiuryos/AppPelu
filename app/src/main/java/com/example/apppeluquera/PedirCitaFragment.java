@@ -46,6 +46,12 @@ public class PedirCitaFragment extends BaseFragment {
             nav.navigate(R.id.action_pedirCitaFragment_to_seleccionServicioFragment);
         });
 
+        appViewModel.servicioMutableLiveData.observe(getViewLifecycleOwner(), servicio -> {
+            if (servicio != null) {
+                binding.selectedHairdresser.setText(appViewModel.servicioMutableLiveData.getValue().getNombre());
+            }
+        });
+
 
 
 
