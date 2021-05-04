@@ -8,4 +8,9 @@ public class Fecha {
         this.month = month;
         this.day = day;
     }
+
+    @Override
+    public String toString() {
+        return day + "/" + month + "/" + year;
+    }
 }

@@ -4,16 +4,18 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TimePicker;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
+import androidx.fragment.app.DialogFragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.apppeluquera.databinding.FragmentSeleccionHoraBinding;
+import com.example.apppeluquera.model.Hora;
 
 
-public class SeleccionHoraFragment extends Fragment {
+public class SeleccionHoraFragment extends DialogFragment {
 
     private FragmentSeleccionHoraBinding binding;
     private AppViewModel appViewModel;
@@ -29,5 +31,12 @@ public class SeleccionHoraFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         appViewModel = new ViewModelProvider(requireActivity()).get(AppViewModel.class);
+
+        binding.timePicker.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
+            @Override
+            public void onTimeChanged(TimePicker view, int hourOfDay, int minute) {
+                appViewModel.horaMutableLiveData.setValue(new Hora(hourOfDay, minute));
+            }
+        });
     }
 }

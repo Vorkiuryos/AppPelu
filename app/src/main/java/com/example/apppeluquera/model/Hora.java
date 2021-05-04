@@ -7,4 +7,9 @@ public class Hora {
         this.hora = hora;
         this.minuto = minuto;
     }
+
+    @Override
+    public String toString() {
+        return hora +":"+ minuto;
+    }
 }

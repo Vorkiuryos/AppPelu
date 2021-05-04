@@ -33,22 +33,33 @@ public class PedirCitaFragment extends BaseFragment {
 
        appViewModel.fechaMutableLiveData.observe(getViewLifecycleOwner(), fecha -> {
            if(fecha != null){
+               binding.selectedDay.setText(fecha.toString());
                binding.selectHour.setImageResource(R.drawable.hour2);
                binding.selectedHour.setEnabled(true);
-
-               binding.selectHour.setOnClickListener(v -> {
-                   nav.navigate(R.id.action_pedirCitaFragment_to_seleccionHoraFragment);
-               });
            }
        });
 
+        binding.selectHour.setOnClickListener(v -> {
+            nav.navigate(R.id.action_pedirCitaFragment_to_seleccionHoraFragment);
+        });
+
+        appViewModel.horaMutableLiveData.observe(getViewLifecycleOwner(), hora -> {
+            if(hora != null){
+                binding.selectedHour.setText(hora.toString());
+                binding.selectHairdresser.setImageResource(R.drawable.hairdersser_icon2);
+                binding.selectedHairdresser.setEnabled(true);
+            }
+        });
+
         binding.selectHairdresser.setOnClickListener(v -> {
+            System.out.println("jsjsjs");
             nav.navigate(R.id.action_pedirCitaFragment_to_seleccionServicioFragment);
         });
 
         appViewModel.servicioMutableLiveData.observe(getViewLifecycleOwner(), servicio -> {
             if (servicio != null) {
                 binding.selectedHairdresser.setText(appViewModel.servicioMutableLiveData.getValue().getNombre());
+                binding.appointmentButton.setEnabled(true);
             }
         });
 

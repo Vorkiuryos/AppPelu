@@ -8,6 +8,7 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TimePicker;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -67,8 +68,12 @@ public class PedirCitaFragmentAntiguo extends BaseFragment {
                 int minute = c.get(Calendar.MINUTE);
 
                 tpd = new TimePickerDialog(requireContext(),
-                        (view12, hourOfDay, minute1) ->
-                                binding.selectedHour.setText(hourOfDay + ":" + minute1), hour, minute,false);
+                        new TimePickerDialog.OnTimeSetListener() {
+                            @Override
+                            public void onTimeSet(TimePicker view12, int hourOfDay, int minute1) {
+                                binding.selectedHour.setText(hourOfDay + ":" + minute1);
+                            }
+                        }, hour, minute,false);
                 tpd.show();
             }
 
