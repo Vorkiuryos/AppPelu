@@ -10,6 +10,7 @@ import androidx.annotation.Nullable;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.apppeluquera.databinding.FragmentPedirCitaBinding;
+import com.example.apppeluquera.model.Cita;
 
 public class PedirCitaFragment extends BaseFragment {
 
@@ -67,6 +68,10 @@ public class PedirCitaFragment extends BaseFragment {
 
 
         binding.appointmentButton.setOnClickListener(v -> {
+
+
+            Cita cita = new Cita(appViewModel.peluqueria, appViewModel.servicioMutableLiveData.getValue().getId(), auth.getCurrentUser().getUid(), appViewModel.fechaMutableLiveData.getValue(), appViewModel.horaMutableLiveData.getValue());
+            System.out.println(cita.toString());
 
         });
 

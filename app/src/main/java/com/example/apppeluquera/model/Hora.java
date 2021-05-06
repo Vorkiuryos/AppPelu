@@ -15,4 +15,12 @@ public class Hora {
         else if (minuto < 9) return hora + ":" + "0" + minuto;
         else return hora + ":" + minuto;
     }
+
+    public int getHora() {
+        return hora;
+    }
+
+    public int getMinuto() {
+        return minuto;
+    }
 }

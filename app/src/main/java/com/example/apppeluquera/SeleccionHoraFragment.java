@@ -37,6 +37,9 @@ public class SeleccionHoraFragment extends DialogFragment {
             public void onTimeChanged(TimePicker view, int hourOfDay, int minute) {
                 appViewModel.horaMutableLiveData.setValue(new Hora(hourOfDay, minute));
             }
+
         });
+
+
     }
 }

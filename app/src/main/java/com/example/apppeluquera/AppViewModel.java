@@ -9,6 +9,8 @@ import com.example.apppeluquera.model.Servicio;
 
 
 public class AppViewModel extends ViewModel {
+
+    String peluqueria = "5FBzk6ANkRsIzVZ4R6b0"; //TODO
     MutableLiveData<Fecha> fechaMutableLiveData = new MutableLiveData<>();
     MutableLiveData<Hora> horaMutableLiveData =  new MutableLiveData<>();
     MutableLiveData<Servicio> servicioMutableLiveData = new MutableLiveData<>();
