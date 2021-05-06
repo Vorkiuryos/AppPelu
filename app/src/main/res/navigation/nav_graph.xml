@@ -3,13 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/pedirCitaFragment">
+    app:startDestination="@id/menuFragment">
 
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.example.apppeluquera.LoginFragment"
         android:label="fragment_login"
-        tools:layout="@layout/fragment_login" >
+        tools:layout="@layout/fragment_login"
+        app:startDestination="@id/action_loginFragment_to_registrationOptionFragment">
         <action
             android:id="@+id/action_loginFragment_to_menuFragment"
             app:destination="@id/menuFragment" />

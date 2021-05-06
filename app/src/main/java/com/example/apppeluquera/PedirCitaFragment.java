@@ -73,6 +73,13 @@ public class PedirCitaFragment extends BaseFragment {
             Cita cita = new Cita(appViewModel.peluqueria, appViewModel.servicioMutableLiveData.getValue().getId(), auth.getCurrentUser().getUid(), appViewModel.fechaMutableLiveData.getValue(), appViewModel.horaMutableLiveData.getValue());
             System.out.println(cita.toString());
 
+            try {
+                getParentFragmentManager().beginTransaction().remove(this).commit();
+                nav.navigate(R.id.menuFragment);
+            } catch (Throwable e) {
+
+            }
+
         });
 
 

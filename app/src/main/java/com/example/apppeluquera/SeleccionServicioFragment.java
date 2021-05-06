@@ -52,7 +52,9 @@ public class SeleccionServicioFragment extends DialogFragment {
             public void onEvent(@Nullable QuerySnapshot snapshotPeluqueros, @Nullable FirebaseFirestoreException error) {
                 servicioList.clear();
                 for (DocumentSnapshot snapshotPeluquero : snapshotPeluqueros) {
-                    servicioList.add(snapshotPeluquero.toObject(Servicio.class));
+                    //servicioList.add(snapshotPeluquero.toObject(Servicio.class));
+                    servicioList.add(new Servicio(snapshotPeluquero.getId(), snapshotPeluquero.get("nombre").toString()));
+                    System.out.println(snapshotPeluquero.getId());
                 }
                 // mostrar en la consola, solo para verlo
                 servicioList.forEach(p -> System.out.println(p.getNombre()));

@@ -4,9 +4,10 @@ public class Servicio {
     String id;
     String nombre;
 
-    public Servicio(){}
+    //public Servicio(){}
 
-    public Servicio(String nombre) {
+    public Servicio(String id, String nombre) {
+        this.id = id;
         this.nombre = nombre;
     }
 
@@ -20,5 +21,6 @@ public class Servicio {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+
 
 }
