@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TimePicker;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -41,5 +40,7 @@ public class SeleccionHoraFragment extends DialogFragment {
         });
 
 
+        binding.timePicker.setOnTimeChangedListener((view1, hourOfDay, minute)
+                -> appViewModel.horaMutableLiveData.setValue(new Hora(hourOfDay, minute)));
     }
 }
