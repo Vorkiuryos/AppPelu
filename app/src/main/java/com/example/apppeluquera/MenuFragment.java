@@ -1,20 +1,14 @@
 package com.example.apppeluquera;
 
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.example.apppeluquera.databinding.FragmentMenuBinding;
-import com.example.apppeluquera.databinding.FragmentRegistrationBinding;
 
 public class MenuFragment extends BaseFragment {
 
@@ -33,7 +27,7 @@ public class MenuFragment extends BaseFragment {
         binding.button.setOnClickListener(view1 ->
                 nav.navigate(R.id.action_menuFragment_to_pedirCitaFragment));
         binding.button2.setOnClickListener(view12 ->
-                nav.navigate(R.id.action_menuFragment_to_productosFragment));
+                nav.navigate(R.id.action_menuFragment_to_pedirCitaFragment));
         binding.button3.setOnClickListener(view13 ->
                 nav.navigate(R.id.action_menuFragment_to_contactanosFragment));
 

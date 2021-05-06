@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/foto_pelu_editada"
+    tools:context=".InfoCitaFragment"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <TextView
+        android:id="@+id/nombrePeluqueria"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Peluqería nombre"
+        android:textSize="35dp"
+        android:textAlignment="center"
+        android:paddingTop="35dp"/>
+
+    <TextView
+        android:id="@+id/diaCita"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="12/12/2021"
+        android:textSize="25dp"
+        android:textAlignment="center"
+        android:paddingTop="10dp"/>
+
+    <TextView
+        android:id="@+id/horaCita"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="10:00"
+        android:textSize="25dp"
+        android:textAlignment="center"
+        android:paddingTop="10dp"/>
+
+    <TextView
+        android:id="@+id/serviciosCita"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cortar pelo, lavar pelo, tinte, arreglar cejas"
+        android:textSize="25dp"
+        android:textAlignment="center"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="10dp"/>
+
+    <Button
+        android:id="@+id/canelarCita"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_cancelarcita"
+        android:layout_marginTop="10dp"/>
+
+
+
+</LinearLayout>

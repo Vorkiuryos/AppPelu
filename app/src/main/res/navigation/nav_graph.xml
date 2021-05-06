@@ -32,6 +32,9 @@
         <action
             android:id="@+id/action_menuFragment_to_contactanosFragment"
             app:destination="@id/contactanosFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_consultDateFragment"
+            app:destination="@id/consultDateFragment" />
     </fragment>
     <fragment
         android:id="@+id/pedirCitaFragment"
@@ -102,4 +105,18 @@
         android:id="@+id/seleccionServicioFragment"
         android:name="com.example.apppeluquera.SeleccionServicioFragment"
         android:label="SeleccionServicioFragment" />
+    <fragment
+        android:id="@+id/consultDateFragment"
+        android:name="com.example.apppeluquera.ConsultDateFragment"
+        android:label="fragment_consult_date"
+        tools:layout="@layout/fragment_consult_date" >
+        <action
+            android:id="@+id/action_consultDateFragment_to_infoCitaFragment"
+            app:destination="@id/infoCitaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/infoCitaFragment"
+        android:name="com.example.apppeluquera.InfoCitaFragment"
+        android:label="fragment_info_cita"
+        tools:layout="@layout/fragment_info_cita" />
 </navigation>
