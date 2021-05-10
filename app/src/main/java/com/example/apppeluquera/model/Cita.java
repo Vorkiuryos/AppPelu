@@ -1,47 +1,81 @@
 package com.example.apppeluquera.model;
 
 public class Cita {
-    String id_peluqueria;
-    String id_servicio;
-    String id_usuario;
-    Fecha fecha;
-    Hora hora;
+  String fecha;
+  String idPeluqueria;
+  String idServicio;
+  String idUsuario;
+  String nombrePeluqueria;
+  String nombreServicio;
 
-    public Cita(String id_peluqueria, String id_servicio, String id_usuario, Fecha fecha, Hora hora) {
-        this.id_peluqueria = id_peluqueria;
-        this.id_servicio = id_servicio;
-        this.id_usuario = id_usuario;
-        this.fecha = fecha;
-        this.hora = hora;
-    }
+  public Cita(){}
 
-    @Override
-    public String toString() {
-        return "Cita{" +
-                "id_peluqueria='" + id_peluqueria + '\'' +
-                ", id_peluquero='" + id_servicio + '\'' +
-                ", id_usuario='" + id_usuario + '\'' +
-                ", fecha=" + fecha +
-                '}';
-    }
+  public Cita(String fecha, String idPeluqueria, String idServicio, String idUsuario, String nombrePeluqueria, String nombreServicio) {
+    this.fecha = fecha;
+    this.idPeluqueria = idPeluqueria;
+    this.idServicio = idServicio;
+    this.idUsuario = idUsuario;
+    this.nombrePeluqueria = nombrePeluqueria;
+    this.nombreServicio = nombreServicio;
+  }
 
-    public String getId_peluqueria() {
-        return id_peluqueria;
-    }
+  public String getFecha() {
+    return fecha;
+  }
 
-    public String getId_servicio() {
-        return id_servicio;
-    }
+  public void setFecha(String fecha) {
+    this.fecha = fecha;
+  }
 
-    public String getId_usuario() {
-        return id_usuario;
-    }
+  public String getIdPeluqueria() {
+    return idPeluqueria;
+  }
 
-    public Fecha getFecha() {
-        return fecha;
-    }
+  public void setIdPeluqueria(String idPeluqueria) {
+    this.idPeluqueria = idPeluqueria;
+  }
 
-    public Hora getHora() {
-        return hora;
-    }
+  public String getIdServicio() {
+    return idServicio;
+  }
+
+  public void setIdServicio(String idServicio) {
+    this.idServicio = idServicio;
+  }
+
+  public String getIdUsuario() {
+    return idUsuario;
+  }
+
+  public void setIdUsuario(String idUsuario) {
+    this.idUsuario = idUsuario;
+  }
+
+  public String getNombrePeluqueria() {
+    return nombrePeluqueria;
+  }
+
+  public void setNombrePeluqueria(String nombrePeluqueria) {
+    this.nombrePeluqueria = nombrePeluqueria;
+  }
+
+  public String getNombreServicio() {
+    return nombreServicio;
+  }
+
+  public void setNombreServicio(String nombreServicio) {
+    this.nombreServicio = nombreServicio;
+  }
+
+  @Override
+  public String toString() {
+    return "Cita{" +
+            "fecha='" + fecha + '\'' +
+            ", idPeluqueria='" + idPeluqueria + '\'' +
+            ", idServicio='" + idServicio + '\'' +
+            ", idUsuario='" + idUsuario + '\'' +
+            ", nombrePeluqueria='" + nombrePeluqueria + '\'' +
+            ", nombreServicio='" + nombreServicio + '\'' +
+            '}';
+  }
 }

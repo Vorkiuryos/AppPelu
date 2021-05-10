@@ -56,6 +56,7 @@ public class SeleccionServicioFragment extends DialogFragment {
                     servicioList.add(new Servicio(snapshotPeluquero.getId(), snapshotPeluquero.get("nombre").toString()));
                     System.out.println(snapshotPeluquero.getId());
                 }
+                pa.notifyDataSetChanged();
                 // mostrar en la consola, solo para verlo
                 servicioList.forEach(p -> System.out.println(p.getNombre()));
             }
