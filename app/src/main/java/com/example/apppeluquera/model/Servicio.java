@@ -4,7 +4,7 @@ public class Servicio {
     String id;
     String nombre;
 
-    //public Servicio(){}
+    public Servicio(){}
 
     public Servicio(String id, String nombre) {
         this.id = id;
