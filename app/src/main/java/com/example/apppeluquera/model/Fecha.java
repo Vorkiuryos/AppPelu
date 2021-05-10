@@ -13,4 +13,16 @@ public class Fecha {
     public String toString() {
         return day + "/" + month + "/" + year;
     }
+
+    public int getYear() {
+        return year;
+    }
+
+    public int getMonth() {
+        return month;
+    }
+
+    public int getDay() {
+        return day;
+    }
 }

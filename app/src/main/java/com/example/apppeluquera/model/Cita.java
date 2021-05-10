@@ -24,4 +24,24 @@ public class Cita {
                 ", fecha=" + fecha +
                 '}';
     }
+
+    public String getId_peluqueria() {
+        return id_peluqueria;
+    }
+
+    public String getId_servicio() {
+        return id_servicio;
+    }
+
+    public String getId_usuario() {
+        return id_usuario;
+    }
+
+    public Fecha getFecha() {
+        return fecha;
+    }
+
+    public Hora getHora() {
+        return hora;
+    }
 }

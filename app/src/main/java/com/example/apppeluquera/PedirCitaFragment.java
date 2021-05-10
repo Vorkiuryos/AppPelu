@@ -12,6 +12,12 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.apppeluquera.databinding.FragmentPedirCitaBinding;
 import com.example.apppeluquera.model.Cita;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+
 public class PedirCitaFragment extends BaseFragment {
 
     private FragmentPedirCitaBinding binding;
@@ -73,6 +79,28 @@ public class PedirCitaFragment extends BaseFragment {
             Cita cita = new Cita(appViewModel.peluqueria, appViewModel.servicioMutableLiveData.getValue().getId(), auth.getCurrentUser().getUid(), appViewModel.fechaMutableLiveData.getValue(), appViewModel.horaMutableLiveData.getValue());
             System.out.println(cita.toString());
 
+            //System.out.println(auth.getCurrentUser().getUid());
+
+            try {
+                String date = cita.getFecha().getDay() + "/" + cita.getFecha().getMonth() + "/" + cita.getFecha().getYear() + " "
+                        + (cita.getHora().getHora() - 2) + ":" + cita.getHora().getMinuto();
+                Date dateSend = new SimpleDateFormat("dd/MM/yyyy HH:mm").parse(date);
+                //Timestamp fechats =
+
+            Map<String, Object> data = new HashMap<>();
+            data.put("id_peluqueria", appViewModel.peluqueria);
+            data.put("nombre_peluqueria", appViewModel.nombrepeluqueria);
+            data.put("id_servicio", appViewModel.servicioMutableLiveData.getValue().getId());
+            data.put("nombre_servicio", appViewModel.servicioMutableLiveData.getValue().getNombre());
+            data.put("id_usuario", auth.getCurrentUser().getUid());
+            data.put("fecha", dateSend);
+
+            db.collection("users").document(auth.getUid()).collection("citas").add(data);
+
+            } catch (ParseException e) {
+            }
+
+
             try {
                 getParentFragmentManager().beginTransaction().remove(this).commit();
                 nav.navigate(R.id.menuFragment);
@@ -81,7 +109,6 @@ public class PedirCitaFragment extends BaseFragment {
             }
 
         });
-
 
     }
 }
