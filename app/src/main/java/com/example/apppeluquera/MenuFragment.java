@@ -25,7 +25,7 @@ public class MenuFragment extends BaseFragment {
         super.onViewCreated(view, savedInstanceState);
 
         binding.button.setOnClickListener(view1 ->
-                nav.navigate(R.id.action_menuFragment_to_pedirCitaFragment));
+                nav.navigate(R.id.action_menuFragment_to_seleccionPeluqueriaFragment));
         binding.button2.setOnClickListener(view12 ->
                 nav.navigate(R.id.action_menuFragment_to_consultDateFragment));
         binding.button3.setOnClickListener(view13 ->

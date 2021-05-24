@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/loginFragment">
+    app:startDestination="@id/menuFragment">
 
     <fragment
         android:id="@+id/loginFragment"
@@ -24,9 +24,6 @@
         android:label="fragment_menu"
         tools:layout="@layout/fragment_menu" >
         <action
-            android:id="@+id/action_menuFragment_to_pedirCitaFragment"
-            app:destination="@id/pedirCitaFragment" />
-        <action
             android:id="@+id/action_menuFragment_to_productosFragment"
             app:destination="@id/productosFragment" />
         <action
@@ -35,6 +32,9 @@
         <action
             android:id="@+id/action_menuFragment_to_consultDateFragment"
             app:destination="@id/consultDateFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_seleccionPeluqueriaFragment"
+            app:destination="@id/seleccionPeluqueriaFragment" />
     </fragment>
     <fragment
         android:id="@+id/pedirCitaFragment"
@@ -118,9 +118,14 @@
         android:id="@+id/infoCitaFragment"
         android:name="com.example.apppeluquera.InfoCitaFragment"
         android:label="fragment_info_cita"
-        tools:layout="@layout/fragment_info_cita" >
+        tools:layout="@layout/fragment_info_cita" />
+    <fragment
+        android:id="@+id/seleccionPeluqueriaFragment"
+        android:name="com.example.apppeluquera.SeleccionPeluqueriaFragment"
+        android:label="fragment_seleccion_peluqueria"
+        tools:layout="@layout/fragment_seleccion_peluqueria" >
         <action
-            android:id="@+id/action_infoCitaFragment_to_consultDateFragment"
-            app:destination="@id/consultDateFragment" />
+            android:id="@+id/action_seleccionPeluqueriaFragment2_to_pedirCitaFragment"
+            app:destination="@id/pedirCitaFragment" />
     </fragment>
 </navigation>

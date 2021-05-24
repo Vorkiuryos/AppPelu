@@ -38,6 +38,7 @@
     <string name="boton_mascarillas">Cremas y mascarillas</string>
     <string name="boton_productosvarios">Productos varios</string>
     <string name="textview_appointment">Tus citas</string>
+    <string name="textview_SeleccionPeluqueria">Peluquerías disponibles</string>
     <string name="button_cancelarcita">Cancelar cita</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
