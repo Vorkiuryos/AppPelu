@@ -52,8 +52,12 @@ public class SeleccionPeluqueriaFragment extends BaseFragment {
                     public void onEvent(@Nullable QuerySnapshot snapshotPeluquerias, @Nullable FirebaseFirestoreException error) {
                         peluquerias.clear();
                         for(DocumentSnapshot snapshotPeluqueria : snapshotPeluquerias){
-                            peluquerias.add(new Peluqueria(snapshotPeluqueria.getString("nombre"),
-                                    (snapshotPeluqueria.getString("direccion"))));
+
+                            Peluqueria peluqueria = new Peluqueria(snapshotPeluqueria.getString("nombre"),
+                                    (snapshotPeluqueria.getString("direccion")));
+                            peluqueria.setId(snapshotPeluqueria.getId());
+
+                            peluquerias.add(peluqueria);
                         }
                         pa.notifyDataSetChanged();
                     }
@@ -76,6 +80,11 @@ public class SeleccionPeluqueriaFragment extends BaseFragment {
 
             holder.binding.nombrePeluqueria.setText(peluqueria.getNombre());
             holder.binding.direccionPeluqueria.setText(peluqueria.getDireccion());
+
+            holder.itemView.setOnClickListener(v -> {
+                appViewModel.peluqueriaMutableLiveData.setValue(peluqueria);
+                nav.navigate(R.id.pedirCitaFragment);
+            });
 
         }
 
