@@ -85,7 +85,7 @@ public class SeleccionPeluqueriaFragment extends BaseFragment {
         }
     }
 
-    private class SeleccionPeluqueriaViewHolder extends RecyclerView.ViewHolder{
+    class SeleccionPeluqueriaViewHolder extends RecyclerView.ViewHolder{
         ViewholderSeleccionPeluqueriaBinding binding;
         public SeleccionPeluqueriaViewHolder(@NonNull @NotNull ViewholderSeleccionPeluqueriaBinding binding) {
             super(binding.getRoot());
