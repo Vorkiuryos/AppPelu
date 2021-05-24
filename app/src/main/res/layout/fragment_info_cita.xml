@@ -12,10 +12,10 @@
         android:id="@+id/nombrePeluqueria"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Peluqería nombre"
-        android:textSize="35dp"
+        android:paddingTop="35dp"
+        android:text="Peluquería nombre"
         android:textAlignment="center"
-        android:paddingTop="35dp"/>
+        android:textSize="35dp" />
 
     <TextView
         android:id="@+id/diaCita"

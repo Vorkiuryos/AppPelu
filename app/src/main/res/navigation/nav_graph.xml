@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/menuFragment">
+    app:startDestination="@id/loginFragment">
 
     <fragment
         android:id="@+id/loginFragment"
@@ -118,5 +118,9 @@
         android:id="@+id/infoCitaFragment"
         android:name="com.example.apppeluquera.InfoCitaFragment"
         android:label="fragment_info_cita"
-        tools:layout="@layout/fragment_info_cita" />
+        tools:layout="@layout/fragment_info_cita" >
+        <action
+            android:id="@+id/action_infoCitaFragment_to_consultDateFragment"
+            app:destination="@id/consultDateFragment" />
+    </fragment>
 </navigation>

@@ -1,6 +1,8 @@
 package com.example.apppeluquera.model;
 
 public class Cita {
+
+  String id;
   String fecha;
   String idPeluqueria;
   String idServicio;
@@ -17,6 +19,14 @@ public class Cita {
     this.idUsuario = idUsuario;
     this.nombrePeluqueria = nombrePeluqueria;
     this.nombreServicio = nombreServicio;
+  }
+
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
   }
 
   public String getFecha() {

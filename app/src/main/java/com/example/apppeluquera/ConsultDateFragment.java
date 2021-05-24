@@ -49,12 +49,16 @@ public class ConsultDateFragment extends BaseFragment {
             public void onEvent(@Nullable QuerySnapshot snapshotCitas, @Nullable FirebaseFirestoreException error) {
                 citasList.clear();
                 for(DocumentSnapshot snapshotCita : snapshotCitas){
-                    citasList.add(new Cita(snapshotCita.get("fecha").toString(),
+
+                    Cita cita = new Cita(snapshotCita.get("fecha").toString(),
                             snapshotCita.getString("id_peluqueria"),
                             snapshotCita.getString("id_servicio"),
                             snapshotCita.getString("id_usuario"),
                             snapshotCita.getString("nombre_peluqueria"),
-                            snapshotCita.getString("nombre_servicio")));
+                            snapshotCita.getString("nombre_servicio"));
+                    cita.setId(snapshotCita.getId());
+                    citasList.add(cita);
+
                 }
                 pa.notifyDataSetChanged();
             }
@@ -77,6 +81,11 @@ public class ConsultDateFragment extends BaseFragment {
 
             holder.binding.nombrePeluqueria.setText(cita.getNombrePeluqueria());
             holder.binding.diaHoraCita.setText(cita.getFecha());
+
+            holder.itemView.setOnClickListener(v -> {
+                appViewModel.citaMutableLiveData.setValue(cita);
+                nav.navigate(R.id.action_consultDateFragment_to_infoCitaFragment);
+            });
         }
 
         @Override
