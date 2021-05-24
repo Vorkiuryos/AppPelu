@@ -4,6 +4,7 @@ public class Cita {
 
   String id;
   String fecha;
+  String hora;
   String idPeluqueria;
   String idServicio;
   String idUsuario;
@@ -27,6 +28,14 @@ public class Cita {
 
   public void setId(String id) {
     this.id = id;
+  }
+
+  public String getHora() {
+    return hora;
+  }
+
+  public void setHora(String hora) {
+    this.hora = hora;
   }
 
   public String getFecha() {

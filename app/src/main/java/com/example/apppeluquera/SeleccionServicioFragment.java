@@ -46,7 +46,7 @@ public class SeleccionServicioFragment extends DialogFragment {
         appViewModel = new ViewModelProvider(requireActivity()).get(AppViewModel.class);
 
         FirebaseFirestore.getInstance()
-                .collection("peluquerias").document("5FBzk6ANkRsIzVZ4R6b0")
+                .collection("peluquerias").document(appViewModel.peluqueriaMutableLiveData.getValue().getId())
                 .collection("servicios").addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
             public void onEvent(@Nullable QuerySnapshot snapshotPeluqueros, @Nullable FirebaseFirestoreException error) {
@@ -54,7 +54,7 @@ public class SeleccionServicioFragment extends DialogFragment {
                 for (DocumentSnapshot snapshotPeluquero : snapshotPeluqueros) {
                     //servicioList.add(snapshotPeluquero.toObject(Servicio.class));
                     servicioList.add(new Servicio(snapshotPeluquero.getId(), snapshotPeluquero.get("nombre").toString()));
-                    System.out.println(snapshotPeluquero.getId());
+                    //System.out.println(snapshotPeluquero.getId());
                 }
                 pa.notifyDataSetChanged();
                 // mostrar en la consola, solo para verlo

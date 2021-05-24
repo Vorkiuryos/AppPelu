@@ -25,7 +25,12 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.text.Format;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 
@@ -48,7 +53,38 @@ public class SeleccionHoraFragment extends DialogFragment {
         SelecionHoraAdapter sa = new SelecionHoraAdapter();
         appViewModel = new ViewModelProvider(requireActivity()).get(AppViewModel.class);
 
-        //FirebaseFirestore.getInstance()
+        String diaSemana = "";
+
+        try {
+            Date date = new SimpleDateFormat("dd/MM/yyyy").parse(appViewModel.fechaStringPreview.getValue());
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(date);
+
+            Format f = new SimpleDateFormat("EEEE");
+            diaSemana = f.format(date);
+
+        } catch (ParseException e) {
+        }
+
+        FirebaseFirestore.getInstance()
+                .collection("peluquerias").document(appViewModel.peluqueriaMutableLiveData.getValue().getId()).collection("horarios").document(diaSemana).addSnapshotListener(new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot snapshotPeluqueria, @Nullable FirebaseFirestoreException error) {
+                horas.clear();
+                //horas.add(new Hora(snapshotPeluqueria.get()));
+
+                String recibePlano = snapshotPeluqueria.get("horas").toString();
+                recibePlano = recibePlano.substring(1,recibePlano.length()-1);
+                String[] arrayHoras = recibePlano.split(", ");
+
+                for (int i = 0; i < arrayHoras.length; i++) {
+                    horas.add(new Hora(arrayHoras[i]));
+                }
+                sa.notifyDataSetChanged();
+
+
+            }
+        });
 
 
         binding.recyclerView.setAdapter(sa);

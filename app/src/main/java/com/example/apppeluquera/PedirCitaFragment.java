@@ -40,6 +40,8 @@ public class PedirCitaFragment extends BaseFragment {
        appViewModel.fechaMutableLiveData.observe(getViewLifecycleOwner(), fecha -> {
            if(fecha != null){
                binding.selectedDay.setText(fecha.toString());
+               appViewModel.fechaStringPreview.setValue(fecha.toString());
+
                binding.selectHour.setImageResource(R.drawable.hour2);
                binding.selectedHour.setEnabled(true);
            }
@@ -51,7 +53,7 @@ public class PedirCitaFragment extends BaseFragment {
 
         appViewModel.horaMutableLiveData.observe(getViewLifecycleOwner(), hora -> {
             if(hora != null){
-                binding.selectedHour.setText(hora.toString());
+                binding.selectedHour.setText(hora.getHora());
                 binding.selectHairdresser.setImageResource(R.drawable.hairdersser_icon2);
                 binding.selectedHairdresser.setEnabled(true);
             }
@@ -74,27 +76,24 @@ public class PedirCitaFragment extends BaseFragment {
 
         binding.appointmentButton.setOnClickListener(v -> {
 
-            try {
-                String date = appViewModel.fechaMutableLiveData.getValue().getDay() + "/"
-                        + appViewModel.fechaMutableLiveData.getValue().getMonth() + "/"
-                        + appViewModel.fechaMutableLiveData.getValue().getYear() + " "
-                        + (appViewModel.horaMutableLiveData.getValue().getHora() - 2) + ":"
-                        + appViewModel.horaMutableLiveData.getValue().getMinuto();
+            String date = appViewModel.fechaMutableLiveData.getValue().getDay() + "/"
+                    + appViewModel.fechaMutableLiveData.getValue().getMonth() + "/"
+                    + appViewModel.fechaMutableLiveData.getValue().getYear();
+            String hour = appViewModel.horaMutableLiveData.getValue().getHora().substring(0,2) + ":"
+                    + appViewModel.horaMutableLiveData.getValue().getHora().substring(2,2);
 
-                Date dateSend = new SimpleDateFormat("dd/MM/yyyy HH:mm").parse(date);
+            //Date dateSend = new SimpleDateFormat("dd/MM/yyyy HH:mm").parse(date);
 
-                Map<String, Object> data = new HashMap<>();
-                data.put("id_peluqueria", appViewModel.peluqueriaMutableLiveData.getValue().getId());
-                data.put("nombre_peluqueria", appViewModel.peluqueriaMutableLiveData.getValue().getNombre());
-                data.put("id_servicio", appViewModel.servicioMutableLiveData.getValue().getId());
-                data.put("nombre_servicio", appViewModel.servicioMutableLiveData.getValue().getNombre());
-                data.put("id_usuario", auth.getCurrentUser().getUid());
-                data.put("fecha", dateSend);
+            Map<String, Object> data = new HashMap<>();
+            data.put("id_peluqueria", appViewModel.peluqueriaMutableLiveData.getValue().getId());
+            data.put("nombre_peluqueria", appViewModel.peluqueriaMutableLiveData.getValue().getNombre());
+            data.put("id_servicio", appViewModel.servicioMutableLiveData.getValue().getId());
+            data.put("nombre_servicio", appViewModel.servicioMutableLiveData.getValue().getNombre());
+            data.put("id_usuario", auth.getCurrentUser().getUid());
+            data.put("fecha", date);
+            data.put("hora", hour);
 
-                db.collection("users").document(auth.getUid()).collection("citas").add(data);
-
-            } catch (ParseException e) {
-            }
+            db.collection("users").document(auth.getUid()).collection("citas").add(data);
 
 
             try {
