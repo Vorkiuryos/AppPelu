@@ -39,7 +39,7 @@ public class InfoCitaFragment extends BaseFragment {
         binding.canelarCita.setOnClickListener(v -> {
             //TODO Comprobación de si quieres borrar realmente la cita
             db.collection("users").document(auth.getUid()).collection("citas").document(appViewModel.citaMutableLiveData.getValue().getId()).delete();
-            nav.navigate(R.id.action_infoCitaFragment_to_consultDateFragment);
+            nav.navigate(R.id.consultDateFragment);
 
         });
 
