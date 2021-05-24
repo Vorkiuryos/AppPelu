@@ -84,8 +84,8 @@ public class PedirCitaFragment extends BaseFragment {
                 Date dateSend = new SimpleDateFormat("dd/MM/yyyy HH:mm").parse(date);
 
                 Map<String, Object> data = new HashMap<>();
-                data.put("id_peluqueria", appViewModel.peluqueria);
-                data.put("nombre_peluqueria", appViewModel.nombrepeluqueria);
+                data.put("id_peluqueria", appViewModel.peluqueriaMutableLiveData.getValue().getId());
+                data.put("nombre_peluqueria", appViewModel.peluqueriaMutableLiveData.getValue().getNombre());
                 data.put("id_servicio", appViewModel.servicioMutableLiveData.getValue().getId());
                 data.put("nombre_servicio", appViewModel.servicioMutableLiveData.getValue().getNombre());
                 data.put("id_usuario", auth.getCurrentUser().getUid());
