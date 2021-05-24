@@ -40,6 +40,11 @@
     <string name="textview_appointment">Tus citas</string>
     <string name="textview_SeleccionPeluqueria">Peluquerías disponibles</string>
     <string name="button_cancelarcita">Cancelar cita</string>
+    <string name="button_gestionarCita">Gestionar citas</string>
+    <string name="button_gestionarHorario">Gestionar horarios</string>
+    <string name="button_gestionarInfo">Gestionar Información</string>
+    <string name="button_gestionarExpo">Expositor de artículos</string>
+    <string name="gestionar_cita_text">Citas</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

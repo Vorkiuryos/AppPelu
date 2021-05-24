@@ -10,16 +10,18 @@ public class Cita {
   String idUsuario;
   String nombrePeluqueria;
   String nombreServicio;
+  String nombreCliente;
 
   public Cita(){}
 
-  public Cita(String fecha, String idPeluqueria, String idServicio, String idUsuario, String nombrePeluqueria, String nombreServicio) {
+  public Cita(String fecha, String idPeluqueria, String idServicio, String idUsuario, String nombrePeluqueria, String nombreServicio, String nombreCliente) {
     this.fecha = fecha;
     this.idPeluqueria = idPeluqueria;
     this.idServicio = idServicio;
     this.idUsuario = idUsuario;
     this.nombrePeluqueria = nombrePeluqueria;
     this.nombreServicio = nombreServicio;
+    this.nombreCliente = nombreCliente;
   }
 
   public String getId() {
@@ -86,15 +88,25 @@ public class Cita {
     this.nombreServicio = nombreServicio;
   }
 
+  public String getNombreCliente() {
+    return nombreCliente;
+  }
+
+  public void setNombreCliente(String nombreCliente) {
+    this.nombreCliente = nombreCliente;
+  }
+
   @Override
   public String toString() {
     return "Cita{" +
-            "fecha='" + fecha + '\'' +
+            "id='" + id + '\'' +
+            ", fecha='" + fecha + '\'' +
             ", idPeluqueria='" + idPeluqueria + '\'' +
             ", idServicio='" + idServicio + '\'' +
             ", idUsuario='" + idUsuario + '\'' +
             ", nombrePeluqueria='" + nombrePeluqueria + '\'' +
             ", nombreServicio='" + nombreServicio + '\'' +
+            ", nombreCliente='" + nombreCliente + '\'' +
             '}';
   }
 }

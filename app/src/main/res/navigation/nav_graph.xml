@@ -17,6 +17,9 @@
         <action
             android:id="@+id/action_loginFragment_to_registrationOptionFragment"
             app:destination="@id/registrationOptionFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_menuNegocioFragment"
+            app:destination="@id/menuNegocioFragment" />
     </fragment>
     <fragment
         android:id="@+id/menuFragment"
@@ -132,5 +135,23 @@
         android:id="@+id/menuNegocioFragment"
         android:name="com.example.apppeluquera.MenuNegocioFragment"
         android:label="fragment_menu_negocio"
-        tools:layout="@layout/fragment_menu_negocio" />
+        tools:layout="@layout/fragment_menu_negocio" >
+        <action
+            android:id="@+id/action_menuNegocioFragment_to_gestionarCitaFragment"
+            app:destination="@id/gestionarCitaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/gestionarCitaFragment"
+        android:name="com.example.apppeluquera.GestionarCitaFragment"
+        android:label="fragment_gestionar_cita"
+        tools:layout="@layout/fragment_gestionar_cita" >
+        <action
+            android:id="@+id/action_gestionarCitaFragment_to_gestionInfoCitaFragment"
+            app:destination="@id/gestionInfoCitaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/gestionInfoCitaFragment"
+        android:name="com.example.apppeluquera.GestionInfoCitaFragment"
+        android:label="fragment_gestion_info_cita"
+        tools:layout="@layout/fragment_gestion_info_cita" />
 </navigation>

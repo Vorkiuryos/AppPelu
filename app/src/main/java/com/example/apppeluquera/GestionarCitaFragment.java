@@ -1,14 +1,16 @@
 package com.example.apppeluquera;
 
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import com.example.apppeluquera.databinding.FragmentConsultDateBinding;
 import com.example.apppeluquera.databinding.ViewholderCitaBinding;
@@ -24,7 +26,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class ConsultDateFragment extends BaseFragment {
+public class GestionarCitaFragment extends BaseFragment {
 
     private FragmentConsultDateBinding binding;
     private AppViewModel appViewModel;
@@ -42,31 +44,31 @@ public class ConsultDateFragment extends BaseFragment {
         CitasAdapter pa = new CitasAdapter();
         appViewModel = new ViewModelProvider(requireActivity()).get(AppViewModel.class);
 
-        db.collection("users").document(auth.getUid())
+        db.collection("peluquerias").document(auth.getUid())
                 .collection("citas")
                 .addSnapshotListener(new EventListener<QuerySnapshot>() {
-            @Override
-            public void onEvent(@Nullable QuerySnapshot snapshotCitas, @Nullable FirebaseFirestoreException error) {
-                citasList.clear();
-                for(DocumentSnapshot snapshotCita : snapshotCitas){
+                    @Override
+                    public void onEvent(@Nullable QuerySnapshot snapshotCitas, @Nullable FirebaseFirestoreException error) {
+                        citasList.clear();
+                        for(DocumentSnapshot snapshotCita : snapshotCitas){
 
-                    Cita cita = new Cita(snapshotCita.get("fecha").toString(),
-                            snapshotCita.getString("id_peluqueria"),
-                            snapshotCita.getString("id_servicio"),
-                            snapshotCita.getString("id_usuario"),
-                            snapshotCita.getString("nombre_peluqueria"),
-                            snapshotCita.getString("nombre_servicio"),
-                            snapshotCita.getString("nombre_cliente"));
-                    cita.setId(snapshotCita.getId());
-                    citasList.add(cita);
+                            Cita cita = new Cita(snapshotCita.get("fecha").toString(),
+                                    snapshotCita.getString("id_peluqueria"),
+                                    snapshotCita.getString("id_servicio"),
+                                    snapshotCita.getString("id_usuario"),
+                                    snapshotCita.getString("nombre_peluqueria"),
+                                    snapshotCita.getString("nombre_servicio"),
+                                    snapshotCita.getString("nombre_cliente")); //TODO
+                            cita.setId(snapshotCita.getId());
+                            citasList.add(cita);
 
-                }
-                pa.notifyDataSetChanged();
-            }
-        });
+                        }
+                        pa.notifyDataSetChanged();
+                    }
+                });
 
         binding.recyclerView.setAdapter(pa);
-}
+    }
 
     private class CitasAdapter extends RecyclerView.Adapter<CitaViewHolder> {
 
