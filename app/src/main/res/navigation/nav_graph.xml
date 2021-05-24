@@ -128,4 +128,9 @@
             android:id="@+id/action_seleccionPeluqueriaFragment2_to_pedirCitaFragment"
             app:destination="@id/pedirCitaFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/menuNegocioFragment"
+        android:name="com.example.apppeluquera.MenuNegocioFragment"
+        android:label="fragment_menu_negocio"
+        tools:layout="@layout/fragment_menu_negocio" />
 </navigation>

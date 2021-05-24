@@ -15,8 +15,7 @@ public class MenuFragment extends BaseFragment {
     private FragmentMenuBinding binding;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return (binding = FragmentMenuBinding.inflate(inflater, container, false)).getRoot();
     }
 

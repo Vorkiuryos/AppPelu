@@ -77,6 +77,7 @@ public class SeleccionPeluqueriaFragment extends BaseFragment {
             holder.binding.nombrePeluqueria.setText(peluqueria.getNombre());
             holder.binding.direccionPeluqueria.setText(peluqueria.getDireccion());
 
+
         }
 
         @Override
