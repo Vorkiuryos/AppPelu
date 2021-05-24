@@ -10,6 +10,8 @@ import androidx.annotation.Nullable;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.apppeluquera.databinding.FragmentPedirCitaBinding;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.DocumentReference;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -91,8 +93,16 @@ public class PedirCitaFragment extends BaseFragment {
             data.put("id_usuario", auth.getCurrentUser().getUid());
             data.put("fecha", date);
             data.put("hora", hour);
+            data.put("nombre_cliente", auth.getCurrentUser().getDisplayName());
 
-            db.collection("users").document(auth.getUid()).collection("citas").add(data);
+
+            db.collection("users").document(auth.getUid()).collection("citas").add(data).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                @Override
+                public void onSuccess(DocumentReference documentReference) {
+                    String citaId = documentReference.getId();
+                    db.collection("peluquerias").document(appViewModel.peluqueriaMutableLiveData.getValue().getId()).collection("citas").document(citaId).set(data);
+                }
+            });
 
 
             try {
