@@ -139,6 +139,9 @@
         <action
             android:id="@+id/action_menuNegocioFragment_to_gestionarCitaFragment"
             app:destination="@id/gestionarCitaFragment" />
+        <action
+            android:id="@+id/action_menuNegocioFragment_to_gestionarHorariosFragment"
+            app:destination="@id/gestionarHorariosFragment" />
     </fragment>
     <fragment
         android:id="@+id/gestionarCitaFragment"
@@ -154,4 +157,27 @@
         android:name="com.example.apppeluquera.GestionInfoCitaFragment"
         android:label="fragment_gestion_info_cita"
         tools:layout="@layout/fragment_gestion_info_cita" />
+    <fragment
+        android:id="@+id/gestionarHorariosFragment"
+        android:name="com.example.apppeluquera.GestionarHorariosFragment"
+        android:label="fragment_gestionar_horarios"
+        tools:layout="@layout/fragment_gestionar_horarios" >
+        <action
+            android:id="@+id/action_gestionarHorariosFragment_to_horarioSemanalFragment"
+            app:destination="@id/horarioSemanalFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/horarioSemanalFragment"
+        android:name="com.example.apppeluquera.HorarioSemanalFragment"
+        android:label="fragment_horario_semanal"
+        tools:layout="@layout/fragment_horario_semanal" >
+        <action
+            android:id="@+id/action_horarioSemanalFragment_to_addHoraFragment"
+            app:destination="@id/addHoraFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addHoraFragment"
+        android:name="com.example.apppeluquera.AddHoraFragment"
+        android:label="fragment_add_hora"
+        tools:layout="@layout/fragment_add_hora" />
 </navigation>
