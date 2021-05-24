@@ -30,8 +30,8 @@ public class InfoCitaFragment extends BaseFragment {
         appViewModel = new ViewModelProvider(requireActivity()).get(AppViewModel.class);
 
         binding.nombrePeluqueria.setText(appViewModel.citaMutableLiveData.getValue().getNombrePeluqueria());
-        binding.diaCita.setText("TEST/TEST/TEST");
-        binding.horaCita.setText("TEST : TEST");
+        binding.diaCita.setText(appViewModel.citaMutableLiveData.getValue().getFecha());
+        binding.horaCita.setText(appViewModel.citaMutableLiveData.getValue().getHora());
         binding.serviciosCita.setText(appViewModel.citaMutableLiveData.getValue().getNombreServicio());
 
         binding.canelarCita.setOnClickListener(v -> {

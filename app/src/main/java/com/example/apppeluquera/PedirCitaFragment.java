@@ -79,8 +79,7 @@ public class PedirCitaFragment extends BaseFragment {
             String date = appViewModel.fechaMutableLiveData.getValue().getDay() + "/"
                     + appViewModel.fechaMutableLiveData.getValue().getMonth() + "/"
                     + appViewModel.fechaMutableLiveData.getValue().getYear();
-            String hour = appViewModel.horaMutableLiveData.getValue().getHora().substring(0,2) + ":"
-                    + appViewModel.horaMutableLiveData.getValue().getHora().substring(2,2);
+            String hour = appViewModel.horaMutableLiveData.getValue().getHora();
 
             //Date dateSend = new SimpleDateFormat("dd/MM/yyyy HH:mm").parse(date);
 

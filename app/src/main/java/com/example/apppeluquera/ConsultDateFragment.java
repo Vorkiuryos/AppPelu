@@ -51,6 +51,7 @@ public class ConsultDateFragment extends BaseFragment {
                 for(DocumentSnapshot snapshotCita : snapshotCitas){
 
                     Cita cita = new Cita(snapshotCita.get("fecha").toString(),
+                            snapshotCita.getString("hora"),
                             snapshotCita.getString("id_peluqueria"),
                             snapshotCita.getString("id_servicio"),
                             snapshotCita.getString("id_usuario"),
