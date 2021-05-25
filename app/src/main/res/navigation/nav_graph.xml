@@ -180,12 +180,19 @@
         <action
             android:id="@+id/action_horarioSemanalFragment_to_addHoraFragment"
             app:destination="@id/addHoraFragment" />
+        <action
+            android:id="@+id/action_horarioSemanalFragment_to_eliminarHoraFragment"
+            app:destination="@id/eliminarHoraFragment" />
     </fragment>
     <fragment
         android:id="@+id/addHoraFragment"
         android:name="com.example.apppeluquera.AddHoraFragment"
         android:label="fragment_add_hora"
-        tools:layout="@layout/fragment_add_hora" />
+        tools:layout="@layout/fragment_add_hora" >
+        <action
+            android:id="@+id/action_addHoraFragment_to_seleccionarHorasFragment"
+            app:destination="@id/seleccionarHorasFragment" />
+    </fragment>
     <fragment
         android:id="@+id/gestionarInfoFragment"
         android:name="com.example.apppeluquera.GestionarInfoFragment"
@@ -195,5 +202,32 @@
         android:id="@+id/addServicioFragment"
         android:name="com.example.apppeluquera.AddServicioFragment"
         android:label="fragment_add_servicio"
-        tools:layout="@layout/fragment_add_servicio" />
+        tools:layout="@layout/fragment_add_servicio" >
+        <action
+            android:id="@+id/action_addServicioFragment_to_addServicio2Fragment"
+            app:destination="@id/addServicio2Fragment" />
+        <action
+            android:id="@+id/action_addServicioFragment_to_eliminarServicioFragment"
+            app:destination="@id/eliminarServicioFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addServicio2Fragment"
+        android:name="com.example.apppeluquera.AddServicio2Fragment"
+        android:label="fragment_add_servicio2"
+        tools:layout="@layout/fragment_add_servicio2" />
+    <fragment
+        android:id="@+id/eliminarHoraFragment"
+        android:name="com.example.apppeluquera.EliminarHoraFragment"
+        android:label="fragment_eliminar_hora"
+        tools:layout="@layout/fragment_eliminar_hora" />
+    <fragment
+        android:id="@+id/eliminarServicioFragment"
+        android:name="com.example.apppeluquera.EliminarServicioFragment"
+        android:label="fragment_eliminar_servicio"
+        tools:layout="@layout/fragment_eliminar_servicio" />
+    <fragment
+        android:id="@+id/seleccionarHorasFragment"
+        android:name="com.example.apppeluquera.SeleccionarHorasFragment"
+        android:label="fragment_seleccionar_horas"
+        tools:layout="@layout/fragment_seleccionar_horas" />
 </navigation>

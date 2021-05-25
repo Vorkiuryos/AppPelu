@@ -7,7 +7,8 @@
     android:layout_height="match_parent"
     android:backgroundTint="@color/black"
     tools:context=".SeleccionHoraFragment"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/black">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
