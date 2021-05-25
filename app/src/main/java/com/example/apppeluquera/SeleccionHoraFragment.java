@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -73,14 +74,18 @@ public class SeleccionHoraFragment extends DialogFragment {
                 horas.clear();
                 //horas.add(new Hora(snapshotPeluqueria.get()));
 
-                String recibePlano = snapshotPeluqueria.get("horas").toString();
-                recibePlano = recibePlano.substring(1,recibePlano.length()-1);
-                String[] arrayHoras = recibePlano.split(", ");
+                try {
+                    String recibePlano = snapshotPeluqueria.get("horas").toString();
+                    recibePlano = recibePlano.substring(1, recibePlano.length() - 1);
+                    String[] arrayHoras = recibePlano.split(", ");
 
-                for (int i = 0; i < arrayHoras.length; i++) {
-                    horas.add(new Hora(arrayHoras[i]));
+                    for (int i = 0; i < arrayHoras.length; i++) {
+                        horas.add(new Hora(arrayHoras[i]));
+                    }
+                    sa.notifyDataSetChanged();
+                } catch (Exception e) {
+                    dismiss();
                 }
-                sa.notifyDataSetChanged();
 
 
             }
