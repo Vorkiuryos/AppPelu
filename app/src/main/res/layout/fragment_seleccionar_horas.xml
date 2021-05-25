@@ -143,7 +143,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="@string/_12"
+                android:text="@string/h_12"
                 android:textSize="24sp"
                 android:textColor="@color/white"
                 android:padding="16dp"/>
