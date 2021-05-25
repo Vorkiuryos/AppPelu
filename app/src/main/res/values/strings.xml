@@ -55,6 +55,10 @@
     <string name="sabado">Sábado</string>
     <string name="domingo">Domingo</string>
     <string name="añadir_horas">Añadir horas</string>
+    <string name="añadir_servicio">Añadir servicio</string>
+    <string name="hint_direcccion">Calle Ejemplo 123, Ciudad</string>
+    <string name="hint_num_telf">987654321</string>
+    <string name="hint_descripcion">Explica lo que quieras sobre tu negocio, da avisos o explica cosas.</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

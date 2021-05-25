@@ -142,6 +142,12 @@
         <action
             android:id="@+id/action_menuNegocioFragment_to_gestionarHorariosFragment"
             app:destination="@id/gestionarHorariosFragment" />
+        <action
+            android:id="@+id/action_menuNegocioFragment_to_gestionarInfoFragment"
+            app:destination="@id/gestionarInfoFragment" />
+        <action
+            android:id="@+id/action_menuNegocioFragment_to_addServicioFragment"
+            app:destination="@id/addServicioFragment" />
     </fragment>
     <fragment
         android:id="@+id/gestionarCitaFragment"
@@ -180,4 +186,14 @@
         android:name="com.example.apppeluquera.AddHoraFragment"
         android:label="fragment_add_hora"
         tools:layout="@layout/fragment_add_hora" />
+    <fragment
+        android:id="@+id/gestionarInfoFragment"
+        android:name="com.example.apppeluquera.GestionarInfoFragment"
+        android:label="fragment_gestionar_info"
+        tools:layout="@layout/fragment_gestionar_info" />
+    <fragment
+        android:id="@+id/addServicioFragment"
+        android:name="com.example.apppeluquera.AddServicioFragment"
+        android:label="fragment_add_servicio"
+        tools:layout="@layout/fragment_add_servicio" />
 </navigation>

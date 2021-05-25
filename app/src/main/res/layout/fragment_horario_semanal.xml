@@ -15,6 +15,7 @@
         tools:context=".MenuNegocioFragment"
         android:background="@drawable/foto_pelu_editada"
         android:orientation="vertical"
+        android:padding="16dp"
         android:gravity="center">
 
         <androidx.cardview.widget.CardView
