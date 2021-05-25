@@ -65,7 +65,7 @@ public class LoginFragment extends BaseFragment {
                                                 nav.navigate(R.id.action_loginFragment_to_menuFragment);
                                             } else if (document.get("type").equals("business")) {
                                                 System.out.println("Login como business");
-                                                //nav.navigate(R.id.action_loginFragment_to_menuFragment);
+                                                nav.navigate(R.id.action_loginFragment_to_menuNegocioFragment);
                                             }
                                         }
                                     }

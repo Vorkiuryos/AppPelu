@@ -14,7 +14,9 @@ import android.widget.Toast;
 import com.example.apppeluquera.databinding.FragmentAdminRegistrationBinding;
 import com.example.apppeluquera.databinding.FragmentRegistrationBinding;
 import com.example.apppeluquera.model.User;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.firestore.DocumentReference;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -63,7 +65,14 @@ public class AdminRegistrationFragment extends BaseFragment {
                 Toast.makeText(requireContext(), "successful", Toast.LENGTH_SHORT).show();
                 nav.navigate(R.id.action_adminRegistrationFragment_to_loginFragment);
 
+                Map<String, Object> data = new HashMap<>();
+                data.put("nombre", username);
+
+
+                db.collection("peluquerias").document(auth.getUid()).set(data);
+
                 db.collection("users").document(auth.getCurrentUser().getUid()).set(new User("business"));
+
 
                 auth.getCurrentUser().updateProfile(
                         new UserProfileChangeRequest.Builder()
