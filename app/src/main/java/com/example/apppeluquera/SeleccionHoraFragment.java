@@ -33,6 +33,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 
 public class SeleccionHoraFragment extends DialogFragment {
@@ -61,7 +62,8 @@ public class SeleccionHoraFragment extends DialogFragment {
             Calendar calendar = Calendar.getInstance();
             calendar.setTime(date);
 
-            Format f = new SimpleDateFormat("EEEE");
+            Locale spanish = new Locale("es", "ES");
+            Format f = new SimpleDateFormat("EEEE", spanish);
             diaSemana = f.format(date);
 
         } catch (ParseException e) {
