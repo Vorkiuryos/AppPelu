@@ -19,7 +19,7 @@
         android:gravity="center">
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/_07"
+            android:id="@+id/h_07"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:cardCornerRadius="15dp"
@@ -33,7 +33,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="@string/_07"
+                android:text="@string/h_07"
                 android:textSize="24sp"
                 android:textColor="@color/white"
                 android:padding="16dp"/>
@@ -41,7 +41,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/_08"
+            android:id="@+id/h_08"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:cardCornerRadius="15dp"
@@ -55,7 +55,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="@string/_08"
+                android:text="@string/h_08"
                 android:textSize="24sp"
                 android:textColor="@color/white"
                 android:padding="16dp"/>
@@ -63,7 +63,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/_09"
+            android:id="@+id/h_09"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:cardCornerRadius="15dp"
@@ -77,7 +77,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="@string/_09"
+                android:text="@string/h_09"
                 android:textSize="24sp"
                 android:textColor="@color/white"
                 android:padding="16dp"/>
@@ -85,7 +85,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/_10"
+            android:id="@+id/h_10"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:cardCornerRadius="15dp"
@@ -99,7 +99,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="@string/_10"
+                android:text="@string/h_10"
                 android:textSize="24sp"
                 android:textColor="@color/white"
                 android:padding="16dp"/>
@@ -107,7 +107,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/_11"
+            android:id="@+id/h_11"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:cardCornerRadius="15dp"
@@ -121,7 +121,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="@string/_11"
+                android:text="@string/h_11"
                 android:textSize="24sp"
                 android:textColor="@color/white"
                 android:padding="16dp"/>
@@ -151,7 +151,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/_13"
+            android:id="@+id/h_13"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:cardCornerRadius="15dp"
@@ -165,7 +165,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="@string/_13"
+                android:text="@string/h_13"
                 android:textSize="24sp"
                 android:textColor="@color/white"
                 android:padding="16dp"/>
@@ -173,7 +173,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/_14"
+            android:id="@+id/h_14"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:cardCornerRadius="15dp"
@@ -187,7 +187,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="@string/_14"
+                android:text="@string/h_14"
                 android:textSize="24sp"
                 android:textColor="@color/white"
                 android:padding="16dp"/>
@@ -195,7 +195,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/_15"
+            android:id="@+id/h_15"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:cardCornerRadius="15dp"
@@ -209,7 +209,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="@string/_15"
+                android:text="@string/h_15"
                 android:textSize="24sp"
                 android:textColor="@color/white"
                 android:padding="16dp"/>
@@ -217,7 +217,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/_16"
+            android:id="@+id/h_16"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:cardCornerRadius="15dp"
@@ -231,7 +231,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="@string/_16"
+                android:text="@string/h_16"
                 android:textSize="24sp"
                 android:textColor="@color/white"
                 android:padding="16dp"/>
@@ -239,7 +239,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/_17"
+            android:id="@+id/h_17"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:cardCornerRadius="15dp"
@@ -253,7 +253,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="@string/_17"
+                android:text="@string/h_17"
                 android:textSize="24sp"
                 android:textColor="@color/white"
                 android:padding="16dp"/>
@@ -261,7 +261,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/_18"
+            android:id="@+id/h_18"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:cardCornerRadius="15dp"
@@ -275,7 +275,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="@string/_18"
+                android:text="@string/h_18"
                 android:textSize="24sp"
                 android:textColor="@color/white"
                 android:padding="16dp"/>
@@ -283,7 +283,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/_19"
+            android:id="@+id/h_19"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:cardCornerRadius="15dp"
@@ -297,7 +297,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="@string/_19"
+                android:text="@string/h_19"
                 android:textSize="24sp"
                 android:textColor="@color/white"
                 android:padding="16dp"/>
@@ -305,7 +305,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/_20"
+            android:id="@+id/h_20"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:cardCornerRadius="15dp"
@@ -319,7 +319,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="@string/_20"
+                android:text="@string/h_20"
                 android:textSize="24sp"
                 android:textColor="@color/white"
                 android:padding="16dp"/>
@@ -327,7 +327,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/_21"
+            android:id="@+id/h_21"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:cardCornerRadius="15dp"
@@ -341,7 +341,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="@string/_21"
+                android:text="@string/h_21"
                 android:textSize="24sp"
                 android:textColor="@color/white"
                 android:padding="16dp"/>
