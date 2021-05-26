@@ -82,7 +82,7 @@ public class ConsultDateFragment extends BaseFragment {
             Cita cita = citasList.get(position);
 
             holder.binding.nombrePeluqueria.setText(cita.getNombrePeluqueria());
-            holder.binding.diaHoraCita.setText(cita.getFecha());
+            holder.binding.diaHoraCita.setText(cita.getFecha() + " " + cita.getHora());
 
             holder.itemView.setOnClickListener(v -> {
                 appViewModel.citaMutableLiveData.setValue(cita);

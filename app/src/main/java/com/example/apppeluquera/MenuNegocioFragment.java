@@ -55,7 +55,7 @@ public class MenuNegocioFragment extends BaseFragment {
             }
         });
 
-        binding.expositorArtículos.setOnClickListener(new View.OnClickListener() {
+        binding.expositorArticulos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //TODO

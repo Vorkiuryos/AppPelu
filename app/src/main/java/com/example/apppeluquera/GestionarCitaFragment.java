@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.apppeluquera.databinding.FragmentConsultDateBinding;
+import com.example.apppeluquera.databinding.FragmentGestionarCitaBinding;
 import com.example.apppeluquera.databinding.ViewholderCitaBinding;
 import com.example.apppeluquera.model.Cita;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -28,13 +29,13 @@ import java.util.List;
 
 public class GestionarCitaFragment extends BaseFragment {
 
-    private FragmentConsultDateBinding binding;
+    private FragmentGestionarCitaBinding binding;
     private AppViewModel appViewModel;
     List<Cita> citasList = new ArrayList<>();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return (binding = FragmentConsultDateBinding.inflate(inflater, container, false)).getRoot();
+        return (binding = FragmentGestionarCitaBinding.inflate(inflater, container, false)).getRoot();
     }
 
     @Override
@@ -59,7 +60,7 @@ public class GestionarCitaFragment extends BaseFragment {
                                     snapshotCita.getString("id_usuario"),
                                     snapshotCita.getString("nombre_peluqueria"),
                                     snapshotCita.getString("nombre_servicio"),
-                                    snapshotCita.getString("nombre_cliente")); //TODO
+                                    snapshotCita.getString("nombre_cliente"));
                             cita.setId(snapshotCita.getId());
                             citasList.add(cita);
 
@@ -83,12 +84,12 @@ public class GestionarCitaFragment extends BaseFragment {
         public void onBindViewHolder(@NonNull @NotNull CitaViewHolder holder, int position) {
             Cita cita = citasList.get(position);
 
-            holder.binding.nombrePeluqueria.setText(cita.getNombrePeluqueria());
-            holder.binding.diaHoraCita.setText(cita.getFecha());
+            holder.binding.nombrePeluqueria.setText(cita.getNombreCliente());
+            holder.binding.diaHoraCita.setText(cita.getFecha() + " " + cita.getHora());
 
             holder.itemView.setOnClickListener(v -> {
                 appViewModel.citaMutableLiveData.setValue(cita);
-                nav.navigate(R.id.action_consultDateFragment_to_infoCitaFragment);
+                nav.navigate(R.id.action_gestionarCitaFragment_to_gestionInfoCitaFragment);
             });
         }
 

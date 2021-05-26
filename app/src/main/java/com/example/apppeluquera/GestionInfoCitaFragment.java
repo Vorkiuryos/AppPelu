@@ -31,14 +31,15 @@ public class GestionInfoCitaFragment extends BaseFragment {
 
         appViewModel = new ViewModelProvider(requireActivity()).get(AppViewModel.class);
 
-        binding.nombreCliente.setText(appViewModel.citaMutableLiveData.getValue().getNombrePeluqueria());
-        binding.diaCita.setText("TEST/TEST/TEST");
-        binding.horaCita.setText("TEST : TEST");
+        binding.nombreCliente.setText(appViewModel.citaMutableLiveData.getValue().getNombreCliente());
+        binding.diaCita.setText(appViewModel.citaMutableLiveData.getValue().getFecha());
+        binding.horaCita.setText(appViewModel.citaMutableLiveData.getValue().getHora());
         binding.serviciosCita.setText(appViewModel.citaMutableLiveData.getValue().getNombreServicio());
 
         binding.canelarCita.setOnClickListener(v -> {
             //TODO Comprobación de si quieres borrar realmente la cita
-            db.collection("users").document(auth.getUid()).collection("citas").document(appViewModel.citaMutableLiveData.getValue().getId()).delete();
+            db.collection("peluquerias").document(appViewModel.citaMutableLiveData.getValue().getIdPeluqueria()).collection("citas").document(appViewModel.citaMutableLiveData.getValue().getId()).delete();
+            db.collection("users").document(appViewModel.citaMutableLiveData.getValue().getIdUsuario()).collection("citas").document(appViewModel.citaMutableLiveData.getValue().getId()).delete();
             nav.navigate(R.id.consultDateFragment);
 
         });
