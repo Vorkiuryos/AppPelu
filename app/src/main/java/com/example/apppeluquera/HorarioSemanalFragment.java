@@ -51,7 +51,7 @@ public class HorarioSemanalFragment extends BaseFragment {
         binding.miercoles.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                appViewModel.diaHorarioString.setValue("miercoles");
+                appViewModel.diaHorarioString.setValue("miércoles");
                 nav.navigate(R.id.action_horarioSemanalFragment_to_addHoraFragment);
             }
         });
@@ -75,7 +75,7 @@ public class HorarioSemanalFragment extends BaseFragment {
         binding.sabado.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                appViewModel.diaHorarioString.setValue("sabado");
+                appViewModel.diaHorarioString.setValue("sábado");
                 nav.navigate(R.id.action_horarioSemanalFragment_to_addHoraFragment);
             }
         });
