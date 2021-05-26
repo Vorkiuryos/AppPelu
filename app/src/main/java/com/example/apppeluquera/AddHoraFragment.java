@@ -105,13 +105,10 @@ public class AddHoraFragment extends BaseFragment {
             holder.binding.hora.setText(hora.getHora());
 
             holder.itemView.setOnClickListener(v -> {
-                for (int i = 0; i < horas.size(); i++) {
-                    if (horas.get(i).getHora().equals(holder.binding.hora.getText())) {
-                        appViewModel.horaMutableLiveData.setValue(horas.get(i));
 
-                        nav.navigate(R.id.eliminarHoraFragment);
-                    }
-                }
+                appViewModel.horaMutableLiveData.setValue(hora);
+                nav.navigate(R.id.eliminarHoraFragment);
+
             });
         }
 

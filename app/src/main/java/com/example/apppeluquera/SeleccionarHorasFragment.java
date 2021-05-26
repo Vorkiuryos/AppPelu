@@ -85,7 +85,6 @@ public class SeleccionarHorasFragment extends BaseFragment {
 
                         db.collection("peluquerias").document(auth.getUid()).collection("horarios").document(appViewModel.diaHorarioString.getValue()).update("horas", FieldValue.arrayUnion(appViewModel.horaMutableLiveData.getValue().getHora()));
 
-                        FragmentManager fm = getActivity().getSupportFragmentManager();
                         nav.navigate(R.id.addHoraFragment);
                     }
                 }
