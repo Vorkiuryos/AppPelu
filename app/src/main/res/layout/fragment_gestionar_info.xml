@@ -34,7 +34,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:textColor="@color/black"
-                android:hint="@string/hint_direcccion"
                 android:textColorHint="@color/light_gray_2"/>
 
         </androidx.cardview.widget.CardView>
@@ -55,7 +54,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:textColor="@color/black"
-                android:hint="@string/hint_num_telf"
                 android:textColorHint="@color/light_gray_2"/>
 
         </androidx.cardview.widget.CardView>
@@ -76,7 +74,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:textColor="@color/black"
-                android:hint="@string/hint_descripcion"
                 android:textColorHint="@color/light_gray_2"/>
 
         </androidx.cardview.widget.CardView>
