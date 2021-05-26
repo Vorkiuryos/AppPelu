@@ -26,7 +26,19 @@ public class GestionarHorariosFragment extends BaseFragment {
         super.onViewCreated(view, savedInstanceState);
 
 
+        binding.horarioSemanal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                nav.navigate(R.id.action_gestionarHorariosFragment_to_horarioSemanalFragment);
+            }
+        });
 
+        binding.horarioVacacional.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //TODO
+            }
+        });
 
     }
 }
