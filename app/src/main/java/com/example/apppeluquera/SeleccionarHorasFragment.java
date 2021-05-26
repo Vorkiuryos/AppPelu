@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -18,6 +19,7 @@ import com.example.apppeluquera.databinding.ViewholderSeleccionHoraBinding;
 import com.example.apppeluquera.model.Hora;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 
@@ -51,7 +53,7 @@ public class SeleccionarHorasFragment extends BaseFragment {
        SeleccionarHorasAdapter sa = new SeleccionarHorasAdapter();
        appViewModel = new ViewModelProvider(requireActivity()).get(AppViewModel.class);
 
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < 3; i++) {
             horas.add(new Hora("0"+(i+7)+":00"));
         }
         for (int i = 0; i < 11; i++) {
@@ -80,7 +82,11 @@ public class SeleccionarHorasFragment extends BaseFragment {
                 for (int i = 0; i < horas.size(); i++) {
                     if (horas.get(i).getHora().equals(holder.binding.hora.getText())) {
                         appViewModel.horaMutableLiveData.setValue(horas.get(i));
-                        break;
+
+                        db.collection("peluquerias").document(auth.getUid()).collection("horarios").document(appViewModel.diaHorarioString.getValue()).update("horas", FieldValue.arrayUnion(appViewModel.horaMutableLiveData.getValue().getHora()));
+
+                        FragmentManager fm = getActivity().getSupportFragmentManager();
+                        nav.navigate(R.id.addHoraFragment);
                     }
                 }
             });

@@ -69,9 +69,23 @@ public class AdminRegistrationFragment extends BaseFragment {
                 data.put("nombre", username);
 
 
+                //Generacion User-login
+                db.collection("users").document(auth.getCurrentUser().getUid()).set(new User("business"));
+
+                //Generacion de la información de la peluqueria en la BD
                 db.collection("peluquerias").document(auth.getUid()).set(data);
 
-                db.collection("users").document(auth.getCurrentUser().getUid()).set(new User("business"));
+                //Horarios
+                Map<String, Object> nullData = new HashMap<>();
+                nullData.put("creation", null);
+
+                db.collection("peluquerias").document(auth.getUid()).collection("horarios").document("lunes").set(nullData);
+                db.collection("peluquerias").document(auth.getUid()).collection("horarios").document("martes").set(nullData);
+                db.collection("peluquerias").document(auth.getUid()).collection("horarios").document("miércoles").set(nullData);
+                db.collection("peluquerias").document(auth.getUid()).collection("horarios").document("jueves").set(nullData);
+                db.collection("peluquerias").document(auth.getUid()).collection("horarios").document("viernes").set(nullData);
+                db.collection("peluquerias").document(auth.getUid()).collection("horarios").document("sábado").set(nullData);
+                db.collection("peluquerias").document(auth.getUid()).collection("horarios").document("domingo").set(nullData);
 
 
                 auth.getCurrentUser().updateProfile(

@@ -56,21 +56,9 @@ public class AddHoraFragment extends BaseFragment {
 
         String diaSemana = "";
 
-        try {
-            Date date = new SimpleDateFormat("dd/MM/yyyy").parse(appViewModel.fechaStringPreview.getValue());
-            Calendar calendar = Calendar.getInstance();
-            calendar.setTime(date);
-
-            Locale spanish = new Locale("es", "ES");
-            Format f = new SimpleDateFormat("EEEE", spanish);
-            diaSemana = f.format(date);
-
-        } catch (ParseException e) {
-        }
-
         FirebaseFirestore.getInstance()
                 .collection("peluquerias").document(auth.getUid())
-                .collection("horarios").document(diaSemana).addSnapshotListener(new EventListener<DocumentSnapshot>() {
+                .collection("horarios").document(appViewModel.diaHorarioString.getValue()).addSnapshotListener(new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable DocumentSnapshot snapshotHorarios, @Nullable FirebaseFirestoreException error) {
                 horas.clear();
@@ -91,6 +79,14 @@ public class AddHoraFragment extends BaseFragment {
         });
 
         binding.recyclerView.setAdapter(ha);
+
+
+        binding.buttonNuevaHora.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                nav.navigate(R.id.action_addHoraFragment_to_seleccionarHorasFragment);
+            }
+        });
     }
 
     private class AddHoraAdapter extends RecyclerView.Adapter<AddHoraViewHolder>{
@@ -112,7 +108,8 @@ public class AddHoraFragment extends BaseFragment {
                 for (int i = 0; i < horas.size(); i++) {
                     if (horas.get(i).getHora().equals(holder.binding.hora.getText())) {
                         appViewModel.horaMutableLiveData.setValue(horas.get(i));
-                        break;
+
+                        nav.navigate(R.id.eliminarHoraFragment);
                     }
                 }
             });

@@ -35,56 +35,56 @@ public class HorarioSemanalFragment extends BaseFragment {
         binding.lunes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                nav.navigate(R.id.action_horarioSemanalFragment_to_addHoraFragment);
                 appViewModel.diaHorarioString.setValue("lunes");
+                nav.navigate(R.id.action_horarioSemanalFragment_to_addHoraFragment);
             }
         });
 
         binding.martes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                nav.navigate(R.id.action_horarioSemanalFragment_to_addHoraFragment);
                 appViewModel.diaHorarioString.setValue("martes");
+                nav.navigate(R.id.action_horarioSemanalFragment_to_addHoraFragment);
             }
         });
 
         binding.miercoles.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                nav.navigate(R.id.action_horarioSemanalFragment_to_addHoraFragment);
                 appViewModel.diaHorarioString.setValue("miercoles");
+                nav.navigate(R.id.action_horarioSemanalFragment_to_addHoraFragment);
             }
         });
 
         binding.jueves.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                nav.navigate(R.id.action_horarioSemanalFragment_to_addHoraFragment);
                 appViewModel.diaHorarioString.setValue("jueves");
+                nav.navigate(R.id.action_horarioSemanalFragment_to_addHoraFragment);
             }
         });
 
         binding.viernes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                nav.navigate(R.id.action_horarioSemanalFragment_to_addHoraFragment);
                 appViewModel.diaHorarioString.setValue("viernes");
+                nav.navigate(R.id.action_horarioSemanalFragment_to_addHoraFragment);
             }
         });
 
         binding.sabado.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                nav.navigate(R.id.action_horarioSemanalFragment_to_addHoraFragment);
                 appViewModel.diaHorarioString.setValue("sabado");
+                nav.navigate(R.id.action_horarioSemanalFragment_to_addHoraFragment);
             }
         });
 
         binding.domingo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                nav.navigate(R.id.action_horarioSemanalFragment_to_addHoraFragment);
                 appViewModel.diaHorarioString.setValue("domingo");
+                nav.navigate(R.id.action_horarioSemanalFragment_to_addHoraFragment);
             }
         });
 
