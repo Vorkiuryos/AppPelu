@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +18,8 @@ import com.example.apppeluquera.databinding.FragmentHorarioSemanalBinding;
 public class HorarioSemanalFragment extends BaseFragment {
 
     private FragmentHorarioSemanalBinding binding;
+    private AppViewModel appViewModel;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -27,10 +30,13 @@ public class HorarioSemanalFragment extends BaseFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        appViewModel = new ViewModelProvider(requireActivity()).get(AppViewModel.class);
+
         binding.lunes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 nav.navigate(R.id.action_horarioSemanalFragment_to_addHoraFragment);
+                appViewModel.diaHorarioString.setValue("lunes");
             }
         });
 
@@ -38,6 +44,7 @@ public class HorarioSemanalFragment extends BaseFragment {
             @Override
             public void onClick(View v) {
                 nav.navigate(R.id.action_horarioSemanalFragment_to_addHoraFragment);
+                appViewModel.diaHorarioString.setValue("martes");
             }
         });
 
@@ -45,6 +52,7 @@ public class HorarioSemanalFragment extends BaseFragment {
             @Override
             public void onClick(View v) {
                 nav.navigate(R.id.action_horarioSemanalFragment_to_addHoraFragment);
+                appViewModel.diaHorarioString.setValue("miercoles");
             }
         });
 
@@ -52,6 +60,7 @@ public class HorarioSemanalFragment extends BaseFragment {
             @Override
             public void onClick(View v) {
                 nav.navigate(R.id.action_horarioSemanalFragment_to_addHoraFragment);
+                appViewModel.diaHorarioString.setValue("jueves");
             }
         });
 
@@ -59,6 +68,7 @@ public class HorarioSemanalFragment extends BaseFragment {
             @Override
             public void onClick(View v) {
                 nav.navigate(R.id.action_horarioSemanalFragment_to_addHoraFragment);
+                appViewModel.diaHorarioString.setValue("viernes");
             }
         });
 
@@ -66,6 +76,7 @@ public class HorarioSemanalFragment extends BaseFragment {
             @Override
             public void onClick(View v) {
                 nav.navigate(R.id.action_horarioSemanalFragment_to_addHoraFragment);
+                appViewModel.diaHorarioString.setValue("sabado");
             }
         });
 
@@ -73,6 +84,7 @@ public class HorarioSemanalFragment extends BaseFragment {
             @Override
             public void onClick(View v) {
                 nav.navigate(R.id.action_horarioSemanalFragment_to_addHoraFragment);
+                appViewModel.diaHorarioString.setValue("domingo");
             }
         });
 
