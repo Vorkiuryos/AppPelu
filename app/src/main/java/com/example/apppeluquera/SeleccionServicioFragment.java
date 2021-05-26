@@ -47,20 +47,14 @@ public class SeleccionServicioFragment extends DialogFragment {
 
         FirebaseFirestore.getInstance()
                 .collection("peluquerias").document(appViewModel.peluqueriaMutableLiveData.getValue().getId())
-                .collection("servicios").addSnapshotListener(new EventListener<QuerySnapshot>() {
-            @Override
-            public void onEvent(@Nullable QuerySnapshot snapshotPeluqueros, @Nullable FirebaseFirestoreException error) {
-                servicioList.clear();
-                for (DocumentSnapshot snapshotPeluquero : snapshotPeluqueros) {
-                    //servicioList.add(snapshotPeluquero.toObject(Servicio.class));
-                    servicioList.add(new Servicio(snapshotPeluquero.getId(), snapshotPeluquero.get("nombre").toString()));
-                    //System.out.println(snapshotPeluquero.getId());
-                }
-                pa.notifyDataSetChanged();
-                // mostrar en la consola, solo para verlo
-                servicioList.forEach(p -> System.out.println(p.getNombre()));
-            }
-        });
+                .collection("servicios").addSnapshotListener((snapshotServicios, error) -> {
+                    servicioList.clear();
+                    for (DocumentSnapshot snapshotServicio : snapshotServicios) {
+                        servicioList.add(new Servicio(snapshotServicio.getId(), snapshotServicio.get("nombre").toString()));
+                    }
+                    pa.notifyDataSetChanged();
+                    servicioList.forEach(p -> System.out.println(p.getNombre()));
+                });
 
         binding.recyclerView.setAdapter(pa);
     }
@@ -87,7 +81,6 @@ public class SeleccionServicioFragment extends DialogFragment {
                         break;
                     }
                 }
-                //System.out.println("Has elegido " + appViewModel.servicioMutableLiveData.getValue().getNombre());
                 dismiss();
             });
 
