@@ -2,63 +2,101 @@ package com.example.apppeluquera;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link SeleccionarHorasFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class SeleccionarHorasFragment extends Fragment {
+import com.example.apppeluquera.databinding.FragmentAddHoraBinding;
+import com.example.apppeluquera.databinding.FragmentSeleccionarHorasBinding;
+import com.example.apppeluquera.databinding.ViewholderSeleccionHoraBinding;
+import com.example.apppeluquera.model.Hora;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+import org.jetbrains.annotations.NotNull;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+import java.text.Format;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+import java.util.Locale;
 
-    public SeleccionarHorasFragment() {
-        // Required empty public constructor
-    }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment SeleccionarHorasFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static SeleccionarHorasFragment newInstance(String param1, String param2) {
-        SeleccionarHorasFragment fragment = new SeleccionarHorasFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
+public class SeleccionarHorasFragment extends BaseFragment {
+
+    private FragmentSeleccionarHorasBinding binding;
+    private AppViewModel appViewModel;
+    List<Hora> horas = new ArrayList<>();
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        return (binding = FragmentSeleccionarHorasBinding.inflate(inflater, container, false)).getRoot();
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+       SeleccionarHorasAdapter sa = new SeleccionarHorasAdapter();
+       appViewModel = new ViewModelProvider(requireActivity()).get(AppViewModel.class);
+
+        for (int i = 0; i < 2; i++) {
+            horas.add(new Hora("0"+(i+7)+":00"));
+        }
+        for (int i = 0; i < 11; i++) {
+            horas.add(new Hora((i+10)+":00"));
+        }
+
+
+       binding.recyclerView.setAdapter(sa);
+    }
+
+    private class SeleccionarHorasAdapter extends RecyclerView.Adapter<SeleccionarHorasViewHolder>{
+
+        @NonNull
+        @Override
+        public SeleccionarHorasViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            return new SeleccionarHorasViewHolder(ViewholderSeleccionHoraBinding.inflate(getLayoutInflater(), parent, false));
+        }
+
+        @Override
+        public void onBindViewHolder(@NonNull SeleccionarHorasViewHolder holder, int position) {
+            Hora hora = horas.get(position);
+
+            holder.binding.hora.setText(hora.getHora());
+
+            holder.itemView.setOnClickListener(v -> {
+                for (int i = 0; i < horas.size(); i++) {
+                    if (horas.get(i).getHora().equals(holder.binding.hora.getText())) {
+                        appViewModel.horaMutableLiveData.setValue(horas.get(i));
+                        break;
+                    }
+                }
+            });
+        }
+
+        @Override
+        public int getItemCount() {
+            return horas == null ? 0 : horas.size();
         }
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_seleccionar_horas, container, false);
+    class SeleccionarHorasViewHolder extends RecyclerView.ViewHolder{
+        ViewholderSeleccionHoraBinding binding;
+        public SeleccionarHorasViewHolder(@NonNull @NotNull ViewholderSeleccionHoraBinding binding) {
+            super(binding.getRoot());
+            this.binding = binding;
+        }
     }
 }
