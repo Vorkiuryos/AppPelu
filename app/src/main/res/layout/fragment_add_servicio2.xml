@@ -23,7 +23,7 @@
         android:backgroundTint="@color/white">
 
         <EditText
-            android:id="@+id/edit_direccion"
+            android:id="@+id/new_servicio"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:textColor="@color/black"
@@ -33,7 +33,7 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/button_edit_info"
+        android:id="@+id/button_add_servicio"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardCornerRadius="15dp"
