@@ -11,7 +11,7 @@
     android:gravity="center">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/gestionar_info"
+        android:id="@+id/horario_semanal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardCornerRadius="15dp"
@@ -44,7 +44,7 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/expositor_artículos"
+        android:id="@+id/horario_vacacional"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardCornerRadius="15dp"
