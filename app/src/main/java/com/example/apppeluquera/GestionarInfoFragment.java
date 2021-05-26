@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.apppeluquera.databinding.FragmentGestionarHorariosBinding;
 import com.example.apppeluquera.databinding.FragmentGestionarInfoBinding;
@@ -34,6 +35,10 @@ public class GestionarInfoFragment extends BaseFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        binding.editDireccion.setHint("Calle Ejemplo 123, Ciudad");
+        binding.editNumTelf.setHint("623456789");
+        binding.editDescripcion.setHint("Explica lo que quieras sobre tu negocio, da avisos o explica cosas.");
+
         DocumentReference docRef = db.collection("peluquerias").document(auth.getUid());
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
@@ -41,14 +46,33 @@ public class GestionarInfoFragment extends BaseFragment {
                 if (task.isSuccessful()) {
                     DocumentSnapshot document = task.getResult();
                     try {
-                        binding.editDireccion.setText("Lol");
-                        binding.editDireccion.setText(document.getString("telefono"));
-                        binding.editDescripcion.setText(document.getString("descripcion"));
+                        if (!document.getString("direccion").isEmpty()) {
+                            binding.editDireccion.setText(document.getString("direccion"));
+                        }
+                        if (!document.getString("telefono").isEmpty()) {
+                            binding.editNumTelf.setText(document.getString("telefono"));
+                        }
+                        if (!document.getString("descripcion").isEmpty()) {
+                            binding.editDescripcion.setText(document.getString("descripcion"));
+                        }
+
+
+
                     } catch (Exception e){
                     }
 
                 } else {
                 }
+            }
+        });
+
+        binding.buttonEditInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                db.collection("peluquerias").document(auth.getUid()).update("direccion", binding.editDireccion.getText().toString());
+                db.collection("peluquerias").document(auth.getUid()).update("telefono", binding.editNumTelf.getText().toString());
+                db.collection("peluquerias").document(auth.getUid()).update("descripcion", binding.editDescripcion.getText().toString());
+                Toast.makeText(requireContext(), "Información actualizada", Toast.LENGTH_SHORT).show();
             }
         });
 
