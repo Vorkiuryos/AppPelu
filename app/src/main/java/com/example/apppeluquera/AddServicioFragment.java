@@ -50,10 +50,18 @@ public class AddServicioFragment extends BaseFragment {
                         servicios.add(new Servicio(snapshotServicio.getId(), snapshotServicio.get("nombre").toString()));
                     }
                     pa.notifyDataSetChanged();
-                    servicios.forEach(p -> System.out.println(p.getNombre()));
+                    //servicios.forEach(p -> System.out.println(p.getNombre()));
                 });
 
         binding.recyclerView.setAdapter(pa);
+
+        binding.buttonNuevoServicio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                nav.navigate(R.id.action_addServicioFragment_to_addServicio2Fragment);
+            }
+        });
+
     }
 
     class AddServiciosAdapter extends RecyclerView.Adapter<AddServicioViewHolder>{
@@ -69,6 +77,13 @@ public class AddServicioFragment extends BaseFragment {
             Servicio servicio = servicios.get(position);
 
             holder.binding.name.setText(servicio.getNombre());
+
+            holder.itemView.setOnClickListener(v -> {
+
+                appViewModel.servicioMutableLiveData.setValue(servicio);
+                nav.navigate(R.id.action_addServicioFragment_to_eliminarServicioFragment);
+
+            });
 
         }
 
