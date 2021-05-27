@@ -87,7 +87,11 @@ public class SeleccionHoraFragment extends DialogFragment {
                     String[] arrayHoras = recibePlano.split(", ");
 
                     for (int i = 0; i < arrayHoras.length; i++) {
-                        horas.add(new Hora(arrayHoras[i]));
+                        if (!arrayHoras[i].isEmpty()) {
+                            horas.add(new Hora(arrayHoras[i]));
+                        } else {
+                            dismiss();
+                        }
                     }
                     sa.notifyDataSetChanged();
                 } catch (Exception e) {

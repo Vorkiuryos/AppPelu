@@ -46,6 +46,10 @@ public class PedirCitaFragment extends BaseFragment {
 
         appViewModel = new ViewModelProvider(requireActivity()).get(AppViewModel.class);
 
+        binding.selectHour.setEnabled(false);
+        binding.selectHairdresser.setEnabled(false);
+        binding.appointmentButton.setEnabled(false);
+
         DocumentReference docRef = db.collection("peluquerias").document(appViewModel.peluqueriaMutableLiveData.getValue().getId());
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
@@ -68,6 +72,7 @@ public class PedirCitaFragment extends BaseFragment {
             }
         });
 
+
         binding.selectDay.setOnClickListener(v -> {
             nav.navigate(R.id.action_pedirCitaFragment_to_seleccionFechaFragment);
         });
@@ -78,7 +83,9 @@ public class PedirCitaFragment extends BaseFragment {
                appViewModel.fechaStringPreview.setValue(fecha.toString());
 
                binding.imageSelectHour.setImageResource(R.drawable.hour2);
-               binding.selectedHour.setEnabled(true);
+               binding.selectHour.setEnabled(true);
+           } else {
+               binding.selectHour.setEnabled(false);
            }
        });
 
@@ -90,7 +97,12 @@ public class PedirCitaFragment extends BaseFragment {
             if(hora != null){
                 binding.selectedHour.setText(hora.getHora());
                 binding.imageSelectService.setImageResource(R.drawable.hairdersser_icon2);
-                binding.selectedHairdresser.setEnabled(true);
+                binding.selectHairdresser.setEnabled(true);
+            } else {
+                binding.selectHairdresser.setEnabled(false);
+                binding.selectedHour.setText("Selecciona hora");
+                binding.selectedHairdresser.setText("Selecciona servicio");
+                binding.imageSelectService.setImageResource(R.drawable.sicssor);
             }
         });
 
@@ -103,6 +115,8 @@ public class PedirCitaFragment extends BaseFragment {
             if (servicio != null) {
                 binding.selectedHairdresser.setText(appViewModel.servicioMutableLiveData.getValue().getNombre());
                 binding.appointmentButton.setEnabled(true);
+            } else {
+                binding.appointmentButton.setEnabled(false);
             }
         });
 

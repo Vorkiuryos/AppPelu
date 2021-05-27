@@ -31,6 +31,8 @@ public class SeleccionFechaFragment extends DialogFragment {
 
         binding.calendarView.setOnDateChangeListener((view1, year, month, dayOfMonth) -> {
             appViewModel.fechaMutableLiveData.setValue(new Fecha(year, month+1, dayOfMonth));
+            appViewModel.horaMutableLiveData.setValue(null);
+            appViewModel.servicioMutableLiveData.setValue(null);
             dismiss();
         });
     }
