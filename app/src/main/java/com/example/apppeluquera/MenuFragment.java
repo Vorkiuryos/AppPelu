@@ -35,7 +35,7 @@ public class MenuFragment extends BaseFragment {
 
         binding.buttonPedirCita.setOnClickListener(view1 ->
                 nav.navigate(R.id.action_menuFragment_to_seleccionPeluqueriaFragment));
-        binding.button2.setOnClickListener(view12 ->
+        binding.buttonConsultDate.setOnClickListener(view12 ->
                 nav.navigate(R.id.action_menuFragment_to_consultDateFragment));
         binding.buttonExpositorArticulos.setOnClickListener(view13 ->
                 nav.navigate(R.id.action_menuFragment_to_productosFragment));

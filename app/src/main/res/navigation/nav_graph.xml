@@ -64,6 +64,9 @@
             android:id="@+id/action_menuFragment_to_loginFragment"
             app:destination="@id/loginFragment"
             />
+        <action
+            android:id="@+id/action_menuFragment_to_gestionarCuentaFragment"
+            app:destination="@id/gestionarCuentaFragment" />
 
     </fragment>
     <fragment
@@ -359,4 +362,13 @@
         android:name="com.example.apppeluquera.SeleccionarHorasFragment"
         android:label="fragment_seleccionar_horas"
         tools:layout="@layout/fragment_seleccionar_horas" />
+    <fragment
+        android:id="@+id/gestionarCuentaFragment"
+        android:name="com.example.apppeluquera.GestionarCuentaFragment"
+        android:label="fragment_gestionar_cuenta"
+        tools:layout="@layout/fragment_gestionar_cuenta" >
+        <action
+            android:id="@+id/action_gestionarCuentaFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
+    </fragment>
 </navigation>

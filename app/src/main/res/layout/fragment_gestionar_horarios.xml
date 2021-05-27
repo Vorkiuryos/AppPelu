@@ -8,7 +8,8 @@
     tools:context=".GestionarHorariosFragment"
     android:background="@drawable/foto_pelu_editada"
     android:orientation="vertical"
-    android:gravity="center">
+    android:gravity="center"
+    android:padding="16dp">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/horario_semanal"
@@ -27,7 +28,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:background="@drawable/colorfondo">
 
             <ImageView
                 android:layout_width="75dp"
@@ -63,7 +65,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:background="@drawable/colorfondo">
 
             <ImageView
                 android:layout_width="75dp"

@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         android:text="@string/register_user_title"
         android:textSize="30dp"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -31,52 +32,58 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textViewUserRegister"
         app:layout_constraintBottom_toTopOf="@id/editTextuserRegisterPassword"
-        android:layout_marginLeft="24dp"
-        android:layout_marginRight="24dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
         android:layout_marginBottom="24dp"
-        android:layout_marginTop="24dp"/>
+        android:layout_marginTop="24dp"
+        android:drawableLeft="@drawable/arroba"/>
 
     <EditText
         android:id="@+id/editTextuserRegisterPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="24dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
         android:layout_marginTop="24dp"
-        android:layout_marginRight="24dp"
         android:layout_marginBottom="24dp"
         android:hint="@string/password"
+        android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toTopOf="@id/editTextuserRegisterPasswordConfirm"
-        app:layout_constraintTop_toBottomOf="@id/editTextuserRegisterEmail" />
+        app:layout_constraintTop_toBottomOf="@id/editTextuserRegisterEmail"
+        android:drawableLeft="@drawable/open_lock"/>
 
     <EditText
         android:id="@+id/editTextuserRegisterPasswordConfirm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="24dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
         android:layout_marginTop="24dp"
-        android:layout_marginRight="24dp"
         android:layout_marginBottom="24dp"
         android:hint="@string/confirm_password"
+        android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/editTextuserRegisterPassword"
-        app:layout_constraintBottom_toTopOf="@id/editTextuserRegisterUserName"/>
+        app:layout_constraintBottom_toTopOf="@id/editTextuserRegisterUserName"
+        android:drawableLeft="@drawable/lock"/>
 
     <EditText
         android:id="@+id/editTextuserRegisterUserName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="24dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
         android:layout_marginTop="24dp"
-        android:layout_marginRight="24dp"
         android:layout_marginBottom="24dp"
         android:hint="@string/user_name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/editTextuserRegisterPasswordConfirm"
-        app:layout_constraintBottom_toTopOf="@id/buttonUserRegistration"/>
+        app:layout_constraintBottom_toTopOf="@id/buttonUserRegistration"
+        android:drawableLeft="@drawable/hirdresser_icon"/>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/buttonUserRegistration"

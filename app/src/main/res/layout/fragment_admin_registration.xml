@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         android:text="@string/register_admin_title"
         android:textSize="30dp"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -34,7 +35,8 @@
         android:layout_marginLeft="24dp"
         android:layout_marginRight="24dp"
         android:layout_marginBottom="24dp"
-        android:layout_marginTop="24dp"/>
+        android:layout_marginTop="24dp"
+        android:drawableLeft="@drawable/arroba"/>
 
     <EditText
         android:id="@+id/editTextadminRegisterPassword"
@@ -45,10 +47,12 @@
         android:layout_marginRight="24dp"
         android:layout_marginBottom="24dp"
         android:hint="@string/password"
+        android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toTopOf="@id/editTextadminRegisterPasswordConfirm"
-        app:layout_constraintTop_toBottomOf="@id/editTextadminRegisterEmail" />
+        app:layout_constraintTop_toBottomOf="@id/editTextadminRegisterEmail"
+        android:drawableLeft="@drawable/open_lock"/>
 
     <EditText
         android:id="@+id/editTextadminRegisterPasswordConfirm"
@@ -59,10 +63,12 @@
         android:layout_marginRight="24dp"
         android:layout_marginBottom="24dp"
         android:hint="@string/confirm_password"
+        android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/editTextadminRegisterPassword"
-        app:layout_constraintBottom_toTopOf="@id/editTextadminRegisterUserName"/>
+        app:layout_constraintBottom_toTopOf="@id/editTextadminRegisterUserName"
+        android:drawableLeft="@drawable/lock"/>
 
     <EditText
         android:id="@+id/editTextadminRegisterUserName"
@@ -76,7 +82,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/editTextadminRegisterPasswordConfirm"
-        app:layout_constraintBottom_toTopOf="@id/buttonAdminRegistration"/>
+        app:layout_constraintBottom_toTopOf="@id/buttonAdminRegistration"
+        android:drawableLeft="@drawable/hairdersser_icon2"/>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/buttonAdminRegistration"

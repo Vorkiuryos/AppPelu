@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AppPeluquería</string>
+    <string name="app_name">Scissor Master</string>
     <string name="action_sign_in">Entrar</string>
     <string name="action_sign_in_short">Sign in</string>
     <string name="invalid_username">No es un nombre de usuario valido</string>
@@ -10,8 +10,8 @@
     <string name="register_user_button">Cliente</string>
     <string name="register_admin_title">Registra tu negocio</string>
     <string name="register_user_title">Regístrate</string>
-    <string name="email">Correo elctrónico</string>
-    <string name="password">Contaseña</string>
+    <string name="email">Correo electrónico</string>
+    <string name="password">Contraseña</string>
     <string name="confirm_password">Confirma contraseña</string>
     <string name="user_name_admin">Nombre de tu negocio</string>
     <string name="user_name">Tu nombre y apellidos</string>
@@ -42,8 +42,8 @@
     <string name="button_cancelarcita">Cancelar cita</string>
     <string name="button_gestionarCita">Gestionar citas</string>
     <string name="button_gestionarHorario">Gestionar horarios</string>
-    <string name="button_gestionarInfo">Gestionar Información</string>
-    <string name="button_gestionarExpo">Expositor de artículos</string>
+    <string name="button_gestionarInfo">Cuenta</string>
+    <string name="button_gestionarExpo">Expositor</string>
     <string name="gestionar_cita_text">Citas</string>
     <string name="horario_semanal">Horario semanal</string>
     <string name="horario_vacaciones">Horario vacacional</string>
@@ -68,6 +68,7 @@
     <string name="button_llamada">Llamar</string>
     <string name="button_back">Volver</string>
     <string name="button_back_menu">Volver al login</string>
+    <string name="button_actualizar_info">Actualizar información</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
