@@ -53,6 +53,7 @@ public class LoginFragment extends BaseFragment {
 
             String email = binding.editTextEmailAdress.getText().toString();
             String password_ = binding.editTextPassword.getText().toString();
+
             if(email.isEmpty()){
                 //error.setText("Introduce tu correo electrónico");
             } else if (email.contains("@") != true){
