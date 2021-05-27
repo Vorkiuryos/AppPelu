@@ -24,13 +24,7 @@ public class MenuFragment extends BaseFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        OnBackPressedCallback callback = new OnBackPressedCallback(true) {
-            @Override
-            public void handleOnBackPressed() {
-                nav.navigate(R.id.action_menuFragment_to_loginFragment);
-            }
-        };
-        requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), callback);
+
         binding.buttonPedirCita.setOnClickListener(view1 ->
                 nav.navigate(R.id.action_menuFragment_to_seleccionPeluqueriaFragment));
         binding.button2.setOnClickListener(view12 ->
