@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.apppeluquera.databinding.FragmentGestionarHorariosBinding;
 import com.example.apppeluquera.databinding.FragmentMenuNegocioBinding;
@@ -33,19 +34,11 @@ public class GestionarHorariosFragment extends BaseFragment {
         };
         requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), callback);
 
-        binding.horarioSemanal.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                nav.navigate(R.id.action_gestionarHorariosFragment_to_horarioSemanalFragment);
-            }
-        });
+        binding.horarioSemanal.setOnClickListener(v ->
+                nav.navigate(R.id.action_gestionarHorariosFragment_to_horarioSemanalFragment));
 
-        binding.horarioVacacional.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //TODO
-            }
-        });
+        binding.horarioVacacional.setOnClickListener(v ->
+                Toast.makeText(requireContext(), "Disponible en siguientes versiones", Toast.LENGTH_SHORT).show());
 
     }
 }

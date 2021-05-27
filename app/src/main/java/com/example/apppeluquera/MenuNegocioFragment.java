@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.apppeluquera.databinding.FragmentMenuBinding;
 import com.example.apppeluquera.databinding.FragmentMenuNegocioBinding;
@@ -35,39 +36,19 @@ public class MenuNegocioFragment extends BaseFragment {
         };
         requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), callback);
 
-        binding.gestionarCitas.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                nav.navigate(R.id.action_menuNegocioFragment_to_gestionarCitaFragment);
-            }
-        });
+        binding.gestionarCitas.setOnClickListener(v ->
+                nav.navigate(R.id.action_menuNegocioFragment_to_gestionarCitaFragment));
 
-        binding.gestionarHorarios.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                nav.navigate(R.id.action_menuNegocioFragment_to_gestionarHorariosFragment);
-            }
-        });
+        binding.gestionarHorarios.setOnClickListener(v ->
+                nav.navigate(R.id.action_menuNegocioFragment_to_gestionarHorariosFragment));
 
-        binding.gestionarInfo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                nav.navigate(R.id.action_menuNegocioFragment_to_gestionarInfoFragment);
-            }
-        });
+        binding.gestionarInfo.setOnClickListener(v ->
+                nav.navigate(R.id.action_menuNegocioFragment_to_gestionarInfoFragment));
 
-        binding.anadirServicio.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                nav.navigate(R.id.action_menuNegocioFragment_to_addServicioFragment);
-            }
-        });
+        binding.anadirServicio.setOnClickListener(v ->
+                nav.navigate(R.id.action_menuNegocioFragment_to_addServicioFragment));
 
-        binding.expositorArticulos.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //TODO
-            }
-        });
+        binding.expositorArticulos.setOnClickListener(v ->
+                Toast.makeText(requireContext(), "Disponible en siguientes versiones", Toast.LENGTH_SHORT).show());
     }
 }
