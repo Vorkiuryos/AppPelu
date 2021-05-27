@@ -46,6 +46,9 @@ public class PedirCitaFragment extends BaseFragment {
 
         appViewModel = new ViewModelProvider(requireActivity()).get(AppViewModel.class);
 
+        appViewModel.fechaMutableLiveData.setValue(null);
+        appViewModel.horaMutableLiveData.setValue(null);
+        appViewModel.servicioMutableLiveData.setValue(null);
         binding.selectHour.setEnabled(false);
         binding.selectHairdresser.setEnabled(false);
         binding.appointmentButton.setEnabled(false);
