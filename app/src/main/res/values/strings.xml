@@ -17,7 +17,7 @@
     <string name="user_name">Tu nombre y apellidos</string>
     <string name="register_button">Registrar</string>
     <string name="título">Sicssor Master</string>
-    <string name="boton_menu_1">Pedir cita</string>
+    <string name="button_pedir_cita">Pedir cita</string>
     <string name="reservation">Reservar cita</string>
     <string name="select_date">Selecciona fecha</string>
     <string name="select_hour">Selecciona hora</string>
@@ -63,21 +63,11 @@
     <string name="add_servicio_button">Añadir servicio</string>
     <string name="button_eliminar_hora">Eliminar hora</string>
     <string name="button_eliminar_Servicio">Eliminar servicio</string>
-    <string name="h_07">07:00</string>
-    <string name="h_08">08:00</string>
-    <string name="h_09">09:00</string>
-    <string name="h_10">10:00</string>
-    <string name="h_11">11:00</string>
-    <string name="h_12">12:00</string>
-    <string name="h_13">13:00</string>
-    <string name="h_14">14:00</string>
-    <string name="h_15">15:00</string>
-    <string name="h_16">16:00</string>
-    <string name="h_17">17:00</string>
-    <string name="h_18">18:00</string>
-    <string name="h_19">19:00</string>
-    <string name="h_20">20:00</string>
-    <string name="h_21">21:00</string>
+    <string name="button_consultar_citas">Consultar citas</string>
+    <string name="text_descripcion">Este negocio no tiene descripción</string>
+    <string name="button_llamada">Llamar</string>
+    <string name="button_back">Volver</string>
+    <string name="button_back_menu">Volver al login</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

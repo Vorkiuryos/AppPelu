@@ -2,6 +2,7 @@ package com.example.apppeluquera;
 
 import android.os.Bundle;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.lifecycle.ViewModelProvider;
@@ -38,7 +39,13 @@ public class AddServicioFragment extends BaseFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        OnBackPressedCallback callback = new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                nav.navigate(R.id.action_addServicioFragment_to_menuNegocioFragment);
+            }
+        };
+        requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), callback);
         AddServiciosAdapter pa = new AddServiciosAdapter();
         appViewModel = new ViewModelProvider(requireActivity()).get(AppViewModel.class);
 

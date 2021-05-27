@@ -83,7 +83,9 @@ public class SeleccionarHorasFragment extends BaseFragment {
                     if (horas.get(i).getHora().equals(holder.binding.hora.getText())) {
                         appViewModel.horaMutableLiveData.setValue(horas.get(i));
 
-                        db.collection("peluquerias").document(auth.getUid()).collection("horarios").document(appViewModel.diaHorarioString.getValue()).update("horas", FieldValue.arrayUnion(appViewModel.horaMutableLiveData.getValue().getHora()));
+                        db.collection("peluquerias").document(auth.getUid())
+                                .collection("horarios").document(appViewModel.diaHorarioString.getValue())
+                                .update("horas", FieldValue.arrayUnion(appViewModel.horaMutableLiveData.getValue().getHora()));
 
                         nav.navigate(R.id.addHoraFragment);
                     }

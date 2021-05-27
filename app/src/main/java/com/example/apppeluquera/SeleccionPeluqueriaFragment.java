@@ -2,6 +2,7 @@ package com.example.apppeluquera;
 
 import android.os.Bundle;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -42,7 +43,13 @@ public class SeleccionPeluqueriaFragment extends BaseFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        OnBackPressedCallback callback = new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                nav.navigate(R.id.action_seleccionPeluqueriaFragment_to_menuFragment);
+            }
+        };
+        requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), callback);
         PeluqueriasAdapter pa = new PeluqueriasAdapter();
         appViewModel = new ViewModelProvider(requireActivity()).get(AppViewModel.class);
 

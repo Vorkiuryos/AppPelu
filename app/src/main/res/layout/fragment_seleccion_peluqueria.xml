@@ -8,17 +8,12 @@
     android:background="@drawable/foto_pelu_editada"
     android:orientation="vertical">
 
-    <ImageView
-        android:id="@+id/buttonBack"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/back_arrow"
-        android:paddingTop="15dp"/>
-
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAlignment="center"
+        android:layout_marginTop="20dp"
+        android:padding="10dp"
         android:text="@string/textview_SeleccionPeluqueria"
         android:textSize="35dp"/>
 

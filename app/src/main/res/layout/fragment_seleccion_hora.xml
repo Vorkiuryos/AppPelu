@@ -5,10 +5,9 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:backgroundTint="@color/black"
     tools:context=".SeleccionHoraFragment"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="@color/black">
+    android:background="@drawable/colorfondo">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"

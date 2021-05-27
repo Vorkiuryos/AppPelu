@@ -2,6 +2,7 @@ package com.example.apppeluquera;
 
 import android.os.Bundle;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -41,7 +42,13 @@ public class GestionarCitaFragment extends BaseFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        OnBackPressedCallback callback = new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                nav.navigate(R.id.action_gestionarCitaFragment_to_menuNegocioFragment);
+            }
+        };
+        requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), callback);
         CitasAdapter pa = new CitasAdapter();
         appViewModel = new ViewModelProvider(requireActivity()).get(AppViewModel.class);
 

@@ -2,6 +2,7 @@ package com.example.apppeluquera;
 
 import android.os.Bundle;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -34,7 +35,13 @@ public class GestionarInfoFragment extends BaseFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        OnBackPressedCallback callback = new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                nav.navigate(R.id.action_gestionarInfoFragment_to_menuNegocioFragment);
+            }
+        };
+        requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), callback);
         binding.editDireccion.setHint("Calle Ejemplo 123, Ciudad");
         binding.editNumTelf.setHint("623456789");
         binding.editDescripcion.setHint("Explica lo que quieras sobre tu negocio, da avisos o explica cosas.");

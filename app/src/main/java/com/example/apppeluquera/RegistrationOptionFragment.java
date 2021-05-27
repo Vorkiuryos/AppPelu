@@ -21,9 +21,7 @@ public class RegistrationOptionFragment extends BaseFragment {
     private FragmentRegistrationOptionBinding binding;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return (binding = FragmentRegistrationOptionBinding.inflate(inflater, container, false)).getRoot();
     }
 

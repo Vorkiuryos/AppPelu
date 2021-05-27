@@ -12,7 +12,7 @@
         android:layout_height="match_parent"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:gl="http://schemas.android.com/apk/res-auto"
-        tools:context=".MenuNegocioFragment"
+        tools:context=".HorarioSemanalFragment"
         android:background="@drawable/foto_pelu_editada"
         android:orientation="vertical"
         android:padding="16dp"
@@ -24,10 +24,13 @@
             android:layout_height="wrap_content"
             app:cardCornerRadius="15dp"
             app:cardPreventCornerOverlap="true"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="10dp"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
-            android:backgroundTint="@color/cardview_shadow_start_color">
+            android:backgroundTint="@color/cardview_shadow_start_color"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true">
 
             <TextView
                 android:layout_width="match_parent"
@@ -49,7 +52,10 @@
             android:layout_marginTop="25dp"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
-            android:backgroundTint="@color/cardview_shadow_start_color">
+            android:backgroundTint="@color/cardview_shadow_start_color"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true">
 
             <TextView
                 android:layout_width="match_parent"
@@ -71,7 +77,10 @@
             android:layout_marginTop="25dp"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
-            android:backgroundTint="@color/cardview_shadow_start_color">
+            android:backgroundTint="@color/cardview_shadow_start_color"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true">
 
             <TextView
                 android:layout_width="match_parent"
@@ -93,7 +102,10 @@
             android:layout_marginTop="25dp"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
-            android:backgroundTint="@color/cardview_shadow_start_color">
+            android:backgroundTint="@color/cardview_shadow_start_color"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true">
 
             <TextView
                 android:layout_width="match_parent"
@@ -115,7 +127,10 @@
             android:layout_marginTop="25dp"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
-            android:backgroundTint="@color/cardview_shadow_start_color">
+            android:backgroundTint="@color/cardview_shadow_start_color"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true">
 
             <TextView
                 android:layout_width="match_parent"
@@ -137,7 +152,10 @@
             android:layout_marginTop="25dp"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
-            android:backgroundTint="@color/cardview_shadow_start_color">
+            android:backgroundTint="@color/cardview_shadow_start_color"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true">
 
             <TextView
                 android:layout_width="match_parent"
@@ -159,7 +177,10 @@
             android:layout_marginTop="25dp"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
-            android:backgroundTint="@color/cardview_shadow_start_color">
+            android:backgroundTint="@color/cardview_shadow_start_color"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true">
 
             <TextView
                 android:layout_width="match_parent"

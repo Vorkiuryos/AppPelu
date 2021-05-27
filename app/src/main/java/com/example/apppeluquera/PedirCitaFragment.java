@@ -5,13 +5,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.apppeluquera.databinding.FragmentPedirCitaBinding;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -32,8 +36,37 @@ public class PedirCitaFragment extends BaseFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        OnBackPressedCallback callback = new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                nav.navigate(R.id.action_pedirCitaFragment_to_seleccionPeluqueriaFragment);
+            }
+        };
+        requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), callback);
 
         appViewModel = new ViewModelProvider(requireActivity()).get(AppViewModel.class);
+
+        DocumentReference docRef = db.collection("peluquerias").document(appViewModel.peluqueriaMutableLiveData.getValue().getId());
+        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    try {
+                        if (!document.getString("nombre").isEmpty()) {
+                            binding.nombrePeluqueria.setText(document.getString("nombre"));
+                        }
+                        if (!document.getString("descripcion").isEmpty()) {
+                            binding.citaDescripcion.setText(document.getString("descripcion"));
+                        }
+
+                    } catch (Exception e){
+                    }
+
+                } else {
+                }
+            }
+        });
 
         binding.selectDay.setOnClickListener(v -> {
             nav.navigate(R.id.action_pedirCitaFragment_to_seleccionFechaFragment);
@@ -44,7 +77,7 @@ public class PedirCitaFragment extends BaseFragment {
                binding.selectedDay.setText(fecha.toString());
                appViewModel.fechaStringPreview.setValue(fecha.toString());
 
-               binding.selectHour.setImageResource(R.drawable.hour2);
+               binding.imageSelectHour.setImageResource(R.drawable.hour2);
                binding.selectedHour.setEnabled(true);
            }
        });
@@ -56,7 +89,7 @@ public class PedirCitaFragment extends BaseFragment {
         appViewModel.horaMutableLiveData.observe(getViewLifecycleOwner(), hora -> {
             if(hora != null){
                 binding.selectedHour.setText(hora.getHora());
-                binding.selectHairdresser.setImageResource(R.drawable.hairdersser_icon2);
+                binding.imageSelectService.setImageResource(R.drawable.hairdersser_icon2);
                 binding.selectedHairdresser.setEnabled(true);
             }
         });
@@ -83,8 +116,6 @@ public class PedirCitaFragment extends BaseFragment {
                     + appViewModel.fechaMutableLiveData.getValue().getYear();
             String hour = appViewModel.horaMutableLiveData.getValue().getHora();
 
-            //Date dateSend = new SimpleDateFormat("dd/MM/yyyy HH:mm").parse(date);
-
             Map<String, Object> data = new HashMap<>();
             data.put("id_peluqueria", appViewModel.peluqueriaMutableLiveData.getValue().getId());
             data.put("nombre_peluqueria", appViewModel.peluqueriaMutableLiveData.getValue().getNombre());
@@ -103,7 +134,6 @@ public class PedirCitaFragment extends BaseFragment {
                     db.collection("peluquerias").document(appViewModel.peluqueriaMutableLiveData.getValue().getId()).collection("citas").document(citaId).set(data);
                 }
             });
-
 
             try {
                 getParentFragmentManager().beginTransaction().remove(this).commit();

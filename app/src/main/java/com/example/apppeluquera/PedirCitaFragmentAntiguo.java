@@ -53,7 +53,7 @@ public class PedirCitaFragmentAntiguo extends BaseFragment {
         binding.selectedDay.addTextChangedListener(new TextWatcher() {
 
             public void afterTextChanged(Editable s) {
-                binding.selectHour.setImageResource(R.drawable.hour2);
+                binding.imageSelectHour.setImageResource(R.drawable.hour2);
                 binding.selectedHour.setEnabled(true);
             }
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
@@ -82,7 +82,7 @@ public class PedirCitaFragmentAntiguo extends BaseFragment {
         binding.selectedHour.addTextChangedListener(new TextWatcher() {
 
             public void afterTextChanged(Editable s) {
-                binding.selectHairdresser.setImageResource(R.drawable.hairdersser_icon2);
+                binding.imageSelectService.setImageResource(R.drawable.hairdersser_icon2);
                 binding.selectedHairdresser.setEnabled(true);
             }
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}

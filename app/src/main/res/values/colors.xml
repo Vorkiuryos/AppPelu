@@ -11,4 +11,5 @@
     <color name="hard_gray_2">#FF454545</color>
     <color name="light_gray_1">	#FF858585</color>
     <color name="light_gray_2">#FFa9a9a9</color>
+    <color name="transparent">#00000000</color>
 </resources>
