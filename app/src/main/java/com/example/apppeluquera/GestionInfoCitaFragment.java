@@ -48,7 +48,7 @@ public class GestionInfoCitaFragment extends BaseFragment {
             //TODO Comprobación de si quieres borrar realmente la cita
             db.collection("peluquerias").document(appViewModel.citaMutableLiveData.getValue().getIdPeluqueria()).collection("citas").document(appViewModel.citaMutableLiveData.getValue().getId()).delete();
             db.collection("users").document(appViewModel.citaMutableLiveData.getValue().getIdUsuario()).collection("citas").document(appViewModel.citaMutableLiveData.getValue().getId()).delete();
-            nav.navigate(R.id.consultDateFragment);
+            nav.navigate(R.id.gestionarCitaFragment);
 
         });
 

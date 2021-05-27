@@ -76,6 +76,18 @@ public class AddHoraFragment extends BaseFragment {
                     recibePlano = recibePlano.substring(1, recibePlano.length() - 1);
                     String[] arrayHoras = recibePlano.split(", ");
 
+                    //ORDENAR EL STRING ARRAY DE HORAS
+                    for (int i = 0; i < arrayHoras.length; i++) {
+                        for (int j = i + 1; j < arrayHoras.length; j++) {
+                            String tmp = "";
+                            if (Integer.parseInt(arrayHoras[i].substring(0,2)) > Integer.parseInt(arrayHoras[j].substring(0,2))) {
+                                tmp = arrayHoras[i];
+                                arrayHoras[i] = arrayHoras[j];
+                                arrayHoras[j] = tmp;
+                            }
+                        }
+                    }
+
                     for (int i = 0; i < arrayHoras.length; i++) {
                         if (!arrayHoras[i].isEmpty()) {
                             horas.add(new Hora(arrayHoras[i]));
