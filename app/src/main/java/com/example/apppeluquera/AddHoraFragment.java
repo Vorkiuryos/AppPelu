@@ -88,6 +88,8 @@ public class AddHoraFragment extends BaseFragment {
                         }
                     }
 
+                    appViewModel.horasDiaSeleccionado.setValue(arrayHoras);
+
                     for (int i = 0; i < arrayHoras.length; i++) {
                         if (!arrayHoras[i].isEmpty()) {
                             horas.add(new Hora(arrayHoras[i]));
