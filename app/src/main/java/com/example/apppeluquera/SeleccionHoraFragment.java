@@ -103,6 +103,7 @@ public class SeleccionHoraFragment extends DialogFragment {
                             horas.add(new Hora(arrayHoras[i]));
                         } else {
                             dismiss();
+                            Toast.makeText(getActivity(), "Este día no hay horas disponibles", Toast.LENGTH_SHORT).show();
                         }
                     }
                     sa.notifyDataSetChanged();

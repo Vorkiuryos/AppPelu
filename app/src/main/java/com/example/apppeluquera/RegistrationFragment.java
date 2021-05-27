@@ -57,16 +57,20 @@ public class RegistrationFragment extends BaseFragment {
             System.out.println("p1 " + password);
             System.out.println("p2 " + confirmpassword);
 
+            String ePattern = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$";
+            java.util.regex.Pattern p = java.util.regex.Pattern.compile(ePattern);
+            java.util.regex.Matcher m = p.matcher(email);
+
             if(email.isEmpty()){
-                //error.setText("Introduce tu correo electrónico");
-            } else if (!email.contains("@")){
-                //error.setText("Introduce un correo electrónio válido");
+                Toast.makeText(requireContext(), "Introduce un correo electrónico", Toast.LENGTH_SHORT).show();
+            } else if (!m.matches()){
+                Toast.makeText(requireContext(), "Introduce un correo electrónico válido", Toast.LENGTH_SHORT).show();
             } else if (password.isEmpty()) {
-                //error.setText("Introduce tu contraseña");
+                Toast.makeText(requireContext(), "Introduce una contraseña", Toast.LENGTH_SHORT).show();
             } else if (!password.equals(confirmpassword)) {
-                //error.settext("la contrasñea es diferente a la cofnirmada");
+                Toast.makeText(requireContext(), "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show();
             } else if (username.isEmpty()) {
-                //error introduce usuario
+                Toast.makeText(requireContext(), "Introduce tu nombre", Toast.LENGTH_SHORT).show();
             } else {
 
                 createAccount(email,password,username);
@@ -90,7 +94,7 @@ public class RegistrationFragment extends BaseFragment {
                        .build()
                );
            } else {
-               Toast.makeText(requireContext(), "algo ha ido mal", Toast.LENGTH_SHORT).show();
+               Toast.makeText(requireContext(), task.getException().getLocalizedMessage(), Toast.LENGTH_SHORT).show();
            }
         });
 

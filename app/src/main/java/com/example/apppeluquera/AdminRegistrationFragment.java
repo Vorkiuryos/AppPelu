@@ -41,10 +41,14 @@ public class AdminRegistrationFragment extends BaseFragment {
             String username = binding.editTextadminRegisterUserName.getText().toString();
 
 
+            String ePattern = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$";
+            java.util.regex.Pattern p = java.util.regex.Pattern.compile(ePattern);
+            java.util.regex.Matcher m = p.matcher(email);
+
             if(email.isEmpty()){
-                //error.setText("Introduce tu correo electrónico");
-            } else if (!email.contains("@")){
-                //error.setText("Introduce un correo electrónio válido");
+                Toast.makeText(requireContext(), "Introduce un correo electrónico", Toast.LENGTH_SHORT).show();
+            } else if (!m.matches()){
+                Toast.makeText(requireContext(), "Introduce un correo electrónico válido", Toast.LENGTH_SHORT).show();
             } else if (password.isEmpty()) {
                 //error.setText("Introduce tu contraseña");
             } else if (!password.equals(confirmpassword)) {
