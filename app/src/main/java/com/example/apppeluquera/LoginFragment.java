@@ -54,12 +54,16 @@ public class LoginFragment extends BaseFragment {
             String email = binding.editTextEmailAdress.getText().toString();
             String password_ = binding.editTextPassword.getText().toString();
 
+            String ePattern = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$";
+            java.util.regex.Pattern p = java.util.regex.Pattern.compile(ePattern);
+            java.util.regex.Matcher m = p.matcher(email);
+
             if(email.isEmpty()){
-                //error.setText("Introduce tu correo electrónico");
-            } else if (email.contains("@") != true){
-                //error.setText("Introduce un correo electrónico válido");
+                Toast.makeText(requireContext(), "Introduce un correo electrónico", Toast.LENGTH_SHORT).show();
+            } else if (!m.matches()){
+                Toast.makeText(requireContext(), "Introduce un correo electrónico válido", Toast.LENGTH_SHORT).show();
             } else if (password_.isEmpty()){
-                //error.setText("Introduce tu contraseña");
+                Toast.makeText(requireContext(), "Introduce tu contraseña", Toast.LENGTH_SHORT).show();
             } else {
                 //navController.navigate(R.id.action_loginFragment_to_menuFragment);
                 auth.signInWithEmailAndPassword(email, password_).addOnCompleteListener(task -> {

@@ -62,7 +62,7 @@ public class RegistrationFragment extends BaseFragment {
             java.util.regex.Matcher m = p.matcher(email);
 
             if(email.isEmpty()){
-                Toast.makeText(requireContext(), "Introduce un correo", Toast.LENGTH_SHORT).show();
+                Toast.makeText(requireContext(), "Introduce un correo electrónico", Toast.LENGTH_SHORT).show();
             } else if (!m.matches()){
                 Toast.makeText(requireContext(), "Introduce un correo electrónico válido", Toast.LENGTH_SHORT).show();
             } else if (password.isEmpty()) {
@@ -94,7 +94,7 @@ public class RegistrationFragment extends BaseFragment {
                        .build()
                );
            } else {
-               Toast.makeText(requireContext(), "algo ha ido mal", Toast.LENGTH_SHORT).show();
+               Toast.makeText(requireContext(), task.getException().getLocalizedMessage(), Toast.LENGTH_SHORT).show();
            }
         });
 
