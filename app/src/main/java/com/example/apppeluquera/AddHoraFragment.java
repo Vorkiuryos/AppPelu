@@ -77,7 +77,9 @@ public class AddHoraFragment extends BaseFragment {
                     String[] arrayHoras = recibePlano.split(", ");
 
                     for (int i = 0; i < arrayHoras.length; i++) {
-                        horas.add(new Hora(arrayHoras[i]));
+                        if (!arrayHoras[i].isEmpty()) {
+                            horas.add(new Hora(arrayHoras[i]));
+                        }
                     }
                     ha.notifyDataSetChanged();
                 } catch (Exception e) {
