@@ -27,6 +27,14 @@ public class MenuNegocioFragment extends BaseFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        OnBackPressedCallback callback = new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                nav.navigate(R.id.action_menuNegocioFragment_to_loginFragment);
+            }
+        };
+        requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), callback);
+
         binding.gestionarCitas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
