@@ -86,7 +86,7 @@ public class SeleccionHoraFragment extends DialogFragment {
                     recibePlano = recibePlano.substring(1, recibePlano.length() - 1);
                     String[] arrayHoras = recibePlano.split(", ");
 
-                    //ORDENAR EL STRING ARRAY DE HORAS
+                    //ORDENAR EL STRING ARRAY DE HORAS (PARA SE LE MUESTRE ORDENADO AL USUARIO)
                     for (int i = 0; i < arrayHoras.length; i++) {
                         for (int j = i + 1; j < arrayHoras.length; j++) {
                             String tmp = "";
