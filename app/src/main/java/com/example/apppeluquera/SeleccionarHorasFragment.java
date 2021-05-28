@@ -60,15 +60,16 @@ public class SeleccionarHorasFragment extends BaseFragment {
             horas.add(new Hora((i+10)+":00"));
         }
 
-        for (int i = 0; i < horas.size(); i++) {
-            for (int j = 0; j < appViewModel.horasDiaSeleccionado.getValue().length; j++) {
-                try {
-                    if (horas.get(i).getHora().equals(appViewModel.horasDiaSeleccionado.getValue()[j])) {
-                        horas.remove(i);
-                    }
-                } catch (Exception e) {
+        try {
+            for (int i = 0; i < horas.size(); i++) {
+                for (int j = 0; j < appViewModel.horasDiaSeleccionado.getValue().length; j++) {
+                        if (horas.get(i).getHora().equals(appViewModel.horasDiaSeleccionado.getValue()[j])) {
+                            horas.remove(i);
+                        }
                 }
             }
+        } catch (Exception e) {
+            System.out.println("JAJA HA PETADO");
         }
 
 
