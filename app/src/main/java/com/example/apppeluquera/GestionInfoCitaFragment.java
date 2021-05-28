@@ -74,11 +74,11 @@ public class GestionInfoCitaFragment extends BaseFragment {
 
                                 startActivity(new Intent(Intent.ACTION_DIAL, Uri.parse("tel:"+telf)));
                             } else {
-                                Toast.makeText(requireContext(), "Este negocio no tiene numero de contacto", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(requireContext(), "Este usuario no tiene numero de contacto", Toast.LENGTH_SHORT).show();
                             }
 
                         } catch (Exception e){
-                            Toast.makeText(requireContext(), "Este negocio no tiene numero de contacto", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(requireContext(), "Este usuario no tiene numero de contacto", Toast.LENGTH_SHORT).show();
                         }
 
                     } else {
