@@ -40,8 +40,7 @@ public class MenuFragment extends BaseFragment {
         binding.buttonExpositorArticulos.setOnClickListener(view13 ->
                 nav.navigate(R.id.action_menuFragment_to_productosFragment));
         binding.buttonGestionarInfo.setOnClickListener(view13 ->
-                Toast.makeText(requireContext(), "Estamos trabajando en ello", Toast.LENGTH_SHORT).show());
-
+                nav.navigate(R.id.action_menuFragment_to_gestionarCuentaFragment));
     }
 
 }

@@ -1,5 +1,7 @@
 package com.example.apppeluquera;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.activity.OnBackPressedCallback;
@@ -11,15 +13,21 @@ import androidx.lifecycle.ViewModelProvider;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.apppeluquera.databinding.FragmentGestionInfoCitaBinding;
 import com.example.apppeluquera.databinding.FragmentInfoCitaBinding;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 
 
 public class GestionInfoCitaFragment extends BaseFragment {
 
     private FragmentGestionInfoCitaBinding binding;
     private AppViewModel appViewModel;
+    String telf = "";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -51,6 +59,34 @@ public class GestionInfoCitaFragment extends BaseFragment {
             nav.navigate(R.id.gestionarCitaFragment);
 
         });
+
+        binding.buttonLlamarCliente.setOnClickListener(v -> {
+            DocumentReference docRef = db.collection("users").document(appViewModel.citaMutableLiveData.getValue().getIdUsuario());
+            docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                    if (task.isSuccessful()) {
+                        DocumentSnapshot document = task.getResult();
+                        try {
+                            if (!document.getString("telefono").isEmpty()) {
+                                appViewModel.numeroLlamada.setValue(document.getString("telefono"));
+                            }else{
+                                Toast.makeText(requireContext(), "Este cliente no tiene numero de contacto", Toast.LENGTH_SHORT).show();
+                            }
+
+                        } catch (Exception e){
+                        }
+
+                    } else {
+                    }
+                }
+            });
+            telf = appViewModel.numeroLlamada.getValue();
+            System.out.println(telf);
+            startActivity(new Intent(Intent.ACTION_DIAL, Uri.parse("tel:"+telf)));
+
+        });
+
 
     }
 }

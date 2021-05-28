@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
@@ -19,6 +20,8 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.apppeluquera.databinding.FragmentConsultDateBinding;
 import com.example.apppeluquera.databinding.FragmentInfoCitaBinding;
 import com.example.apppeluquera.model.Servicio;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
@@ -28,7 +31,7 @@ public class InfoCitaFragment extends BaseFragment {
 
     private FragmentInfoCitaBinding binding;
     private AppViewModel appViewModel;
-    String telf = "";
+    String telf;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -53,21 +56,34 @@ public class InfoCitaFragment extends BaseFragment {
         binding.horaCita.setText(appViewModel.citaMutableLiveData.getValue().getHora());
         binding.serviciosCita.setText(appViewModel.citaMutableLiveData.getValue().getNombreServicio());
 
-        binding.buttonLlamarPeluqueria.setOnClickListener(v -> {
 
-            db.collection("peluquerias").document(appViewModel.citaMutableLiveData.getValue().getIdPeluqueria()).addSnapshotListener(new EventListener<DocumentSnapshot>() {
+
+        binding.buttonLlamarPeluqueria.setOnClickListener(v -> {
+            DocumentReference docRef = db.collection("peluquerias").document(appViewModel.citaMutableLiveData.getValue().getIdPeluqueria());
+            docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                 @Override
-                public void onEvent(@Nullable DocumentSnapshot snapshotPeluquerias, @Nullable FirebaseFirestoreException error) {
-                    telf = snapshotPeluquerias.get("telefono").toString();
+                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                    if (task.isSuccessful()) {
+                        DocumentSnapshot document = task.getResult();
+                        try {
+                            if (!document.getString("telefono").isEmpty()) {
+                                telf = document.getString("telefono");
+                            }else{
+                                Toast.makeText(requireContext(), "Este negocio no tiene numero de contacto", Toast.LENGTH_SHORT).show();
+                            }
+
+                        } catch (Exception e){
+                        }
+
+                    } else {
+                    }
                 }
             });
-            Intent i = new Intent(Intent.ACTION_CALL, Uri.parse(telf));
-            if(ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.CALL_PHONE)!=
-                    PackageManager.PERMISSION_GRANTED)
-                return;
-            startActivity(i);
+            System.out.println(telf);
+            startActivity(new Intent(Intent.ACTION_DIAL, Uri.parse("tel:"+telf)));
 
         });
+
         binding.canelarCita.setOnClickListener(v -> {
             //TODO Comprobación de si quieres borrar realmente la cita
             db.collection("peluquerias").document(appViewModel.citaMutableLiveData.getValue().getIdPeluqueria())

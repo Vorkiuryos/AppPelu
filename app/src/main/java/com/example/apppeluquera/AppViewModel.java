@@ -14,6 +14,7 @@ public class AppViewModel extends ViewModel {
 
     String peluqueria = "5FBzk6ANkRsIzVZ4R6b0"; //TODO
     String nombrepeluqueria = "la pelu de la melu"; //TODO
+    MutableLiveData<String> numeroLlamada = new MutableLiveData<>();
     MutableLiveData<String[]> horasDiaSeleccionado = new MutableLiveData<>();
     MutableLiveData<String> diaHorarioString = new MutableLiveData<>();
     MutableLiveData<String> fechaStringPreview = new MutableLiveData<>();

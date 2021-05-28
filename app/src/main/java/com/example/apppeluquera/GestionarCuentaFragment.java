@@ -20,6 +20,9 @@ import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 
+import java.util.HashMap;
+import java.util.Map;
+
 
 public class GestionarCuentaFragment extends BaseFragment {
     private FragmentGestionarCuentaBinding binding;
@@ -40,6 +43,7 @@ public class GestionarCuentaFragment extends BaseFragment {
         };
         requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), callback);
         binding.editNumTelf.setHint("623456789");
+
 
         DocumentReference docRef = db.collection("users").document(auth.getUid());
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
@@ -66,7 +70,7 @@ public class GestionarCuentaFragment extends BaseFragment {
             @Override
             public void onClick(View v) {
                 auth.getCurrentUser().updateProfile(new UserProfileChangeRequest.Builder().setDisplayName(String.valueOf(binding.editNombre.getText())).build());
-                db.collection("peluquerias").document(auth.getUid()).update("telefono", binding.editNumTelf.getText().toString());
+                db.collection("users").document(auth.getUid()).update("telefono", binding.editNumTelf.getText().toString());
                 Toast.makeText(requireContext(), "Información actualizada", Toast.LENGTH_SHORT).show();
             }
         });
