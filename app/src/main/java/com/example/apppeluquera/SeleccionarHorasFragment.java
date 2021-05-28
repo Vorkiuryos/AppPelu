@@ -69,7 +69,6 @@ public class SeleccionarHorasFragment extends BaseFragment {
                 }
             }
         } catch (Exception e) {
-            System.out.println("JAJA HA PETADO");
         }
 
 
