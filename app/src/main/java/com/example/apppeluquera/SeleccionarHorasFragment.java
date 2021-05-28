@@ -60,6 +60,7 @@ public class SeleccionarHorasFragment extends BaseFragment {
             horas.add(new Hora((i+10)+":00"));
         }
 
+
         /*
         try {
             for (int i = 0; i < horas.size(); i++) {
@@ -71,8 +72,9 @@ public class SeleccionarHorasFragment extends BaseFragment {
             }
         } catch (Exception e) {
         }
+        */
 
-         */
+
 
 
        binding.recyclerView.setAdapter(sa);
