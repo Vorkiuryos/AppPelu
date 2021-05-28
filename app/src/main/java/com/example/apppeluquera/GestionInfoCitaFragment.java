@@ -67,23 +67,24 @@ public class GestionInfoCitaFragment extends BaseFragment {
                 public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                     if (task.isSuccessful()) {
                         DocumentSnapshot document = task.getResult();
+
                         try {
-                            if (!document.getString("telefono").isEmpty()) {
-                                appViewModel.numeroLlamada.setValue(document.getString("telefono"));
-                            }else{
-                                Toast.makeText(requireContext(), "Este cliente no tiene numero de contacto", Toast.LENGTH_SHORT).show();
+                            if (!document.getString("telefono").isEmpty() && !document.getString("telefono").equals("")) {
+                                telf = document.getString("telefono");
+
+                                startActivity(new Intent(Intent.ACTION_DIAL, Uri.parse("tel:"+telf)));
+                            } else {
+                                Toast.makeText(requireContext(), "Este negocio no tiene numero de contacto", Toast.LENGTH_SHORT).show();
                             }
 
                         } catch (Exception e){
+                            Toast.makeText(requireContext(), "Este negocio no tiene numero de contacto", Toast.LENGTH_SHORT).show();
                         }
 
                     } else {
                     }
                 }
             });
-            telf = appViewModel.numeroLlamada.getValue();
-            System.out.println(telf);
-            startActivity(new Intent(Intent.ACTION_DIAL, Uri.parse("tel:"+telf)));
 
         });
 

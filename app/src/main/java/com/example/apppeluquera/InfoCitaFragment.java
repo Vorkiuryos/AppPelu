@@ -66,21 +66,22 @@ public class InfoCitaFragment extends BaseFragment {
                     if (task.isSuccessful()) {
                         DocumentSnapshot document = task.getResult();
                         try {
-                            if (!document.getString("telefono").isEmpty()) {
+                            if (!document.getString("telefono").isEmpty() && !document.getString("telefono").equals("")) {
                                 telf = document.getString("telefono");
-                            }else{
+
+                                startActivity(new Intent(Intent.ACTION_DIAL, Uri.parse("tel:"+telf)));
+                            } else {
                                 Toast.makeText(requireContext(), "Este negocio no tiene numero de contacto", Toast.LENGTH_SHORT).show();
                             }
 
                         } catch (Exception e){
+                            Toast.makeText(requireContext(), "Este negocio no tiene numero de contacto", Toast.LENGTH_SHORT).show();
                         }
 
                     } else {
                     }
                 }
             });
-            System.out.println(telf);
-            startActivity(new Intent(Intent.ACTION_DIAL, Uri.parse("tel:"+telf)));
 
         });
 
